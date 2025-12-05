@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NicaMarket — Membresía y Cursos de Marketing Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta name="description" content="NicaMarket — Marketing Digital en Nicaragua. Cursos, plantillas y comunidad para emprendedores nicas." />
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#ff6b35; --accent-2:#7c3aed; --muted:#9aa4b2; --glass: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,#071022 0%,#071025 40%,#05121d 100%);color:#e6eef7;-webkit-font-smoothing:antialiased}
+
+    /* layout */
+    .container{max-width:1180px;margin:0 auto;padding:40px 24px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;background:linear-gradient(135deg,var(--accent),var(--accent-2));border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:20px;box-shadow:0 8px 30px rgba(124,58,237,0.18)}
+    nav a{color:rgba(230,238,247,0.9);text-decoration:none;margin-left:18px;font-weight:600}
+    .cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:10px 16px;border-radius:10px;color:white;text-decoration:none;font-weight:700;box-shadow:0 6px 20px rgba(255,107,53,0.12)}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 480px;gap:32px;align-items:center;padding:40px 0}
+    .hero h1{font-size:44px;line-height:1.02;margin:0 0 16px}
+    .hero p{color:var(--muted);margin:0 0 22px}
+    .badges{display:flex;gap:12px;margin-bottom:18px}
+    .badge{background:var(--glass);padding:8px 12px;border-radius:999px;color:var(--muted);font-weight:600}
+    .hero-actions{display:flex;gap:12px}
+
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));padding:22px;border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.02),0 10px 30px rgba(2,6,23,0.6)}
+    .mockup{width:100%;height:320px;background-image:url('/hero-video.mp4');background-size:cover;background-position:center;border-radius:12px;display:flex;align-items:flex-end;padding:18px;color:white}
+
+    /* features */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:40px 0}
+    .feature{background:var(--card);padding:18px;border-radius:12px}
+    .feature h4{margin:0 0 8px}
+    .feature p{margin:0;color:var(--muted)}
+
+    /* courses */
+    .courses{margin:28px 0}
+    .courses-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+    .course{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;padding:0;overflow:hidden;display:flex;flex-direction:column}
+    .course img{width:100%;height:200px;object-fit:cover}
+    .course-body{padding:16px}
+    .course h3{margin:0 0 8px}
+    .course p{color:var(--muted);margin:0 0 12px}
+    .course .buy{display:inline-block;padding:10px 14px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;border-radius:10px;text-decoration:none;font-weight:700}
+
+    /* footer */
+    footer{border-top:1px solid rgba(255,255,255,0.03);padding:28px 0;margin-top:40px;color:var(--muted)}
+
+    /* animations */
+    .fade-in{opacity:0;transform:translateY(12px);transition:all 700ms cubic-bezier(.2,.9,.3,1)}
+    .fade-in.show{opacity:1;transform:none}
+
+    /* small screens */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .mockup{height:220px}
+      .logo{width:48px;height:48px}
+      .container{padding:28px 18px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden>NM</div>
+        <div>
+          <div style="font-weight:800;font-size:18px">NicaMarket</div>
+          <div style="font-size:12px;color:var(--muted)">Marketing Digital · Membresías · Cursos</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#por-que">Por qué</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#beneficios">Beneficios</a>
+        <a class="cta" href="#cursos">Únete</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="badges fade-in" style="--delay:0.05s">
+            <div class="badge">Hecho en Nicaragua</div>
+            <div class="badge">Contenido real y práctico</div>
+          </div>
+          <h1 class="fade-in" style="--delay:0.12s">Marketing Digital que funciona en Nicaragua</h1>
+          <p class="fade-in" style="--delay:0.18s">Estrategias probadas con presupuestos reales (50–100 C$ diarios). Plantillas, copys y campañas listas para replicar.</p>
+          <div class="hero-actions fade-in" style="--delay:0.22s">
+            <a class="cta" href="#cursos">Ver membresía</a>
+            <a style="padding:10px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);text-decoration:none;color:var(--muted);font-weight:700" href="#por-que">¿Por qué NicaMarket?</a>
+          </div>
+
+          <div class="features" id="por-que">
+            <div class="feature fade-in"><h4>Resultados reales</h4><p>Campañas optimizadas para Nicaragua con presupuestos bajos y conversión alta.</p></div>
+            <div class="feature fade-in"><h4>Plantillas listas</h4><p>Copys, audios y diseños que podés usar ya en tus campañas.</p></div>
+            <div class="feature fade-in"><h4>Comunidad práctica</h4><p>Soporte y ejemplos locales — no teoría vacía.</p></div>
+          </div>
+        </div>
+
+        <aside class="hero-card fade-in" style="--delay:0.28s">
+          <!-- Coloca aquí media en la raíz del repo, ejemplo: /hero.jpg o /hero-video.mp4 (si pones video, usá tag video) -->
+          <div class="mockup">
+            <div style="padding:12px;background:linear-gradient(90deg,rgba(0,0,0,0.3),transparent);border-radius:8px;max-width:86%">
+              <div style="font-weight:700">NicaMarket — Demo</div>
+              <div style="color:var(--muted);font-size:13px">Mini-clases, plantillas y guías prácticas</div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="cursos" class="courses">
+        <h2 style="margin:6px 0 14px">Cursos</h2>
+        <div class="courses-grid">
+          <!-- Curso: duplicá este bloque para agregar otro curso -->
+          <article class="course fade-in">
+            <img src="/course1.jpg" alt="Marketing Digital en Nicaragua — portada" />
+            <div class="course-body">
+              <h3>Marketing Digital en Nicaragua</h3>
+              <p><!-- Subtítulo (agregalo manualmente) --></p>
+              <a class="buy" href="/adquisici%C3%B3n.html">Adquierelo ya</a>
+            </div>
+          </article>
+          <!-- Fin bloque duplicable -->
+        </div>
+      </section>
+
+      <section id="beneficios" style="margin-top:28px">
+        <h2>Beneficios de unirte</h2>
+        <ul style="color:var(--muted)">
+          <li>Lecciones cortas y accionables.</li>
+          <li>Plantillas para anuncios y copies listos.</li>
+          <li>Soporte de la comunidad y casos reales.</li>
+          <li>Acceso fácil para PC y más adelante PWA / app.</li>
+        </ul>
+      </section>
+
+    </main>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <strong>NicaMarket</strong> — Impulsando emprendedores nicas.
+          <div style="font-size:13px;color:var(--muted);margin-top:6px">Contacto: +505 7XXX XXXX · admin@nicamarket.local</div>
+        </div>
+        <div style="color:var(--muted);font-size:13px">© <span id="year"></span> NicaMarket. Todos los derechos reservados.</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // año en footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // simple reveal on scroll
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('show');
+          observer.unobserve(e.target);
+        }
+      })
+    },{threshold:0.12});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+    // small accessibility: handle anchor smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').substring(1);
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+      })
+    })
+  </script>
+</body>
+</html>
