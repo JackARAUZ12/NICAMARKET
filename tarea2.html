@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tarea 2 — Simulación de Chat</title>
+<style>
+  :root{--bg:#0f1724;--card:#0b1220;--accent:#0066ff;--muted:#94a3b8;--success:#16a34a;--danger:#ef4444}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(180deg,#071029 0%, #0f1724 100%);color:#e6eef8;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  .wrap{width:100%;max-width:920px}
+  header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  h1{margin:0;font-size:20px}
+  .back{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent);padding:8px 12px;border-radius:8px;text-decoration:none}
+
+  .card{background:var(--card);border-radius:12px;padding:20px;box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+  .intro{background:rgba(255,255,255,0.03);padding:14px;border-radius:8px;margin-bottom:12px;color:var(--muted)}
+
+  .chat{height:420px;overflow:auto;padding:16px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));margin-bottom:12px}
+  .msg{max-width:78%;padding:10px 12px;border-radius:12px;margin:8px 0;line-height:1.3}
+  .from-client{background:rgba(255,255,255,0.04);align-self:flex-start;color:#e6eef8}
+  .from-user{background:linear-gradient(90deg,#0046d1,#0066ff);color:white;margin-left:auto;text-align:right}
+  .typing{width:60px;height:18px;border-radius:8px;background:linear-gradient(90deg,#0b1220,#0b1220);position:relative}
+  .dots span{display:inline-block;width:7px;height:7px;background:#9fb7ff;border-radius:50%;margin:0 3px;opacity:0;animation:dots 1s infinite}
+  .dots span:nth-child(1){animation-delay:0s}
+  .dots span:nth-child(2){animation-delay:.15s}
+  .dots span:nth-child(3){animation-delay:.3s}
+  @keyframes dots{0%{opacity:0;transform:translateY(2px)}50%{opacity:1;transform:translateY(-2px)}100%{opacity:0;transform:translateY(2px)}}
+
+  .controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  .btn{background:var(--accent);color:white;padding:10px 14px;border-radius:8px;border:none;cursor:pointer;font-weight:600}
+  .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+  .options{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+  .opt-btn{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:10px;border-radius:8px;cursor:pointer;text-align:left}
+  .opt-btn:hover{background:rgba(0,86,255,0.06);color:#ddf0ff}
+  .hidden{display:none}
+  .result-badge{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(22,163,74,0.12);color:var(--success);font-weight:700;margin-top:12px}
+  .error-badge{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(239,68,68,0.08);color:var(--danger);font-weight:700;margin-top:12px}
+  footer{margin-top:12px;display:flex;justify-content:space-between;align-items:center}
+  .note{color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Tarea 2 — Simulación: Venta por chat</h1>
+      <a class="back" href="pprincipal.html">⬅ Regresar</a>
+    </header>
+
+    <div class="card">
+      <div class="intro">Vendes computadoras. Para iniciar la simulación, escribí <strong>1</strong> y presioná Iniciar.</div>
+
+      <div id="chat" class="chat" aria-live="polite" role="log"></div>
+
+      <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;">
+        <input id="starter" type="text" placeholder="Escribí 1 para iniciar" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);width:220px;background:transparent;color:inherit" />
+        <button id="startBtn" class="btn">Iniciar</button>
+      </div>
+
+      <div id="optionsArea" class="options hidden" aria-live="polite"></div>
+
+      <div id="feedback" style="text-align:center;margin-top:12px"></div>
+
+      <footer>
+        <div class="note">Simulación interactiva — responde con cuidado.</div>
+        <div id="status" class="note"></div>
+      </footer>
+    </div>
+  </div>
+
+<script>
+const chat = document.getElementById('chat');
+const startBtn = document.getElementById('startBtn');
+const starter = document.getElementById('starter');
+const optionsArea = document.getElementById('optionsArea');
+const feedback = document.getElementById('feedback');
+const status = document.getElementById('status');
+
+let stage = 0; // 0 = not started, 1 = first question, 2 = second question, 3 = success
+
+function appendMessage(text, from='client'){
+  const div = document.createElement('div');
+  div.className = 'msg ' + (from==='user' ? 'from-user' : 'from-client');
+  div.textContent = text;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function appendTyping(){
+  const wrap = document.createElement('div');
+  wrap.className = 'msg from-client';
+  const t = document.createElement('div');
+  t.className = 'typing dots';
+  t.innerHTML = '<span></span><span></span><span></span>';
+  wrap.appendChild(t);
+  chat.appendChild(wrap);
+  chat.scrollTop = chat.scrollHeight;
+  return wrap;
+}
+
+function clearOptions(){ optionsArea.innerHTML = ''; optionsArea.classList.add('hidden'); }
+
+function showOptions(options){
+  optionsArea.innerHTML = '';
+  optionsArea.classList.remove('hidden');
+  options.forEach(opt =>{
+    const b = document.createElement('button');
+    b.className = 'opt-btn';
+    b.textContent = opt.label;
+    b.onclick = ()=> opt.onClick();
+    optionsArea.appendChild(b);
+  });
+}
+
+function resetSimulation(){
+  chat.innerHTML = '';
+  clearOptions();
+  feedback.innerHTML='';
+  starter.value='';
+  stage=0;
+  status.textContent='Listo para iniciar.';
+}
+
+function showTryAgain(){
+  feedback.innerHTML = '';
+  const btn = document.createElement('button');
+  btn.className = 'btn secondary';
+  btn.textContent = 'Intentalo de nuevo';
+  btn.onclick = ()=> resetSimulation();
+  feedback.appendChild(btn);
+}
+
+startBtn.addEventListener('click', ()=>{
+  const val = starter.value.trim();
+  if(stage!==0) return;
+  if(val !== '1'){
+    feedback.innerHTML = '<span class="error-badge">Escribe 1 para iniciar la simulación.</span>';
+    return;
+  }
+  feedback.innerHTML='';
+  status.textContent = 'Conectando...';
+  starter.value='';
+  startConversation();
+});
+
+function startConversation(){
+  stage = 1;
+  status.textContent = 'Conversación en curso...';
+  // simulate client typing 2-3s then message
+  const typing = appendTyping();
+  setTimeout(()=>{
+    typing.remove();
+    appendMessage('Hola, me gustaría una computadora para mi universidad, tengo 7000 córdobas');
+    // show question 1
+    setTimeout(()=> showQuestion1(), 600);
+  }, 2200 + Math.random()*800);
+}
+
+function showQuestion1(){
+  clearOptions();
+  feedback.innerHTML='';
+  appendMessage('Computadora a un valor de 10,000C$ — ¿qué dirás?');
+  const opts = [
+    {label: 'A: Vuelve cuando tengas el dinero completo ya que vale 10,000C$', onClick: ()=> handleAnswer1('A')},
+    {label: 'B: Te recomiendo esta otra computadora, aunque es lenta, si te alcanza y podrás hacer distintas tareas', onClick: ()=> handleAnswer1('B')},
+    {label: 'C: Puedes dar 7000C$ de prima y el resto puedes darlo tranquilo en cuotas pequeñas y te llevas tu PC justo ahora', onClick: ()=> handleAnswer1('C')}
+  ];
+  showOptions(opts);
+}
+
+function handleAnswer1(choice){
+  clearOptions();
+  appendMessage(choice === 'C' ? 'C: (Seleccionado) ' + 'Puedes dar 7000C$ de prima y el resto puedes darlo tranquilo en cuotas pequeñas y te llevas tu PC justo ahora' : (choice === 'A' ? 'A: (Seleccionado) Vuelve cuando tengas el dinero completo ya que vale 10,000C$' : 'B: (Seleccionado) Te recomiendo esta otra computadora, aunque es lenta...'));
+
+  if(choice === 'C'){
+    // correct: continue
+    const typing = appendTyping();
+    setTimeout(()=>{
+      typing.remove();
+      appendMessage('Perfecto, muchas gracias, pero soy de otra ciudad');
+      // next question
+      setTimeout(()=> showQuestion2(), 500);
+    }, 1800 + Math.random()*800);
+  } else {
+    // incorrect -> stop and show try again
+    const typing = appendTyping();
+    setTimeout(()=>{
+      typing.remove();
+      appendMessage('Hmm...');
+      feedback.innerHTML = '<span class="error-badge">Respuesta incorrecta. La venta se pierde si no ofreces opciones de pago.</span>';
+      showTryAgain();
+      status.textContent = 'Simulación detenida — respuesta incorrecta.';
+    }, 1200);
+  }
+}
+
+function showQuestion2(){
+  stage = 2;
+  clearOptions();
+  feedback.innerHTML='';
+  appendMessage('Tu eres de Managua — ¿qué harás?');
+  const opts = [
+    {label: 'A: Dejar de contestar', onClick: ()=> handleAnswer2('A')},
+    {label: 'B: Obligarlo a llegar a tienda', onClick: ()=> handleAnswer2('B')},
+    {label: 'C: Ofrecerle delivery con coste adicional', onClick: ()=> handleAnswer2('C')}
+  ];
+  showOptions(opts);
+}
+
+function handleAnswer2(choice){
+  clearOptions();
+  appendMessage(choice === 'C' ? 'C: (Seleccionado) Ofrecerle delivery con coste adicional' : (choice === 'A' ? 'A: (Seleccionado) Dejar de contestar' : 'B: (Seleccionado) Obligarlo a llegar a tienda'));
+
+  if(choice === 'C'){
+    const typing = appendTyping();
+    setTimeout(()=>{
+      typing.remove();
+      appendMessage('Muchas gracias, me ha encantado la compu, excelente vendedor/a');
+      feedback.innerHTML = '<div class="result-badge">¡Felicidades! Venta completada con éxito.</div>';
+      status.textContent = 'Simulación completada.';
+    }, 1500 + Math.random()*700);
+  } else {
+    const typing = appendTyping();
+    setTimeout(()=>{
+      typing.remove();
+      feedback.innerHTML = '<span class="error-badge">Respuesta incorrecta. La venta se pierde por falta de servicio al cliente.</span>';
+      showTryAgain();
+      status.textContent = 'Simulación detenida — respuesta incorrecta.';
+    }, 1200);
+  }
+}
+
+// init
+resetSimulation();
+</script>
+</body>
+</html>
