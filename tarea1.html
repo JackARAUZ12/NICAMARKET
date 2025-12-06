@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarea 1</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+    }
+    .question-box {
+        background: #ffffff;
+        padding: 20px;
+        margin: 20px auto;
+        border-radius: 10px;
+        max-width: 800px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .options label {
+        display: block;
+        margin: 8px 0;
+        padding: 10px;
+        background: #e9e9e9;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+    .buttons {
+        text-align: center;
+        margin-top: 30px;
+    }
+    .btn {
+        background: #005eff;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        margin: 10px;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .result {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<a href="pprincipal.html" class="btn">⬅ Regresar</a>
+
+<h1>Tarea 1 - Evaluación Teórica</h1>
+
+<form id="quizForm">
+
+    <!-- PREGUNTA 1 -->
+    <div class="question-box">
+        <h3>1. ¿Cómo son las ventas o la economía nicaragüense actualmente?</h3>
+        <div class="options">
+            <label><input type="radio" name="q1" value="A"> A: La mayoría de ventas se hacen en las tiendas</label>
+            <label><input type="radio" name="q1" value="B"> B: La mayoría de las ventas se hacen en redes</label>
+            <label><input type="radio" name="q1" value="C"> C: Las ventas son mixtas, 50/50</label>
+            <label><input type="radio" name="q1" value="D"> D: Ninguna de las anteriores</label>
+        </div>
+        <div class="result" id="r1"></div>
+    </div>
+
+    <!-- PREGUNTA 2 -->
+    <div class="question-box">
+        <h3>2. ¿Cuáles son las plataformas más utilizadas para ventas digitales?</h3>
+        <div class="options">
+            <label><input type="radio" name="q2" value="A"> A: Facebook</label>
+            <label><input type="radio" name="q2" value="B"> B: TikTok</label>
+            <label><input type="radio" name="q2" value="C"> C: WhatsApp</label>
+            <label><input type="radio" name="q2" value="D"> D: Instagram</label>
+            <label><input type="radio" name="q2" value="E"> E: Todas las anteriores</label>
+        </div>
+        <div class="result" id="r2"></div>
+    </div>
+
+    <!-- PREGUNTA 3 -->
+    <div class="question-box">
+        <h3>3. ¿Qué es el marketing digital en Nicaragua?</h3>
+        <div class="options">
+            <label><input type="radio" name="q3" value="A"> A: Publicar cosas</label>
+            <label><input type="radio" name="q3" value="B"> B: Diseñar</label>
+            <label><input type="radio" name="q3" value="C"> C: Una serie de acciones para generar confianza y cerrar ventas</label>
+            <label><input type="radio" name="q3" value="D"> D: Hacer anuncios para generar cotizaciones</label>
+        </div>
+        <div class="result" id="r3"></div>
+    </div>
+
+    <!-- PREGUNTA 4 -->
+    <div class="question-box">
+        <h3>4. ¿Cuál es una de las cosas de la que depende el marketing digital?</h3>
+        <div class="options">
+            <label><input type="radio" name="q4" value="A"> A: Cuánto dinero inviertas</label>
+            <label><input type="radio" name="q4" value="B"> B: Seguir un tutorial paso a paso</label>
+            <label><input type="radio" name="q4" value="C"> C: Atención rápida</label>
+        </div>
+        <div class="result" id="r4"></div>
+    </div>
+
+    <!-- PREGUNTA 5 -->
+    <div class="question-box">
+        <h3>5. ¿Cuál de estos es algo que debe evitarse?</h3>
+        <div class="options">
+            <label><input type="radio" name="q5" value="A"> A: Reels simples</label>
+            <label><input type="radio" name="q5" value="B"> B: Dejar cliente en visto</label>
+            <label><input type="radio" name="q5" value="C"> C: Contenido educativo corto</label>
+            <label><input type="radio" name="q5" value="D"> D: Todas las anteriores</label>
+        </div>
+        <div class="result" id="r5"></div>
+    </div>
+
+</form>
+
+<div class="buttons">
+    <button class="btn" onclick="mostrarResultados()">Mostrar resultados</button>
+</div>
+
+<h2 id="score" style="text-align:center;"></h2>
+
+<script>
+function mostrarResultados() {
+    let correctas = {
+        q1: "C",
+        q2: "E",
+        q3: "C",
+        q4: "C",
+        q5: "B"
+    };
+
+    let explicaciones = {
+        q1: "Nicaragua tiene ventas presenciales y virtuales entrelazadas.",
+        q2: "Todas estas plataformas forman parte del ecosistema de ventas digitales.",
+        q3: "El marketing es una serie de acciones para generar confianza y ventas.",
+        q4: "Uno de sus pilares es la atención rápida al cliente.",
+        q5: "Dejar al cliente en visto es un error grave y casi siempre se pierde la venta."
+    };
+
+    let score = 0;
+
+    for (let i = 1; i <= 5; i++) {
+        let pregunta = document.querySelector(`input[name='q${i}']:checked`);
+        let caja = document.getElementById(`r${i}`);
+
+        if (!pregunta) {
+            caja.innerHTML = "❌ No respondiste esta pregunta.";
+            continue;
+        }
+
+        if (pregunta.value === correctas[`q${i}`]) {
+            caja.innerHTML = "✔ Correcto. " + explicaciones[`q${i}`];
+            score += 20;
+        } else {
+            caja.innerHTML = "❌ Incorrecto. " + explicaciones[`q${i}`];
+        }
+    }
+
+    document.getElementById("score").innerHTML = "Tu calificación: " + score + " puntos";
+}
+</script>
+
+</body>
+</html>
