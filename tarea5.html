@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Tarea – Lección 5 (TikTok) - Modo Historia</title>
+<style>
+    :root{
+        --accent: #005eff;
+        --accent-dark: #003fb8;
+        --bg: #f4f6fb;
+        --card: #ffffff;
+        --muted: #6b7280;
+    }
+    html,body{height:100%;margin:0;padding:0;background:var(--bg);font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;color:#111;}
+    header{background:linear-gradient(90deg,var(--accent),var(--accent-dark)); color:#fff;padding:22px 18px;text-align:center;font-weight:700;font-size:22px;box-shadow:0 3px 12px rgba(2,6,23,0.08);}
+    .container{max-width:980px;margin:28px auto;padding:22px;background:var(--card);border-radius:10px;box-shadow:0 6px 24px rgba(12,18,40,0.06);}
+    .intro{font-size:16px;color:var(--muted);line-height:1.5;margin-bottom:18px;}
+    .story{background:linear-gradient(180deg,#f8fbff,#fff);padding:14px 16px;border-radius:8px;border:1px solid rgba(0,0,0,0.03);margin-bottom:18px;}
+    h2{margin:12px 0 10px;font-size:20px;color:#0b1220;}
+    .question{margin:14px 0;padding:14px;border-radius:8px;background:#fbfdff;border-left:6px solid var(--accent);display:block;}
+    .question h3{margin:0 0 8px;font-size:17px;}
+    .answers label{display:block;margin:8px 0;padding:8px 10px;border-radius:6px;cursor:pointer;background:transparent;transition:all .12s;border:1px solid transparent;}
+    .answers input{margin-right:10px;}
+    .answers label:hover{background:rgba(0,94,255,0.04);border-color:rgba(0,94,255,0.08);}
+    .controls{display:flex;gap:12px;align-items:center;margin-top:18px;flex-wrap:wrap;}
+    .btn{background:var(--accent);color:#fff;padding:12px 18px;border-radius:8px;border:none;font-weight:700;cursor:pointer;text-decoration:none;}
+    .btn:hover{background:var(--accent-dark);}
+    .btn.secondary{background:#fff;border:1px solid #e6e9ef;color:#1b2b4a;}
+    .result{display:none;margin-top:20px;padding:18px;border-radius:8px;background:#eef7ff;border-left:6px solid var(--accent);}
+    .item-result{margin-bottom:12px;padding:10px;border-radius:8px;background:#fff;border:1px solid rgba(2,6,23,0.03);display:flex;gap:12px;align-items:flex-start;}
+    .mark{min-width:36px;height:36px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;}
+    .mark.ok{background:#16a34a;}
+    .mark.bad{background:#ef4444;}
+    .exp{color:var(--muted);font-size:14px;line-height:1.45;}
+    .score{font-size:18px;font-weight:700;margin-top:12px;}
+    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px;}
+    @media (max-width:640px){
+        .container{margin:16px;padding:14px;}
+        header{font-size:18px;padding:16px;}
+    }
+</style>
+</head>
+<body>
+
+<header>✅ Tarea – Lección 5 (TikTok) · Modo Historia</header>
+
+<div class="container">
+    <p class="intro">
+        Vas a seguir la historia de <strong>Kevin</strong>, un emprendedor nica que quiere triunfar en TikTok. Lee cada escena, elige la mejor respuesta y al final presiona <strong>Entregar</strong>. Cada pregunta vale <strong>10 puntos</strong>.
+    </p>
+
+    <div class="story">
+        <strong>Narrador:</strong> "Kevin tiene un producto listo, pero no sabe cómo usar TikTok para atraer clientes. Tú lo guiarás paso a paso."
+    </div>
+
+    <form id="quizForm" autocomplete="off">
+
+        <!-- Q1 -->
+        <div class="question">
+            <h3>1) Escena — El inicio: Kevin pregunta cuál es el objetivo real de TikTok para ventas.</h3>
+            <div class="answers">
+                <label><input type="radio" name="q1" value="A"> A) Cerrar ventas directamente desde la app.</label>
+                <label><input type="radio" name="q1" value="B"> B) Generar ruido, alcance y una buena primera impresión.</label>
+                <label><input type="radio" name="q1" value="C"> C) Crear videos largos explicativos.</label>
+                <label><input type="radio" name="q1" value="D"> D) Responder mensajes de clientes.</label>
+            </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question">
+            <h3>2) Escena — Corrección: Kevin piensa que necesita miles de seguidores. Tú le indicas lo que importa para el algoritmo.</h3>
+            <div class="answers">
+                <label><input type="radio" name="q2" value="A"> A) Depende de tus seguidores.</label>
+                <label><input type="radio" name="q2" value="B"> B) Depende solo de pagar publicidad.</label>
+                <label><input type="radio" name="q2" value="C"> C) Depende del contenido y del tiempo de retención.</label>
+                <label><input type="radio" name="q2" value="D"> D) Depende de publicar solo fotos.</label>
+            </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question">
+            <h3>3) Escena — Primer intento: Kevin sube un video de 1:20 lento y sin cortes.</h3>
+            <div class="answers">
+                <label><input type="radio" name="q3" value="A"> A) Sí, entre más largo mejor.</label>
+                <label><input type="radio" name="q3" value="B"> B) Sí, TikTok premia videos lentos.</label>
+                <label><input type="radio" name="q3" value="C"> C) No, la comunidad prefiere videos cortos, directos y llamativos.</label>
+                <label><input type="radio" name="q3" value="D"> D) Sí, si le pone música se arregla.</label>
+            </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question">
+            <h3>4) Escena — Edición: Kevin no sabe qué programa usar para editar.</h3>
+            <div class="answers">
+                <label><input type="radio" name="q4" value="A"> A) Word.</label>
+                <label><input type="radio" name="q4" value="B"> B) CapCut.</label>
+                <label><input type="radio" name="q4" value="C"> C) Excel.</label>
+                <label><input type="radio" name="q4" value="D"> D) TikTok Lite.</label>
+            </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question">
+            <h3>5) Escena — Error fatal: Kevin convierte 3 fotos en un “video” de 10s y lo quiere promocionar.</h3>
+            <div class="answers">
+                <label><input type="radio" name="q5" value="A"> A) Sí, fotos siempre funcionan.</label>
+                <label><input type="radio" name="q5" value="B"> B) Sí, con música gana alcance.</label>
+                <label><input type="radio" name="q5" value="C"> C) No, subir fotos convertidas en video mata el alcance.</label>
+                <label><input type="radio" name="q5" value="D"> D) Sí, si le pone texto.</label>
+            </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question">
+            <h3>6) Escena — Identificación: Kevin comienza su video diciendo solo “Este es el Toyota Raize en color rojo.”</h3>
+            <div class="answers">
+                <label><input type="radio" name="q6" value="A"> A) Mejor iniciar con una frase que haga que la gente se identifique.</label>
+                <label><input type="radio" name="q6" value="B"> B) Está perfecto tal cual.</label>
+                <label><input type="radio" name="q6" value="C"> C) Mejor sin hablar.</label>
+                <label><input type="radio" name="q6" value="D"> D) Depende del filtro que use.</label>
+            </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="question">
+            <h3>7) Escena — Calidad: Kevin sube un video oscuro y mal grabado.</h3>
+            <div class="answers">
+                <label><input type="radio" name="q7" value="A"> A) TikTok lo arregla automáticamente.</label>
+                <label><input type="radio" name="q7" value="B"> B) Obtendrá más alcance por ser crudo.</label>
+                <label><input type="radio" name="q7" value="C"> C) Matara su alcance.</label>
+                <label><input type="radio" name="q7" value="D"> D) No afectará nada.</label>
+            </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="question">
+            <h3>8) Escena — Frecuencia: Kevin pregunta cada cuánto publicar para generar alcance.</h3>
+            <div class="answers">
+                <label><input type="radio" name="q8" value="A"> A) Una vez al mes.</label>
+                <label><input type="radio" name="q8" value="B"> B) Una vez a la semana.</label>
+                <label><input type="radio" name="q8" value="C"> C) Cada 2–3 días.</label>
+                <label><input type="radio" name="q8" value="D"> D) Una vez al año.</label>
+            </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="question">
+            <h3>9) Escena — CTA: Kevin prepara el cierre del video; elige la mejor línea final.</h3>
+            <div class="answers">
+                <label><input type="radio" name="q9" value="A"> A) “Ahí ve qué hace.”</label>
+                <label><input type="radio" name="q9" value="B"> B) “Si querés información, buscala vos.”</label>
+                <label><input type="radio" name="q9" value="C"> C) “Reservá ya y empezá a sentir la diferencia.”</label>
+                <label><input type="radio" name="q9" value="D"> D) “…”</label>
+            </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="question">
+            <h3>10) Escena — Final: Después del alcance, ¿qué completa correctamente el proceso?</h3>
+            <div class="answers">
+                <label><input type="radio" name="q10" value="A"> A) Publicar y cerrar la app.</label>
+                <label><input type="radio" name="q10" value="B"> B) Analizar comentarios, responder y redirigir a WhatsApp.</label>
+                <label><input type="radio" name="q10" value="C"> C) Hacer spam masivo.</label>
+                <label><input type="radio" name="q10" value="D"> D) Cambiar de nicho todos los días.</label>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button type="button" class="btn" onclick="calcular()">Entregar</button>
+            <a class="btn secondary" href="pprincipal.html">⬅ Volver</a>
+            <div style="margin-left:auto;color:var(--muted);font-size:14px;align-self:center">
+                Cada pregunta vale <strong>10 pts</strong>. Total = <strong>100 pts</strong>.
+            </div>
+        </div>
+
+    </form>
+
+    <div id="result" class="result" aria-live="polite"></div>
+
+    <footer>Recuerda: TikTok atrae. WhatsApp cierra. ¡No olvides hacer la práctica!</footer>
+</div>
+
+<script>
+(function(){
+    const correctas = {
+        q1: "B",
+        q2: "C",
+        q3: "C",
+        q4: "B",
+        q5: "C",
+        q6: "A",
+        q7: "C",
+        q8: "C",
+        q9: "C",
+        q10:"B"
+    };
+
+    const explicaciones = {
+        q1: "TikTok sirve para generar ruido, alcance y una primera buena impresión — luego rediriges a WhatsApp para cerrar.",
+        q2: "El algoritmo valora contenido, retención y señales de interacción; no tanto la cantidad de seguidores al inicio.",
+        q3: "La comunidad y el algoritmo prefieren clips cortos, directos y que retengan la atención desde el primer segundo.",
+        q4: "CapCut es una herramienta popular y práctica para editar videos cortos con plantillas útiles para vendedores.",
+        q5: "Convertir fotos en video suele generar poca retención; TikTok premia movimiento real y edición llamativa.",
+        q6: "Abrir con una frase que identifique al espectador aumenta la retención: p. ej. “¿Te gusta conducir con estilo?”",
+        q7: "Videos oscuros o mal grabados tienen menos retención y por eso el algoritmo reduce su alcance.",
+        q8: "Publicar cada 2–3 días mantiene la cuenta activa y favorece el alcance orgánico.",
+        q9: "Un CTA claro y directo (beneficio + acción) convierte mejor que dejar al espectador sin orientación.",
+        q10:"Analizar comentarios y responder rápido, redirigiendo a WhatsApp, convierte vistas en ventas reales."
+    };
+
+    window.calcular = function(){
+        const resultDiv = document.getElementById("result");
+        let total = 0;
+        let html = "<h2>Resultados</h2>";
+        // iterate questions 1..10
+        for (let i=1;i<=10;i++){
+            const q = "q"+i;
+            const sel = document.querySelector(`input[name="${q}"]:checked`);
+            const user = sel ? sel.value : null;
+            const correct = correctas[q];
+            const isCorrect = user === correct;
+            // build item
+            html += `<div class="item-result">`;
+            if (isCorrect){
+                total += 10;
+                html += `<div class="mark ok">✔</div>`;
+                html += `<div><strong>Pregunta ${i} — Correcto</strong><div class="exp">${explicaciones[q]}</div></div>`;
+            } else if (user === null){
+                html += `<div class="mark bad">✖</div>`;
+                html += `<div><strong>Pregunta ${i} — No respondida</strong><div class="exp">Respuesta correcta: <strong>${correct}</strong>. ${explicaciones[q]}</div></div>`;
+            } else {
+                const chosenText = user;
+                html += `<div class="mark bad">✖</div>`;
+                html += `<div><strong>Pregunta ${i} — Incorrecto</strong><div class="exp">Su respuesta: <strong>${chosenText}</strong>. Respuesta correcta: <strong>${correct}</strong>. ${explicaciones[q]}</div></div>`;
+            }
+            html += `</div>`;
+        }
+
+        html += `<div class="score">Puntuación final: <strong>${total} / 100</strong></div>`;
+        resultDiv.innerHTML = html;
+        resultDiv.style.display = "block";
+        // scroll to result
+        resultDiv.scrollIntoView({behavior:"smooth",block:"center"});
+    };
+})();
+</script>
+
+</body>
+</html>
