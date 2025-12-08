@@ -79,7 +79,7 @@
       <main>
         <div class="card" aria-labelledby="welcomeTitle">
           <h1 id="welcomeTitle">Bienvenido/a al curso de Marketing Digital</h1>
-          <p class="lead">Bienvenido estimado/a a tu curso de marketing digital. Aquí encontrarás un recorrido completo, práctico y adaptado al contexto nicaragüense. Cada lección incluye una clase pregrabada (video), material descargable y una tarea práctica diseñada para que implementes lo visto. Al final del temario está el examen final. Edita los títulos de cada lección en sus páginas individuales para personalizar el curso.</p>
+          <p class="lead">Bienvenido estimado/a a tu curso de marketing digital. Aquí encontrarás un recorrido completo, práctico y adaptado al contexto nicaragüense. Cada lección incluye una clase pregrabada (video), y una tarea práctica diseñada para que implementes lo visto. Al final del temario está el examen final.</p>
 
           <div class="lessons" id="lessonsList" aria-live="polite">
             <!-- Las 29 lecciones se generan por JavaScript para mantener el HTML claro. -->
@@ -88,7 +88,7 @@
           <div class="exam-callout" role="region" aria-label="Examen final">
             <div>
               <div style="font-weight:900">Examen final — Evaluación teórica y práctica</div>
-              <div class="muted" style="margin-top:6px">Al finalizar todas las lecciones, realiza el examen para optar al certificado. El examen combina preguntas de opción múltiple y una entrega práctica.</div>
+              <div class="muted" style="margin-top:6px">Al finalizar todas las lecciones, realiza el examen para optar al certificado. El examen combina preguntas de opción múltiple y una entrega práctica. este examen si llega a nosotros para ser calificado personalmente</div>
             </div>
             <div>
               <a class="btn" href="./examen.html" aria-label="Hacer examen">Hacer examen</a>
@@ -102,16 +102,16 @@
           <div style="font-weight:900">Detalles del curso</div>
           <div class="muted" style="margin-top:8px">
             <strong>Duración:</strong> 1 mes (29 lecciones) · <strong>Modalidad:</strong> Online (PC & móvil)<br>
-            <strong>Entrega:</strong> Videos pregrabados, PDFs, plantillas y tareas prácticas. Certificado físico disponible tras aprobar examen y solicitarlo.
+            <strong>Entrega:</strong> Videos pregrabados y tareas prácticas. Certificado físico disponible tras aprobar examen y solicitarlo.
           </div>
         </div>
 
         <div class="card">
           <div style="font-weight:900">Cómo usar este panel</div>
           <div class="muted" style="margin-top:8px">
-            - Abrí <strong>Clase</strong> para ver el video pregrabado y materiales.<br>
-            - Entrá a <strong>Tarea</strong> para ver la guía de entrega y subir evidencias (link o archivo).<br>
-            - Conservá tus evidencias en Drive o similar y pegá el enlace en la página de la tarea.<br>
+            - Abrí <strong>Clase</strong> para ver tu lección del dia.<br>
+            - Entrá a <strong>Tarea</strong> para ponerte a prueba y saber si has aprendido.<br>
+            - A diferencia del examen, las tareas no se guardan en el sistema, el objetivo es que usted se autoexamine.<br>
             - Contacto y soporte: <a href="https://wa.me/50581294177" style="color:inherit">+505 8129 4177</a>.
           </div>
         </div>
@@ -119,9 +119,9 @@
         <div class="card">
           <div style="font-weight:900">Recomendaciones</div>
           <div class="muted" style="margin-top:8px">
-            - Mirá las clases en una PC para las prácticas. <br>
-            - Hacé las tareas con ejemplos reales de tu negocio. <br>
-            - Si necesitás ayuda, pedí revisión personalizada (servicio adicional).
+            - Mirá las clases en pantalla completa. <br>
+            - Haz la tarea con calma, concentradamente. <br>
+            - Si hay algun inconveniente, contacta con soporte.
           </div>
         </div>
       </aside>
@@ -136,35 +136,35 @@
 
     // --- CONTENIDO ORIGINAL: lista de lecciones (sin autenticación) ---
     const LESSONS = [
-      { title: 'Introducción al marketing digital en Nicaragua', desc: 'Panorama del ecosistema digital nicaragüense, comportamiento del consumidor y oportunidades prácticas para micro y pequeños negocios.', outcomes: ['Comprender el contexto local', 'Identificar canales prioritarios', 'Definir objetivos SMART'], duration: '20 min', resources: ['PDF: Panorama digital', 'Checklist inicial'] },
-      { title: 'Estrategia y definición de cliente ideal (buyer persona)', desc: 'Cómo crear perfiles de cliente que guíen todo tu contenido y anuncios. Plantillas prácticas para segmentación local.', outcomes: ['Crear 1 buyer persona', 'Definir problemas y deseos del cliente'], duration: '30 min', resources: ['Plantilla buyer persona', 'Ejemplo real'] },
-      { title: 'Propuesta de valor y oferta irresistible', desc: 'Construcción de una oferta que convierta: elementos, garantías y cómo empaquetar servicios o productos para vender online.', outcomes: ['Crear oferta clara', 'Escribir una propuesta que convierta'], duration: '25 min', resources: ['Ejemplos de ofertas', 'Guía de precios'] },
-      { title: 'Fundamentos de copywriting para redes sociales', desc: 'Técnicas para escribir textos que venden en Facebook, Instagram y WhatsApp: estructura, llamadas a la acción y fórmulas probadas.', outcomes: ['Redactar 3 versiones de copy', 'Usar CTA efectivos'], duration: '30 min', resources: ['Cheat-sheet de fórmulas', 'Plantillas de copies'] },
-      { title: 'Diseño rápido: creativos que convierten sin ser diseñador', desc: 'Cómo usar plantillas, herramientas gratuitas y principios básicos de diseño para crear imágenes y mini-vídeos que venden.', outcomes: ['Crear 2 creativos listos', 'Optimizar texto en imágenes'], duration: '35 min', resources: ['Plantillas PSD/Canva', 'Checklist de diseño'] },
-      { title: 'Cuenta de anuncios Meta: configuración básica', desc: 'Paso a paso para configurar una cuenta de Meta Ads, métodos de pago y evitar errores comunes que bloquean anuncios.', outcomes: ['Crear cuenta Meta Ads', 'Configurar pago y roles'], duration: '25 min', resources: ['Guía paso a paso', 'Vídeo demostrativo'] },
-      { title: 'Estructura de campañas: objetivo, conjunto y anuncio', desc: 'Cómo estructurar campañas eficaces según objetivos: reconocimiento, tráfico, interacción y conversión. Ejemplo práctico para ventas pequeñas.', outcomes: ['Elegir objetivo correcto', 'Estructurar campaña eficiente'], duration: '30 min', resources: ['Plantilla de campaña', 'Ejemplo real'] },
-      { title: 'Segmentación efectiva para Nicaragua', desc: 'Técnicas de segmentación por interés, comportamiento y geografía para aprovechar al máximo presupuestos reducidos.', outcomes: ['Crear 3 segmentos rentables', 'Evitar audiencias demasiado amplias'], duration: '28 min', resources: ['Checklist de segmentación', 'Audiencias ejemplo'] },
-      { title: 'Presupuestos y pujas: cómo gastar poco y ganar clientes', desc: 'Cómo definir presupuesto diario y estrategias de puja para sacar el máximo rendimiento con 50–150 C$ diarios.', outcomes: ['Calcular presupuesto óptimo', 'Ajustar pujas por resultados'], duration: '22 min', resources: ['Calculadora de presupuesto', 'Ejemplos'] },
-      { title: 'Creativos en video: ideas rápidas 6–15s', desc: 'Formatos cortos y efectivos para Facebook y Reels: guiones, hooks y llamadas a la acción que motivan compra.', outcomes: ['Generar 3 guiones de video', 'Conocer formatos por plataforma'], duration: '30 min', resources: ['Guiones 6s', 'Plantillas de storyboard'] },
-      { title: 'Landing pages y formularios que convierten', desc: 'Estructura mínima de una landing page efectiva, mejores prácticas para formularios y pruebas A/B sencillas.', outcomes: ['Crear landing minimal usable', 'Medir conversiones básicas'], duration: '35 min', resources: ['Checklist landing', 'Plantilla HTML básica'] },
-      { title: 'Funnel básico: de anuncio a venta', desc: 'Cómo diseñar un embudo simple para convertir usuarios que ven tu anuncio en clientes que pagan.', outcomes: ['Dibujar un funnel 3 pasos', 'Implementar automatización básica'], duration: '30 min', resources: ['Mapa de funnel', 'Ejemplos aplicados'] },
-      { title: 'WhatsApp como canal de ventas', desc: 'Scripts de primeros mensajes, manejo de objeciones y flujos para cerrar ventas por WhatsApp.', outcomes: ['Escribir 5 scripts de contacto', 'Diseñar flujo de cierre'], duration: '25 min', resources: ['Plantillas de mensajes', 'Casos de éxito'] },
-      { title: 'Optimización de anuncios: métricas clave', desc: 'Qué métricas mirar (CTR, CPC, CPA, ROAS) y cómo tomar decisiones para optimizar campañas.', outcomes: ['Interpretar métricas', 'Aplicar 3 cambios de optimización'], duration: '32 min', resources: ['Hoja de métricas', 'Checklist de optimización'] },
-      { title: 'Retargeting y audiencias calientes', desc: 'Estrategias para volver a impactar a usuarios que mostraron interés y convertirlos con ofertas específicas.', outcomes: ['Crear una campaña de retargeting', 'Segmentar audiencias calientes'], duration: '28 min', resources: ['Plantilla de retargeting', 'Ejemplos prácticos'] },
-      { title: 'Email marketing básico para retención', desc: 'Secuencias claras: bienvenida, valor, oferta. Cómo redactar emails que no terminen en spam.', outcomes: ['Diseñar secuencia de 3 emails', 'Configurar envío automatizado'], duration: '30 min', resources: ['Plantillas de email', 'Guía de entregabilidad'] },
-      { title: 'Copy avanzado: storytelling y ventas', desc: 'Uso de historias para vender: estructura narrativa, prueba social y cierre emocional.', outcomes: ['Crear un storytelling de venta', 'Aplicar pruebas sociales reales'], duration: '34 min', resources: ['Estructura de historia', 'Ejemplos'] },
-      { title: 'Anuncios para productos físicos (motos y más)', desc: 'Cómo presentar un producto físico en anuncios: fotos, atributos clave y promociones localizadas.', outcomes: ['Crear 2 anuncios para producto físico', 'Optimizar por conversiones'], duration: '30 min', resources: ['Checklist para fotos', 'Plantilla de anuncio'] },
-      { title: 'Análisis de competencia y posicionamiento', desc: 'Cómo estudiar competencia local, descubrir brechas y posicionar tu oferta para destacar.', outcomes: ['Mapa competitivo', 'Área de oportunidad identificada'], duration: '26 min', resources: ['Plantilla análisis competitivo'] },
-      { title: 'Precios, ofertas y tests', desc: 'Modelos de precios, tests A/B para ofertas y cómo elegir la mejor propuesta económica para tu público.', outcomes: ['Diseñar 2 pruebas de oferta', 'Medir resultados básicos'], duration: '28 min', resources: ['Plantilla test de precios'] },
-      { title: 'Gestión de crisis y reputación online', desc: 'Cómo responder comentarios negativos, prevenir crisis y usar la comunicación para recuperar confianza.', outcomes: ['Protocolo de respuesta', 'Simulación de caso'], duration: '24 min', resources: ['Guía de manejo de crisis'] },
-      { title: 'SEO local y visibilidad en buscadores', desc: 'Acciones prácticas para aparecer en búsquedas locales: fichas, reseñas y optimización rápida.', outcomes: ['Optimizar ficha local', 'Checklist SEO local'], duration: '30 min', resources: ['Checklist SEO', 'Ejemplo ficha'] },
-      { title: 'Reportes y métricas para clientes', desc: 'Cómo presentar resultados a un cliente o jefe en forma clara y accionable (plantilla de reporte).', outcomes: ['Crear reporte mensual', 'Extraer KPIs relevantes'], duration: '22 min', resources: ['Plantilla de reporte'] },
-      { title: 'Automatizaciones prácticas (chatbots y respuestas)', desc: 'Implementación básica de respuestas automáticas para optimizar conversiones y atención.', outcomes: ['Configurar respuestas automáticas', 'Medir impacto en leads'], duration: '28 min', resources: ['Templates de chatbot'] },
-      { title: 'Escalado: cuándo y cómo aumentar presupuesto', desc: 'Estrategia para escalar campañas sin perder rentabilidad: señales y riesgos a vigilar.', outcomes: ['Plan de escalado', 'Criterios de decisión'], duration: '26 min', resources: ['Checklist escalado'] },
-      { title: 'Implementando funnels de venta avanzados', desc: 'Ejemplos prácticos de funnels para diferentes industrias y cómo automatizar el seguimiento.', outcomes: ['Diseñar funnel 5 pasos', 'Implementación básica'], duration: '36 min', resources: ['Mapas de funnel', 'Ejemplo'] },
-      { title: 'Monetización y productos complementarios', desc: 'Cómo convertir a tus alumnos en compradores recurrentes: upsells, cross-sells y servicios premium.', outcomes: ['Diseñar oferta complementaria', 'Plan de monetización'], duration: '30 min', resources: ['Plantillas de upsell'] },
-      { title: 'Preparación para el examen y revisión final', desc: 'Resumen ejecutivo de todo el curso, checklist final y cómo presentar evidencia práctica para el examen.', outcomes: ['Checklist de preparación', 'Lista de evidencias requeridas'], duration: '40 min', resources: ['Resumen ejecutivo', 'Lista de evidencias'] },
-      { title: 'Examen final — Evaluación práctica y teórica', desc: 'Examen único que combina preguntas de opción múltiple y una entrega práctica. Presioná HACER EXAMEN para iniciar.', outcomes: ['Demostrar aplicabilidad', 'Entregar evidencia práctica'], duration: '60+ min', resources: [] }
+      { title: 'Introducción al marketing digital en Nicaragua', desc: 'Aprendé cómo compran realmente los nicas, qué plataformas funcionan aquí y qué estrategias sí generan resultados en el mercado local.', outcomes: ['Que el alumno pueda evaluar como es el marketing digital en el pais'], duration: '12 min', resources: ['Clase y Tarea'] },
+      { title: 'Público objetivo básico', desc: 'Identificá rápido a quién le vendés y definí tu cliente ideal con ejemplos nicas, sin tecnicismos.', outcomes: ['Que el alumno pueda elegir con claridad a quién debe dirigir su contenido.'], duration: '10 min', resources: ['Clase y Tarea'] },
+      { title: 'Facebook el atrae clientes', desc: 'La plataforma principal de los nicaragüenses: cómo usarla para vender más y crear presencia real.', outcomes: ['Que el alumno pueda conocer el uso básico de facebook para ventas, viendo la experiencia de otras paginas en la red.'], duration: '10 min', resources: ['Clase y Tarea'] },
+      { title: 'Whatsapp Business el cerrador de ventas', desc: 'Configuración y uso inteligente de WhatsApp para atraer, atender y convertir clientes.', outcomes: ['Que el alumno pueda cambiar de whatsapp basico al business para desbloquear nuevas funciones que le ayuden a vender'], duration: '10 min', resources: ['Clase y Tarea'] },
+      { title: 'Tik tok el generador de ruido', desc: 'Cómo aprovechar TikTok para ganar alcance rápido y conectar con audiencias jóvenes nicas.', outcomes: ['Que el alumno pueda identificar como funciona el algoritmo de tiktok'], duration: '12', resources: ['Clase y Tarea'] },
+      { title: 'Introducción a la IA para emprendedores nicas', desc: 'Qué puede y qué no puede hacer la IA, y cómo usarla para generar contenido ahorrando tiempo.', outcomes: ['Crear cuenta Meta Ads', 'Configurar pago y roles'], duration: '25 min', resources: ['Guía paso a paso', 'Vídeo demostrativo'] },
+      { title: 'uso de chatgpt para dar ideas y planear', desc: 'Generá ideas ilimitadas y planes rápidos para tu negocio con la IA.', outcomes: ['Elegir objetivo correcto', 'Estructurar campaña eficiente'], duration: '30 min', resources: ['Plantilla de campaña', 'Ejemplo real'] },
+      { title: 'Uso de ChatGPT para escribir textos rápido', desc: 'Aprendé prompts que funcionan y adaptá textos al público nica sin perder autenticidad.', outcomes: ['Crear 3 segmentos rentables', 'Evitar audiencias demasiado amplias'], duration: '28 min', resources: ['Checklist de segmentación', 'Audiencias ejemplo'] },
+      { title: 'Cómo usar Canva para tus diseños', desc: 'Creá diseños profesionales usando plantillas, colores y logos sin ser diseñador.', outcomes: ['Calcular presupuesto óptimo', 'Ajustar pujas por resultados'], duration: '22 min', resources: ['Calculadora de presupuesto', 'Ejemplos'] },
+      { title: 'Cómo usar Freepik para tus diseños', desc: 'Descargá plantillas de alta calidad y adaptalas a tu marca de forma sencilla.', outcomes: ['Generar 3 guiones de video', 'Conocer formatos por plataforma'], duration: '30 min', resources: ['Guiones 6s', 'Plantillas de storyboard'] },
+      { title: 'Cómo crear publicaciones que sí venden', desc: 'Estructuras simples para que cada post tenga intención y convierta.', outcomes: ['Crear landing minimal usable', 'Medir conversiones básicas'], duration: '35 min', resources: ['Checklist landing', 'Plantilla HTML básica'] },
+      { title: 'Como crear tu Facebook page', desc: 'Aprendé a configurar una página profesional y lista para vender.', outcomes: ['Dibujar un funnel 3 pasos', 'Implementar automatización básica'], duration: '30 min', resources: ['Mapa de funnel', 'Ejemplos aplicados'] },
+      { title: 'Qué son los anuncios de Facebook y como segmentarlos', desc: 'Entendé cómo funcionan, cómo dirigirlos y cómo optimizar tu presupuesto.', outcomes: ['Escribir 5 scripts de contacto', 'Diseñar flujo de cierre'], duration: '25 min', resources: ['Plantillas de mensajes', 'Casos de éxito'] },
+      { title: 'Errores comunes que matan tus anuncios', desc: 'Evitá fallas típicas como mala segmentación, diseños débiles y textos sin estrategia.', outcomes: ['Interpretar métricas', 'Aplicar 3 cambios de optimización'], duration: '32 min', resources: ['Hoja de métricas', 'Checklist de optimización'] },
+      { title: 'Qué medir y cómo interpretar lo básico', desc: 'Explicación facilísima del CPC, CPM y CTR para tomar decisiones sin confundirte.', outcomes: ['Crear una campaña de retargeting', 'Segmentar audiencias calientes'], duration: '28 min', resources: ['Plantilla de retargeting', 'Ejemplos prácticos'] },
+      { title: 'Como atender al cliente en campañas', desc: 'Técnicas simples para responder, interactuar y convertir tráfico en ventas reales.', outcomes: ['Diseñar secuencia de 3 emails', 'Configurar envío automatizado'], duration: '30 min', resources: ['Plantillas de email', 'Guía de entregabilidad'] },
+      { title: 'USO DE IA EN LA ATENCIÓN AL CLIENTE', desc: 'Automatizá respuestas y gestioná mensajes sin perder cercanía humana.', outcomes: ['Crear un storytelling de venta', 'Aplicar pruebas sociales reales'], duration: '34 min', resources: ['Estructura de historia', 'Ejemplos'] },
+      { title: 'MANEJO DE OBJECIONES ATENCIÓN AL CLIENTE', desc: 'Aprendé a responder dudas, miedos y trabas que frenan la compra.', outcomes: ['Crear 2 anuncios para producto físico', 'Optimizar por conversiones'], duration: '30 min', resources: ['Checklist para fotos', 'Plantilla de anuncio'] },
+      { title: 'Como cerrar ventas', desc: 'Métodos simples y efectivos para llevar al cliente del interés al “sí, lo compro”.', outcomes: ['Mapa competitivo', 'Área de oportunidad identificada'], duration: '26 min', resources: ['Plantilla análisis competitivo'] },
+      { title: 'Errores que matan ventas en WhatsApp', desc: 'Evitá hábitos que espantan clientes: tardar, sonar desesperado o no dar claridad.', outcomes: ['Diseñar 2 pruebas de oferta', 'Medir resultados básicos'], duration: '28 min', resources: ['Plantilla test de precios'] },
+      { title: 'Cómo enviar precios sin espantar al cliente', desc: 'Técnicas para presentar precios con valor primero y justificar beneficios.', outcomes: ['Protocolo de respuesta', 'Simulación de caso'], duration: '24 min', resources: ['Guía de manejo de crisis'] },
+      { title: 'Construcción de confianza en WhatsApp', desc: 'Cómo generar credibilidad con fotos, respuestas claras, testimonios y una marca sólida.', outcomes: ['Optimizar ficha local', 'Checklist SEO local'], duration: '30 min', resources: ['Checklist SEO', 'Ejemplo ficha'] },
+      { title: 'Uso de testimonios reales para aumentar ventas', desc: 'Pedí, organizá y usá testimonios en publicaciones y stories que convencen al nica.', outcomes: ['Crear reporte mensual', 'Extraer KPIs relevantes'], duration: '22 min', resources: ['Plantilla de reporte'] },
+      { title: 'Cómo usar IA para crear ideas de contenido infinitas', desc: 'Prompts y técnicas para nunca quedarte sin ideas y mantener tu estilo propio.', outcomes: ['Configurar respuestas automáticas', 'Medir impacto en leads'], duration: '28 min', resources: ['Templates de chatbot'] },
+      { title: 'Cómo analizar tu competencia en redes', desc: 'Qué ver, qué copiar, qué evitar y cómo identificar tus ventajas.', outcomes: ['Plan de escalado', 'Criterios de decisión'], duration: '26 min', resources: ['Checklist escalado'] },
+      { title: 'Cómo identificar si un negocio es rentable para publicidad', desc: 'Criterios simples: cliente ideal, ticket promedio, márgenes y escalabilidad.', outcomes: ['Diseñar funnel 5 pasos', 'Implementación básica'], duration: '36 min', resources: ['Mapas de funnel', 'Ejemplo'] },
+      { title: 'Cómo crear un MINI PLAN DE MARKETING de 7 días (para negocios nicas)', desc: 'Armá un ciclo semanal repetible: qué publicar, cuándo, dónde y cómo medir sin complicarte.', outcomes: ['Diseñar oferta complementaria', 'Plan de monetización'], duration: '30 min', resources: ['Plantillas de upsell'] },
+      { title: 'Cómo organizar tu negocio digital en 2025 (rutinas, apps y flujo de trabajo)', desc: 'Creá un sistema real con página, posts, textos, WhatsApp y un anuncio básico para vender.', outcomes: ['Checklist de preparación', 'Lista de evidencias requeridas'], duration: '40 min', resources: ['Resumen ejecutivo', 'Lista de evidencias'] },
+      { title: 'Proyecto Final: Tu Primer Sistema de Ventas ', desc: 'Rutinas, apps y flujos de trabajo para no saturarte y mantener tu negocio ordenado.', outcomes: ['Demostrar aplicabilidad', 'Entregar evidencia práctica'], duration: '60+ min', resources: [] }
     ];
 
     // Construir la lista en el DOM (cada lección con botones a páginas individuales)
