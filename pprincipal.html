@@ -13,8 +13,11 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%}
+    /* fondo oscuro por defecto y fallback por si alguna regla se pierde */
+    html, body { background-color: var(--bg) !important; }
     body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,#03101b 0%,#041022 70%);color:#eaf2ff;-webkit-font-smoothing:antialiased}
-    .container{max-width:var(--container);margin:24px auto;padding:20px}
+    /* contenedores principales transparentes sobre el fondo para evitar bloques blancos inesperados */
+    .container{max-width:var(--container);margin:24px auto;padding:20px;background:transparent}
     header{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:14px}
     .logo{width:72px;height:72px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px}
@@ -24,12 +27,14 @@
     .btn {padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#051021;font-weight:800;text-decoration:none;display:inline-block}
     .btn-ghost {padding:9px 12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);text-decoration:none;display:inline-block}
     .layout{display:grid;grid-template-columns:1fr 360px;gap:22px;margin-top:20px}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:20px;border-radius:12px;box-shadow:0 12px 40px rgba(2,6,23,0.6)}
+    /* tarjetas con fondo oscuro explícito para evitar recortes blancos */
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);background-color: rgba(7,18,38,0.6);padding:20px;border-radius:12px;box-shadow:0 12px 40px rgba(2,6,23,0.6)}
     h1{margin:0 0 8px}
     p.lead{margin:0;color:var(--muted);line-height:1.6}
     /* lesson list */
     .lessons{margin-top:18px;display:flex;flex-direction:column;gap:12px}
-    .lesson{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:12px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)}
+    /* Asegurar que cada lección tenga fondo oscuro semitransparente (no blanco) */
+    .lesson{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:12px;background:rgba(255,255,255,0.01);background-color: rgba(8,14,24,0.45);border:1px solid rgba(255,255,255,0.02)}
     .lesson-index{min-width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;font-weight:800}
     .lesson-body{flex:1}
     .lesson-title{font-weight:800;font-size:16px;margin-bottom:6px}
@@ -43,15 +48,52 @@
     /* sidebar */
     .aside .card{margin-bottom:14px}
     .muted{color:var(--muted)}
-    /* responsive */
+    /* responsive improvements for mobile */
     @media (max-width:1000px){
       .layout{grid-template-columns:1fr}
       .aside{order:2}
+      .logo{width:56px;height:56px;font-size:18px}
+      .controls{gap:8px}
+      .container{padding:14px;margin:12px}
     }
+    @media (max-width:600px){
+      body{background:linear-gradient(180deg,#03101b 0%,#041022 60%)}
+      header{flex-direction:column;align-items:flex-start;gap:10px}
+      .controls{width:100%;justify-content:space-between}
+      .lesson{flex-direction:column}
+      .lesson-index{min-width:48px;height:48px}
+      .lesson-title{font-size:15px}
+    }
+
+    /* Access overlay styles */
+    .auth-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(2,6,23,0.85),rgba(2,6,23,0.95));z-index:9999;padding:20px}
+    .auth-panel{width:100%;max-width:420px;background:var(--card);background-color:rgba(7,18,38,0.95);border-radius:12px;padding:22px;box-shadow:0 10px 40px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .auth-panel h2{margin:0 0 8px;font-size:20px}
+    .auth-panel p{margin:0 0 14px;color:var(--muted)}
+    .auth-row{display:flex;gap:8px}
+    .auth-input{flex:1;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+    .auth-btn{padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#051021;font-weight:800;border:none}
+    .auth-small{margin-top:10px;color:var(--muted);font-size:13px}
+    /* evitar fondo blanco en la lista de mensajes */
+    .auth-list{margin-top:12px;background:transparent;padding:10px;border-radius:8px;color:var(--muted);font-size:13px}
   </style>
 </head>
 <body>
-  <div class="container">
+  <!-- AUTH OVERLAY: bloquea el acceso hasta ingresar un código válido -->
+  <div id="nmAuthOverlay" class="auth-overlay" role="dialog" aria-modal="true" aria-label="Ingreso de código de usuario">
+    <div class="auth-panel" id="nmAuthPanel">
+      <h2>Ingresar código de usuario</h2>
+      <p>Introduce tu <strong>código de acceso</strong> para navegar por el panel. Si no ingresas correctamente, la página no permitirá el acceso.</p>
+      <div class="auth-row">
+        <input id="nmCodeInput" class="auth-input" placeholder="Ej: NICA-2025" aria-label="Código de usuario" />
+        <button id="nmCodeBtn" class="auth-btn">Ingresar</button>
+      </div>
+      <div class="auth-small">Si eres administrador, puedes editar la lista de códigos válidos en el script (variable <code>VALID_CODES</code>).</div>
+      <div id="nmAuthMsg" class="auth-list" style="display:none"></div>
+    </div>
+  </div>
+
+  <div class="container" id="mainContainer">
     <header>
       <div class="brand">
         <div class="logo">NM</div>
@@ -64,6 +106,8 @@
       <div class="controls">
         <a class="btn-ghost" href="/">Volver al sitio</a>
         <a class="btn" href="tel:+50581294177">Soporte / WhatsApp</a>
+        <!-- Botón de cerrar sesión (visible solo si está autenticado) -->
+        
       </div>
     </header>
 
@@ -126,10 +170,130 @@
   </div>
 
   <script>
+    // --- CONFIGURACIÓN DE CÓDIGOS (EDITABLE) ---
+    // Añadí aquí los códigos válidos. Puedes ponerlos estáticos o cargarlos desde un endpoint si lo deseas.
+    const VALID_CODES = [
+      'NICA-2025',
+      'ALUMNO-001',
+      'PROMO-DIC'
+    ];
+
+    // Identificador de sesión (se guarda en sessionStorage para sesión actual)
+    const AUTH_KEY = 'nm_authenticated_v1';
+
+    // Referencias a elementos del DOM (definidas una vez)
+    const overlay = document.getElementById('nmAuthOverlay');
+    const overlayPanel = document.getElementById('nmAuthPanel');
+    const input = document.getElementById('nmCodeInput');
+    const btn = document.getElementById('nmCodeBtn');
+    const msg = document.getElementById('nmAuthMsg');
+    const logoutBtn = document.getElementById('nmLogoutBtn');
+
     // año
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Contenido detallado para las 29 lecciones (puedes editar títulos y descripciones)
+    // Funciones de autenticación
+    function isAuthenticated(){
+      try{
+        return sessionStorage.getItem(AUTH_KEY) === 'true';
+      }catch(e){return false}
+    }
+
+    function setAuthenticated(){
+      try{ sessionStorage.setItem(AUTH_KEY,'true'); }catch(e){}
+    }
+
+    function clearAuth(){
+      try{ sessionStorage.removeItem(AUTH_KEY); }catch(e){}
+    }
+
+    function logoutAndReload(){
+      clearAuth();
+      location.reload();
+    }
+
+    // Mostrar/ocultar overlay según estado
+    function updateLogoutBtn(){
+      try{
+        if(logoutBtn){
+          logoutBtn.style.display = isAuthenticated() ? 'inline-block' : 'none';
+        }
+      }catch(e){ if(logoutBtn) logoutBtn.style.display = 'none'; }
+    }
+
+    function showOverlay(){ if(overlay){ overlay.style.display = 'flex'; document.body.style.overflow = 'hidden'; if(input) input.focus(); } }
+    function hideOverlay(){ if(overlay){ overlay.style.display = 'none'; document.body.style.overflow = ''; } }
+
+    // Cerrar sesión (local) -> limpia la sesión y muestra overlay
+    if(logoutBtn){
+      logoutBtn.addEventListener('click', ()=>{
+        clearAuth();
+        updateLogoutBtn();
+        showOverlay();
+      });
+    }
+
+    // Comprobar autenticación al cargar — SIEMPRE mostrar overlay por seguridad
+showOverlay();
+clearAuth(); // limpiar cualquier sesión previa
+updateLogoutBtn();
+
+    // Manejo de botón (protecciones: verificar que los elementos existen)
+    if(btn && input && msg){
+      btn.addEventListener('click', ()=>{
+        const code = (input.value || '').trim();
+        if(!code){
+          msg.style.display = 'block'; msg.textContent = 'Por favor ingrese un código.'; return;
+        }
+        // validación (case-insensitive)
+        const found = VALID_CODES.some(c => c.toLowerCase() === code.toLowerCase());
+        if(found){
+          setAuthenticated(); hideOverlay(); msg.style.display='none'; updateLogoutBtn();
+        } else {
+          msg.style.display = 'block'; msg.textContent = 'Código inválido. Si sos administrador edita VALID_CODES en el script.';
+        }
+      });
+
+      // Permitir "enter" en input
+      input.addEventListener('keydown',(e)=>{ if(e.key === 'Enter'){ btn.click(); } });
+    } else {
+      // Si faltan elementos críticos, escribir en consola para depuración
+      console.warn('Elementos de autenticación ausentes:', {overlay, overlayPanel, input, btn, msg, logoutBtn});
+    }
+
+    // Protección contra eliminación manual del overlay: Observador de mutaciones
+    try{
+      const observer = new MutationObserver((mutations)=>{
+        for(const m of mutations){
+          // Si el overlay fue removido del DOM y no estamos autenticados -> recargar
+          if(overlay && !document.body.contains(overlay) && !isAuthenticated()){
+            console.warn('Overlay eliminado sin autenticación — recargando');
+            try{ setTimeout(()=>location.reload(), 200); }catch(e){location.reload()} 
+            return;
+          }
+          // Si el overlay está presente pero su panel fue removido -> recargar si no autenticado
+          if(overlayPanel && !document.body.contains(overlayPanel) && !isAuthenticated()){
+            console.warn('Panel del overlay manipulado — recargando');
+            try{ setTimeout(()=>location.reload(), 200); }catch(e){location.reload()} 
+            return;
+          }
+        }
+      });
+      observer.observe(document.documentElement, { childList: true, subtree: true });
+    }catch(e){ console.warn('No se pudo crear MutationObserver', e); }
+
+    // Comprobación periódica (last-resort): si se borra la clave de sessionStorage desde consola -> recarga
+    setInterval(()=>{
+      if(!isAuthenticated()){
+        // Si overlay no está visible (alguien la ocultó manualmente) forzamos recarga
+        if(overlay && overlay.style.display === 'none'){
+          console.warn('Autenticación ausente pero overlay oculto -> recargando');
+          try{ location.reload(); }catch(e){ location.reload(); }
+        }
+      }
+    }, 1500);
+
+    // --- CONTENIDO ORIGINAL: lista de lecciones (sin tocar) ---
     const LESSONS = [
       {
         title: 'Introducción al marketing digital en Nicaragua',
@@ -362,6 +526,7 @@
 
     // Nota: los archivos individuales deben existir: clase1.html .. clase28.html, tarea1.html .. tarea28.html, examen.html
     // Si aún no los tenés, creá plantillas basadas en los ejemplos que te pasé anteriormente.
+
   </script>
 </body>
 </html>
