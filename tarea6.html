@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tarea — IA para emprendedores nicas</title>
+  <style>
+    :root{--accent:#2b2bff;--accent-2:#ffb400;--bg:#ffffff;--card:#fbfbff;--text:#111}
+    html,body{height:100%;margin:0;background:var(--bg);font-family:Inter, system-ui, Arial, sans-serif;color:var(--text)}
+    .container{max-width:980px;margin:28px auto;padding:28px}
+    header{display:flex;align-items:center;gap:16px}
+    header h1{margin:0;font-size:20px}
+    .lead{color:#444;margin-top:6px;font-size:14px}
+    .card{background:var(--card);border-radius:12px;padding:18px;margin-top:16px;box-shadow:0 6px 20px rgba(30,30,60,0.06);animation:pop .45s ease}
+    @keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    .q{margin-bottom:16px;padding:12px;border-radius:10px;border:1px solid #eee}
+    .q h3{margin:0;font-size:15px}
+    .options{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+    label.option{display:flex;align-items:center;gap:10px;padding:8px;border-radius:8px;border:1px solid #f0f0f5;cursor:pointer}
+    label.option input{accent-color:var(--accent)}
+    .controls{display:flex;gap:12px;align-items:center;margin-top:14px}
+    button.primary{background:var(--accent);color:white;border:0;padding:10px 16px;border-radius:8px;cursor:pointer;font-weight:600}
+    button.secondary{background:transparent;border:1px solid #ddd;padding:10px 12px;border-radius:8px;cursor:pointer}
+    .result{margin-top:18px;padding:12px;border-radius:8px;background:#f7f9ff;border:1px solid #e6eaff}
+    .explanation{margin-top:8px;padding:10px;border-radius:8px;background:#fffbe6;border-left:4px solid var(--accent-2)}
+    .correct{color:green;font-weight:700}
+    .wrong{color:#d9534f;font-weight:700}
+    .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:18px}
+    .linkcard{padding:12px;border-radius:10px;border:1px solid #f0f0f5;background:#fff}
+    .linkcard h4{margin:0 0 6px 0;font-size:14px}
+    .small{font-size:13px;color:#555}
+    footer.small{margin-top:22px;font-size:13px;color:#666}
+    .badge{background:var(--accent-2);color:#222;padding:6px 8px;border-radius:999px;font-weight:700}
+    @media (max-width:560px){.controls{flex-direction:column;align-items:stretch}header{flex-direction:column;align-items:flex-start}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">TechWorld Nicaragua</div>
+      <div>
+        <h1>Tarea: IA para emprendedores nicas</h1>
+        <div class="lead">Leé cada pregunta y elegí la respuesta correcta. Cuando entregás, aparecen si fueron correctas y la explicación. Cada pregunta suma puntos hacia 100.</div>
+      </div>
+    </header>
+
+    <div class="card" id="task-area">
+      <form id="quiz">
+
+        <!-- Preguntas -->
+
+        <!-- 1 -->
+        <div class="q" data-points="6.66">
+          <h3>1. ¿Qué es la inteligencia artificial según la lección?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q1" value="A"> A) Una máquina que piensa sola</label>
+            <label class="option"><input type="radio" name="q1" value="B"> B) Un asistente digital que analiza información y te ayuda a trabajar</label>
+            <label class="option"><input type="radio" name="q1" value="C"> C) Un robot que reemplaza a los emprendedores</label>
+            <label class="option"><input type="radio" name="q1" value="D"> D) Una herramienta que decide por vos</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="La IA funciona como un asistente que analiza información y ejecuta lo que vos pedís; no piensa sola ni reemplaza gente." hidden></div>
+        </div>
+
+        <!-- 2 -->
+        <div class="q" data-points="6.66">
+          <h3>2. La IA reemplaza tu creatividad.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q2" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q2" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="F" data-expl="La IA no reemplaza tu creatividad; solo la potencia." hidden></div>
+        </div>
+
+        <!-- 3 -->
+        <div class="q" data-points="6.66">
+          <h3>3. ¿Cuál es el objetivo principal de aprender a usar IA según la lección?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q3" value="A"> A) Automatizar todo el negocio</label>
+            <label class="option"><input type="radio" name="q3" value="B"> B) Que el alumno entienda qué hace y qué no hace la IA</label>
+            <label class="option"><input type="radio" name="q3" value="C"> C) Reemplazar la atención al cliente</label>
+            <label class="option"><input type="radio" name="q3" value="D"> D) Evitar tener que aprender marketing</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="El objetivo es entender qué hace, qué no hace y cuándo usarla en tu negocio en Nicaragua." hidden></div>
+        </div>
+
+        <!-- 4 -->
+        <div class="q" data-points="6.66">
+          <h3>4. La IA toma decisiones por vos.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q4" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q4" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="F" data-expl="La IA no toma decisiones por el emprendedor; facilita información pero el criterio lo ponés vos." hidden></div>
+        </div>
+
+        <!-- 5 -->
+        <div class="q" data-points="6.66">
+          <h3>5. ¿Cuál de estas es una IA asistente?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q5" value="A"> A) Canva</label>
+            <label class="option"><input type="radio" name="q5" value="B"> B) Freepik</label>
+            <label class="option"><input type="radio" name="q5" value="C"> C) ChatGPT</label>
+            <label class="option"><input type="radio" name="q5" value="D"> D) StreamLabs</label>
+          </div>
+          <div class="feedback" data-correct="C" data-expl="ChatGPT es una IA asistente; Canva y Freepik son creadores visuales, StreamLabs es para voz/streaming." hidden></div>
+        </div>
+
+        <!-- 6 -->
+        <div class="q" data-points="6.66">
+          <h3>6. ¿Cuál de estas IAs sirve para crear imágenes?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q6" value="A"> A) Sora</label>
+            <label class="option"><input type="radio" name="q6" value="B"> B) Freepik</label>
+            <label class="option"><input type="radio" name="q6" value="C"> C) StreamLabs</label>
+            <label class="option"><input type="radio" name="q6" value="D"> D) Monica</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="Freepik (y Canva) son herramientas de creación de imágenes; Sora es para video y StreamLabs para voz." hidden></div>
+        </div>
+
+        <!-- 7 -->
+        <div class="q" data-points="6.66">
+          <h3>7. Sora y Google Veo son IA para crear videos.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q7" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q7" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="V" data-expl="Ambas aparecen en la lección como herramientas para video." hidden></div>
+        </div>
+
+        <!-- 8 -->
+        <div class="q" data-points="6.66">
+          <h3>8. La IA puede hacer ventas automáticamente aunque tu página esté mal.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q8" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q8" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="F" data-expl="La lección aclara que la IA no hará ventas si tu página o proceso está mal diseñado." hidden></div>
+        </div>
+
+        <!-- 9 -->
+        <div class="q" data-points="6.66">
+          <h3>9. ¿Para qué sirve la IA según el curso?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q9" value="A"> A) Adivinar el comportamiento del cliente nica</label>
+            <label class="option"><input type="radio" name="q9" value="B"> B) Ahorrar tiempo</label>
+            <label class="option"><input type="radio" name="q9" value="C"> C) Reemplazar la respuesta humana</label>
+            <label class="option"><input type="radio" name="q9" value="D"> D) Tomar decisiones por vos</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="Ahorrar tiempo es uno de los beneficios principales listados en la presentación." hidden></div>
+        </div>
+
+        <!-- 10 -->
+        <div class="q" data-points="6.66">
+          <h3>10. La IA mejora la imagen de tu negocio.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q10" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q10" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="V" data-expl="Mejorar la imagen es mencionado entre los usos favorables de la IA." hidden></div>
+        </div>
+
+        <!-- 11 -->
+        <div class="q" data-points="6.66">
+          <h3>11. ¿Cuál de estas NO es una función de la IA?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q11" value="A"> A) Organizar tu negocio</label>
+            <label class="option"><input type="radio" name="q11" value="B"> B) Aumentar ventas</label>
+            <label class="option"><input type="radio" name="q11" value="C"> C) Tomar decisiones por vos</label>
+            <label class="option"><input type="radio" name="q11" value="D"> D) Ahorra tiempo</label>
+          </div>
+          <div class="feedback" data-correct="C" data-expl="La IA no toma decisiones por vos; esa no es una función válida." hidden></div>
+        </div>
+
+        <!-- 12 -->
+        <div class="q" data-points="6.66">
+          <h3>12. ¿Para qué NO sirve la IA en WhatsApp?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q12" value="A"> A) Responder automáticamente si lo configurás</label>
+            <label class="option"><input type="radio" name="q12" value="B"> B) Reemplazar completamente la interacción humana</label>
+            <label class="option"><input type="radio" name="q12" value="C"> C) Organizar consultas</label>
+            <label class="option"><input type="radio" name="q12" value="D"> D) Reducir tiempo de respuesta</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="La lección indica que la IA no sustituye la respuesta humana por completo." hidden></div>
+        </div>
+
+        <!-- 13 -->
+        <div class="q" data-points="6.66">
+          <h3>13. La IA necesita que vos le expliques tu estilo para que funcione bien.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q13" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q13" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="V" data-expl="La presentación dice que la IA no adivina tu estilo si no se lo explicás." hidden></div>
+        </div>
+
+        <!-- 14 -->
+        <div class="q" data-points="6.66">
+          <h3>14. ¿Qué frase resume la conclusión de la lección?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q14" value="A"> A) La IA va a reemplazar todos los trabajos</label>
+            <label class="option"><input type="radio" name="q14" value="B"> B) El emprendedor que la usa hoy vende más rápido mañana</label>
+            <label class="option"><input type="radio" name="q14" value="C"> C) La IA es peligrosa para los negocios pequeños</label>
+            <label class="option"><input type="radio" name="q14" value="D"> D) La IA decide por vos</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="La conclusión textual afirma que quien aprende a usarla vende más rápido mañana." hidden></div>
+        </div>
+
+        <!-- 15 -->
+        <div class="q" data-points="6.76">
+          <h3>15. La IA es una herramienta, no un negocio automático.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q15" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q15" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="V" data-expl="La presentación lo dice explícitamente: la IA es una herramienta, no un negocio por sí sola." hidden></div>
+        </div>
+
+        <div class="controls">
+          <button type="button" class="primary" id="submitBtn">Entregar</button>
+          <a href="pprincipal.html"><button type="button" class="secondary">Volver</button></a>
+        </div>
+
+      </form>
+
+      <div id="resultArea" class="result" hidden>
+        <div id="scoreText"></div>
+        <div id="breakdown" style="margin-top:10px"></div>
+      </div>
+
+    </div>
+
+    <!-- Links sección -->
+    <div class="card">
+      <h2 style="margin:0 0 8px 0">Recursos y links de IA</h2>
+      <div class="links">
+        <div class="linkcard">
+          <h4>Asistentes</h4>
+          <div class="small">ChatGPT — <a href="https://chatgpt.com/" target="_blank">chatgpt.com</a></div>
+          <div class="small">Grok — <a href="https://grok.com/chat" target="_blank">grok.com/chat</a></div>
+          <div class="small">Gemini — <a href="https://gemini.google.com/app" target="_blank">gemini.google.com</a></div>
+        </div>
+        <div class="linkcard">
+          <h4>Video</h4>
+          <div class="small">VEO 3 — <a href="https://aistudio.google.com/models/veo-3" target="_blank">aistudio.google.com/models/veo-3</a></div>
+          <div class="small">Hailou — <a href="https://hailuoai.video/" target="_blank">hailuoai.video</a></div>
+        </div>
+        <div class="linkcard">
+          <h4>Fotos / Imágenes</h4>
+          <div class="small">Canva — <a href="https://www.canva.com/" target="_blank">canva.com</a></div>
+        </div>
+        <div class="linkcard">
+          <h4>Multifuncional</h4>
+          <div class="small">Freepik — <a href="https://www.freepik.es/" target="_blank">freepik.es</a></div>
+        </div>
+      </div>
+      <footer class="small">Explora cada una de estas inteligencias artificiales y disfruta de un nuevo entorno tecnologico.</footer>
+    </div>
+
+  </div>
+
+  <script>
+    // Lógica del quiz
+    const submitBtn = document.getElementById('submitBtn');
+    const resultArea = document.getElementById('resultArea');
+    const scoreText = document.getElementById('scoreText');
+    const breakdown = document.getElementById('breakdown');
+
+    submitBtn.addEventListener('click', ()=>{
+      const questions = Array.from(document.querySelectorAll('.q'));
+      let total = 0;
+      let earned = 0;
+      let parts = [];
+
+      questions.forEach((q, idx)=>{
+        const pts = parseFloat(q.getAttribute('data-points'));
+        total += pts;
+        const feedback = q.querySelector('.feedback');
+        const correct = feedback.getAttribute('data-correct');
+        const expl = feedback.getAttribute('data-expl');
+        const name = 'q' + (idx+1);
+        const checked = q.querySelector('input[name="'+name+'"]:checked');
+        let sel = null;
+        if(checked) sel = checked.value;
+        let ok = (sel !== null && sel === correct);
+        if(ok) earned += pts;
+        parts.push({num: idx+1, ok, sel, correct, expl, pts});
+      });
+
+      // Safety: round to 2 decimals for display, but scoring uses exact sum
+      const earnedRounded = Math.round((earned + Number.EPSILON) * 100) / 100;
+      const totalRounded = Math.round((total + Number.EPSILON) * 100) / 100;
+      const percent = Math.round((earnedRounded/totalRounded)*10000)/100;
+
+      // Mostrar resultado
+      scoreText.innerHTML = `<strong>Resultado:</strong> ${earnedRounded} / ${totalRounded} puntos — <strong>${percent}%</strong>`;
+      breakdown.innerHTML = '';
+
+      parts.forEach(p =>{
+        const div = document.createElement('div');
+        div.style.marginTop = '10px';
+        div.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center"><div><strong>Pregunta ${p.num}:</strong> ${p.ok? '<span class=\"correct\">Correcta</span>':'<span class=\"wrong\">Incorrecta</span>'}</div><div style=\"font-weight:700\">${p.ok? '+'+p.pts+' pts':'0 pts'} </div></div>`;
+        const expl = document.createElement('div');
+        expl.className = 'explanation';
+        expl.innerText = p.expl + (p.sel===null? ' (No seleccionaste respuesta)':' (Tu respuesta: '+p.sel+')');
+        div.appendChild(expl);
+        breakdown.appendChild(div);
+      });
+
+      resultArea.hidden = false;
+      // Scroll to result
+      resultArea.scrollIntoView({behavior:'smooth',block:'center'});
+    });
+  </script>
+</body>
+</html>
