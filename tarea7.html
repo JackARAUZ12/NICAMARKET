@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tarea — Lección 7: Uso de ChatGPT</title>
+  <style>
+    :root{--accent:#2b2ff0;--accent-2:#ffd166;--bg:#ffffff;--text:#0b1220;--muted:#556070}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, Arial, sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    .wrap{max-width:1100px;margin:30px auto;padding:28px}
+    header{display:flex;align-items:center;gap:18px}
+    .brand{background:linear-gradient(90deg,var(--accent),#7b6cff);color:white;padding:10px 14px;border-radius:10px;font-weight:800}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.9), #fff);border-radius:14px;padding:18px;margin-top:18px;box-shadow:0 8px 30px rgba(20,30,60,0.06);overflow:hidden}
+
+    .controls{display:flex;gap:10px;align-items:center;margin-top:12px}
+    .btn{border:0;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
+    .btn-primary{background:var(--accent);color:white}
+    .btn-ghost{background:transparent;border:2px solid #e6e9ef;color:var(--text)}
+
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start}
+    @media(max-width:980px){.grid{grid-template-columns:1fr}}
+
+    /* preguntas */
+    form#quiz{display:block}
+    .q{border-radius:12px;padding:14px;border:1px solid #f0f3f8;margin-bottom:12px;transition:transform .18s ease,box-shadow .18s}
+    .q:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(20,30,60,0.06)}
+    .q h3{margin:0;font-size:15px}
+    .meta{font-size:13px;color:var(--muted);margin-top:6px}
+    .options{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+    label.option{display:flex;gap:12px;align-items:center;padding:10px;border-radius:8px;border:1px solid #f4f6fa;cursor:pointer}
+    label.option input{accent-color:var(--accent)}
+
+    .side{position:relative}
+    .panel{position:sticky;top:24px;padding:14px;border-radius:12px;border:1px solid #f0f3f8;background:#fff}
+    .score{font-size:18px;font-weight:800;color:var(--accent)}
+    .small{color:var(--muted);font-size:13px}
+
+    .result{margin-top:12px;padding:12px;border-radius:10px;background:linear-gradient(90deg,#f7fbff,#fff);border:1px solid #e6f0ff}
+    .break{margin-top:10px}
+    .explanation{margin-top:8px;padding:10px;border-radius:8px;background:#fffef6;border-left:4px solid var(--accent-2);font-size:13px}
+
+    .correct{color:green;font-weight:800}
+    .incorrect{color:#d9534f;font-weight:800}
+
+    footer.links{margin-top:18px;padding:12px;border-radius:10px;border:1px dashed #eef3fb}
+    footer.links a{color:var(--accent);text-decoration:none;font-weight:700}
+
+    .badge{display:inline-block;background:var(--accent-2);padding:6px 10px;border-radius:999px;font-weight:800}
+
+    /* micro animations */
+    .pop{animation:pop .45s ease}
+    @keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">EDUCANIC</div>
+      <div>
+        <h1>Tarea — Lección #7: Uso de ChatGPT para dar ideas y planear</h1>
+        <p class="lead">10 preguntas — Cada pregunta vale 10 puntos. Al entregar verás correcciones, explicaciones y sugerencias prácticas para pedir mejor a ChatGPT. Recordá hacer la tarea.</p>
+      </div>
+    </header>
+
+    <div class="controls">
+      <a href="pprincipal.html"><button class="btn btn-ghost">← Volver</button></a>
+      <div style="flex:1"></div>
+      <button id="submitBtn" class="btn btn-primary">Entregar</button>
+      <button id="retryBtn" class="btn" style="background:#f3f5f8">Reintentar</button>
+    </div>
+
+    <div class="card grid pop">
+      <div>
+        <form id="quiz">
+
+          <!-- Q1 -->
+          <div class="q" data-points="10">
+            <h3>1. ChatGPT adivina tu negocio si no le das contexto.</h3>
+            <div class="meta">Verdadero o falso</div>
+            <div class="options">
+              <label class="option"><input type="radio" name="q1" value="V"> Verdadero</label>
+              <label class="option"><input type="radio" name="q1" value="F"> Falso</label>
+            </div>
+            <div class="feedback" data-correct="F" data-expl="Falso: ChatGPT no conoce tu negocio si no le das contexto; siempre necesitás explicarle quién sos y qué vendés."></div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="q" data-points="10">
+            <h3>2. ¿Cuál es el mejor prompt para pedir 5 ideas de promociones navideñas para una pastelería en Managua?</h3>
+            <div class="meta">Elegí la opción más completa</div>
+            <div class="options">
+              <label class="option"><input type="radio" name="q2" value="A"> A) Dame 5 promociones navideñas</label>
+              <label class="option"><input type="radio" name="q2" value="B"> B) Dame 5 ideas de promociones navideñas, económicas y dirigidas a familias en Managua, que incluya texto para redes y un llamado a la acción</label>
+              <label class="option"><input type="radio" name="q2" value="C"> C) ¿Qué promociones hacen otros?</label>
+              <label class="option"><input type="radio" name="q2" value="D"> D) Dame un descuento</label>
+            </div>
+            <div class="feedback" data-correct="B" data-expl="La opción B es la mejor porque es específica (familias, Managua), pide formato útil (texto para redes) y define el objetivo (económicas)."></div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="q" data-points="10">
+            <h3>3. Si pedís prompts claros gastarás menos fichas al usar una IA de pago.</h3>
+            <div class="meta">Verdadero o falso</div>
+            <div class="options">
+              <label class="option"><input type="radio" name="q3" value="V"> Verdadero</label>
+              <label class="option"><input type="radio" name="q3" value="F"> Falso</label>
+            </div>
+            <div class="feedback" data-correct="V" data-expl="Verdadero: ser preciso reduce la iteración y por ende el uso de fichas o créditos." hidden></div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="q" data-points="10">
+            <h3>4. Escenario: Tenés una tienda de ropa en León y querés 7 posts para Instagram enfocadas en mujeres jóvenes. ¿Cuál petición es la más útil?</h3>
+            <div class="meta">Elegí la petición más práctica</div>
+            <div class="options">
+              <label class="option"><input type="radio" name="q4" value="A"> A) Dame 7 ideas de posts</label>
+              <label class="option"><input type="radio" name="q4" value="B"> B) Dame 7 ideas de posts para Instagram, cada uno con caption corto (20–30 palabras), 2 hashtags nicas y un CTA para ventas, dirigido a mujeres 18–30 en León</label>
+              <label class="option"><input type="radio" name="q4" value="C"> C) ¿Qué publico hoy?</label>
+              <label class="option"><input type="radio" name="q4" value="D"> D) Dame ideas generales</label>
+            </div>
+            <div class="feedback" data-correct="B" data-expl="La B es específica: formato, longitud, hashtags y público; eso permite obtener un resultado listo para publicar." hidden></div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="q" data-points="10">
+            <h3>5. ¿Qué NO hace ChatGPT?</h3>
+            <div class="meta">Seleccioná la opción correcta</div>
+            <div class="options">
+              <label class="option"><input type="radio" name="q5" value="A"> A) Organizar un calendario de contenidos</label>
+              <label class="option"><input type="radio" name="q5" value="B"> B) Crear textos y guiones</label>
+              <label class="option"><input type="radio" name="q5" value="C"> C) Tomar decisiones definitivas por vos</label>
+              <label class="option"><input type="radio" name="q5" value="D"> D) Generar ideas creativas</label>
+            </div>
+            <div class="feedback" data-correct="C" data-expl="ChatGPT no debe tomar decisiones por vos; te asesora y sugiere, pero el criterio final es tuyo."></div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="q" data-points="10">
+            <h3>6. ¿Cuál de estas salidas puede entregar ChatGPT directamente?</h3>
+            <div class="meta">Elegí la mejor respuesta</div>
+            <div class="options">
+              <label class="option"><input type="radio" name="q6" value="A"> A) Imagen final en alta resolución</label>
+              <label class="option"><input type="radio" name="q6" value="B"> B) Calendario de publicaciones con títulos y captions</label>
+              <label class="option"><input type="radio" name="q6" value="C"> C) Video renderizado listo para publicar</label>
+              <label class="option"><input type="radio" name="q6" value="D"> D) Archivo de audio masterizado</label>
+            </div>
+            <div class="feedback" data-correct="B" data-expl="ChatGPT entrega texto y estructuras (calendarios, captions); no genera imágenes ni videos directamente sin herramientas extra." hidden></div>
+          </div>
+
+          <!-- Q7 -->
+          <div class="q" data-points="10">
+            <h3>7. Ordená los pasos básicos para planear un mes de contenido con ChatGPT (elige la secuencia correcta):</h3>
+            <div class="meta">A) Definir objetivo → B) Dar contexto → C) Pedir calendario → D) Revisar y ajustar</div>
+            <div class="options">
+              <label class="option"><input type="radio" name="q7" value="1"> 1) A → B → C → D</label>
+              <label class="option"><input type="radio" name="q7" value="2"> 2) B → A → C → D</label>
+              <label class="option"><input type="radio" name="q7" value="3"> 3) A → C → B → D</label>
+              <label class="option"><input type="radio" name="q7" value="4"> 4) B → C → A → D</label>
+            </div>
+            <div class="feedback" data-correct="2" data-expl="Correcto: primero das contexto (B), luego definís objetivo (A), pedís el calendario (C) y finalmente revisás/ajustás (D)."></div>
+          </div>
+
+          <!-- Q8 -->
+          <div class="q" data-points="10">
+            <h3>8. ChatGPT reemplaza tu creatividad.</h3>
+            <div class="meta">Verdadero o falso</div>
+            <div class="options">
+              <label class="option"><input type="radio" name="q8" value="V"> Verdadero</label>
+              <label class="option"><input type="radio" name="q8" value="F"> Falso</label>
+            </div>
+            <div class="feedback" data-correct="F" data-expl="Falso: ChatGPT potencia y sugiere; la creatividad y decisiones finales son tuyas." hidden></div>
+          </div>
+
+          <!-- Q9 -->
+          <div class="q" data-points="10">
+            <h3>9. Elegí la mejor petición para que ChatGPT convierta ideas sueltas en pasos concretos.</h3>
+            <div class="meta">Seleccioná la opción más detallada</div>
+            <div class="options">
+              <label class="option"><input type="radio" name="q9" value="A"> A) Ordená estas ideas</label>
+              <label class="option"><input type="radio" name="q9" value="B"> B) Tomá estas ideas y generá un plan en 5 pasos con tiempos y responsabilidades, enfocado en vender en 30 días</label>
+              <label class="option"><input type="radio" name="q9" value="C"> C) ¿Qué hago ahora?</label>
+              <label class="option"><input type="radio" name="q9" value="D"> D) Dame ideas</label>
+            </div>
+            <div class="feedback" data-correct="B" data-expl="La B pide formato accionable (pasos, tiempos, responsabilidades) y objetivo claro (vender en 30 días)."></div>
+          </div>
+
+          <!-- Q10 -->
+          <div class="q" data-points="10">
+            <h3>10. ¿Cuál es la mejor práctica al usar ChatGPT?</h3>
+            <div class="meta">Seleccioná la mejor respuesta</div>
+            <div class="options">
+              <label class="option"><input type="radio" name="q10" value="A"> A) Ser vago y mirar qué aparece</label>
+              <label class="option"><input type="radio" name="q10" value="B"> B) Dar contexto, revisar y ajustar</label>
+              <label class="option"><input type="radio" name="q10" value="C"> C) Usarlo sin tu criterio</label>
+              <label class="option"><input type="radio" name="q10" value="D"> D) Pedir cosas imposibles</label>
+            </div>
+            <div class="feedback" data-correct="B" data-expl="La mejor práctica es dar contexto, revisar y ajustar lo que te entrega la IA." hidden></div>
+          </div>
+
+        </form>
+      </div>
+
+      <aside class="side">
+        <div class="panel">
+          <div class="score">Tu progreso</div>
+          <div class="small" style="margin-top:8px">Al entregar verás tu nota y explicación por pregunta.</div>
+
+          <div id="resultArea" class="result" hidden>
+            <div id="scoreText"></div>
+            <div id="breakdown"></div>
+          </div>
+
+          <div class="break" style="margin-top:12px">
+            <strong>Recursos rápidos</strong>
+            <div style="margin-top:8px" class="small">
+              Asistentes: <a href="https://chatgpt.com/" target="_blank">ChatGPT</a>, <a href="https://grok.com/chat" target="_blank">Grok</a><br>
+              Video: <a href="https://aistudio.google.com/models/veo-3" target="_blank">VEO 3</a>, <a href="https://hailuoai.video/" target="_blank">Hailou</a><br>
+              Imágenes: <a href="https://www.canva.com/" target="_blank">Canva</a><br>
+              Multifuncional: <a href="https://www.freepik.es/" target="_blank">Freepik</a>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+
+    <footer class="links">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap">
+        <div><span class="badge">Consejo</span> <span style="margin-left:8px" class="small">Respondé todo y entregá: las explicaciones te ayudarán a crear mejores prompts.</span></div>
+        <div class="small">Made with ♥ by EDUCANIC</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    const submitBtn = document.getElementById('submitBtn');
+    const retryBtn = document.getElementById('retryBtn');
+    const resultArea = document.getElementById('resultArea');
+    const scoreText = document.getElementById('scoreText');
+    const breakdown = document.getElementById('breakdown');
+
+    function gatherQuestions(){
+      return Array.from(document.querySelectorAll('.q')).map((q,idx)=>{
+        const pts = parseFloat(q.getAttribute('data-points'))||0;
+        const fb = q.querySelector('.feedback');
+        const correct = fb.getAttribute('data-correct');
+        const expl = fb.getAttribute('data-expl')||'';
+        return {el:q, idx:idx+1, pts, correct, expl};
+      });
+    }
+
+    function validateAllAnswered(){
+      const qs = gatherQuestions();
+      for(const q of qs){
+        const name = 'q'+q.idx;
+        if(!q.el.querySelector('input[name="q'+q.idx+'"]:checked')) return false;
+      }
+      return true;
+    }
+
+    function compute(){
+      const qs = gatherQuestions();
+      let total=0, earned=0; const details=[];
+      qs.forEach(q=>{
+        total += q.pts;
+        const selEl = q.el.querySelector('input[name="q'+q.idx+'"]:checked');
+        const sel = selEl? selEl.value : null;
+        const ok = (sel !== null && String(sel) === String(q.correct));
+        if(ok) earned += q.pts;
+        details.push({num:q.idx, ok, sel, correct:q.correct, expl:q.expl, pts:q.pts});
+      });
+      return {total, earned, details};
+    }
+
+    function showResult(obj){
+      const {total, earned, details} = obj;
+      const percent = Math.round((earned/total)*100);
+      scoreText.innerHTML = `<div style=\"font-weight:800;color:var(--accent)\">${earned} / ${total} pts — ${percent}%</div>`;
+      breakdown.innerHTML = '';
+      details.forEach(d=>{
+        const wrap = document.createElement('div');
+        wrap.style.marginTop='12px';
+        wrap.innerHTML = `<div style=\"display:flex;justify-content:space-between;align-items:center\"><div><strong>Pregunta ${d.num}:</strong> ${d.ok? '<span class=\"correct\">Correcta</span>':'<span class=\"incorrect\">Incorrecta</span>'}</div><div style=\"font-weight:800\">${d.ok? '+'+d.pts+' pts':'0 pts'}</div></div>`;
+        const ex = document.createElement('div');
+        ex.className='explanation';
+        ex.innerText = d.expl + (d.sel===null? ' (No respondiste)':' (Tu respuesta: '+d.sel+')');
+        wrap.appendChild(ex);
+        breakdown.appendChild(wrap);
+      });
+      resultArea.hidden = false;
+      resultArea.scrollIntoView({behavior:'smooth',block:'center'});
+
+      // guardar en localStorage
+      try{ localStorage.setItem('educanic_lec7_score', JSON.stringify({earned,total,percent,timestamp:Date.now()})); }catch(e){}
+
+      // mensaje motivador
+      const msg = document.createElement('div');
+      msg.style.marginTop='12px';
+      if(percent>=80) msg.innerHTML = '<strong>Excelente:</strong> aplicá los prompts sugeridos en tu negocio.';
+      else if(percent>=50) msg.innerHTML = '<strong>Bien:</strong> repasá la lección y probá los prompts sugeridos.';
+      else msg.innerHTML = '<strong>Recomendado:</strong> volvé a la lección y practicá los ejemplos.';
+      breakdown.appendChild(msg);
+    }
+
+    submitBtn.addEventListener('click', ()=>{
+      if(!validateAllAnswered()){
+        alert('Respondé todas las preguntas antes de entregar.');
+        return;
+      }
+      const res = compute();
+      showResult(res);
+    });
+
+    retryBtn.addEventListener('click', ()=>{
+      if(!confirm('Querés reintentar? Se borrarán tus respuestas actuales.')) return;
+      const qs = gatherQuestions();
+      qs.forEach(q=>{
+        const checked = q.el.querySelectorAll('input:checked');
+        checked.forEach(c=>c.checked=false);
+      });
+      resultArea.hidden = true; breakdown.innerHTML=''; scoreText.innerHTML='';
+    });
+
+  </script>
+</body>
+</html>
