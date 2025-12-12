@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tarea Lección #8 — ChatGPT crea imágenes</title>
+  <style>
+    :root{--accent:#0b6cff;--accent-2:#ffd166;--bg:#ffffff;--text:#071428}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    .wrap{max-width:1100px;margin:28px auto;padding:22px}
+    header{display:flex;align-items:center;gap:14px}
+    .brand{background:linear-gradient(90deg,var(--accent),#6b39ff);color:#fff;padding:10px 14px;border-radius:10px;font-weight:800}
+    h1{margin:0;font-size:20px}
+    .lead{color:#42506a;margin-top:6px}
+
+    .card{background:#fff;border-radius:14px;padding:18px;margin-top:16px;box-shadow:0 10px 30px rgba(11,30,80,0.06)}
+    .flex{display:flex;gap:18px}
+    .left{flex:1}
+    .side{width:320px}
+    @media(max-width:980px){.flex{flex-direction:column}.side{width:100%}}
+
+    .section-title{font-weight:800;color:var(--accent);margin-bottom:8px}
+    .q{border-radius:10px;padding:12px;border:1px solid #f0f3fb;margin-bottom:12px}
+    .q h3{margin:0;font-size:15px}
+    .meta{font-size:13px;color:#6b778b;margin-top:6px}
+
+    .options{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+    label.option{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;border:1px solid #f4f7fb;cursor:pointer}
+    label.option input{accent-color:var(--accent)}
+
+    .controls{display:flex;gap:10px;align-items:center;margin-top:12px}
+    .btn{padding:10px 14px;border-radius:10px;border:0;font-weight:800;cursor:pointer}
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-muted{background:#f3f6fb;color:#1f2b44;border:1px solid #e8eefb}
+
+    .panel{position:sticky;top:24px;padding:14px;border-radius:12px;border:1px solid #eef4ff;background:linear-gradient(180deg,#fff,#fbfdff)}
+    .score{font-size:18px;color:var(--accent);font-weight:800}
+    .small{font-size:13px;color:#60708b}
+
+    .result{margin-top:12px;padding:12px;border-radius:10px;background:#f7fbff;border:1px solid #e2f0ff}
+    .break{margin-top:10px}
+    .explanation{margin-top:8px;padding:10px;border-radius:8px;background:#fffef6;border-left:4px solid var(--accent-2);font-size:13px}
+
+    .correct{color:green;font-weight:800}
+    .incorrect{color:#d9534f;font-weight:800}
+
+    footer.links{margin-top:18px;padding:12px;border-radius:10px;border:1px dashed #eef3fb;background:#fff}
+    footer.links a{color:var(--accent);text-decoration:none}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">EDUCANIC</div>
+      <div>
+        <h1>Tarea — Lección #8: ChatGPT crea imágenes</h1>
+        <div class="lead">Parte 1 y Parte 2. Respondé cuidadosamente. Parte 1 = 20 pts. Parte 2 = 40 pts. Total: 60 pts.</div>
+      </div>
+    </header>
+
+    <div class="card flex">
+      <main class="left">
+
+        <section>
+          <div class="section-title">🟦 PARTE 1 — Preguntas rápidas (Verdadero / Falso)</div>
+          <p class="small">(3 preguntas — 20 puntos)</p>
+
+          <!-- P1 -->
+          <div class="q" data-points="6.67">
+            <h3>1. ChatGPT puede crear imágenes incluso en su versión gratuita.</h3>
+            <div class="meta">Verdadero o falso</div>
+            <div class="options">
+              <label class="option"><input type="radio" name="p1" value="V"> Verdadero</label>
+              <label class="option"><input type="radio" name="p1" value="F"> Falso</label>
+            </div>
+            <div class="feedback" data-correct="V" data-expl="Verdadero: la versión gratuita permite generar algunas imágenes (por ejemplo hasta 5), según disponibilidad del sistema."></div>
+          </div>
+
+          <!-- P2 -->
+          <div class="q" data-points="6.67">
+            <h3>2. ChatGPT puede diseñarte un logotipo profesional de calidad premium sin necesidad de correcciones.</h3>
+            <div class="meta">Verdadero o falso</div>
+            <div class="options">
+              <label class="option"><input type="radio" name="p2" value="V"> Verdadero</label>
+              <label class="option"><input type="radio" name="p2" value="F"> Falso</label>
+            </div>
+            <div class="feedback" data-correct="F" data-expl="Falso: ChatGPT genera un diseño base y útil, pero no siempre sustituye el trabajo de un diseñador profesional sin ajustes." hidden></div>
+          </div>
+
+          <!-- P3 -->
+          <div class="q" data-points="6.66">
+            <h3>3. Para obtener mejores imágenes, es necesario darle detalles claros y específicos.</h3>
+            <div class="meta">Verdadero o falso</div>
+            <div class="options">
+              <label class="option"><input type="radio" name="p3" value="V"> Verdadero</label>
+              <label class="option"><input type="radio" name="p3" value="F"> Falso</label>
+            </div>
+            <div class="feedback" data-correct="V" data-expl="Verdadero: cuanto más específico seas en el prompt (estilo, colores, formato, público), mejores resultados obtendrás." hidden></div>
+          </div>
+        </section>
+
+        <hr style="border:none;border-top:1px solid #eef6ff;margin:18px 0">
+
+        <section>
+          <div class="section-title">🟦 PARTE 2 — Escoge el prompt correcto (Aplicación)</div>
+          <p class="small">(3 ejercicios — 40 puntos)</p>
+
+          <!-- Q4 -->
+          <div class="q" data-points="13.33">
+            <h3>4. Para crear un logotipo simple para “Educanic”, ¿cuál prompt es mejor?</h3>
+            <div class="meta">Elegí la opción más completa</div>
+            <div class="options">
+              <label class="option"><input type="radio" name="p4" value="A"> A) "Haceme un logo."</label>
+              <label class="option"><input type="radio" name="p4" value="B"> B) "Logo profesional de la escuela Educanic, colores azul y blanco, estilo moderno, minimalista y educativo."</label>
+              <label class="option"><input type="radio" name="p4" value="C"> C) "Una imagen bonita."</label>
+            </div>
+            <div class="feedback" data-correct="B" data-expl="La opción B es la más específica: incluye nombre, colores, estilo y objetivo, lo que produce un logo más acertado." hidden></div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="q" data-points="13.33">
+            <h3>5. Para un post publicitario de un curso de inglés básico premium a $20, ¿cuál elegirías?</h3>
+            <div class="meta">Elegí la petición más útil</div>
+            <div class="options">
+              <label class="option"><input type="radio" name="p5" value="A"> A) "Haceme una imagen de inglés."</label>
+              <label class="option"><input type="radio" name="p5" value="B"> B) "Diseñá un post cuadrado para redes sociales sobre un curso Inglés Básico Premium a $20, estilo juvenil, profesional y llamativo."</label>
+              <label class="option"><input type="radio" name="p5" value="C"> C) "Hacelo como vos querás."</label>
+            </div>
+            <div class="feedback" data-correct="B" data-expl="La opción B especifica formato, precio, estilo y objetivo: ideal para obtener una imagen lista para redes." hidden></div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="q" data-points="13.34">
+            <h3>6. Si querés una foto estilo oficina para promocionar servicios, ¿cuál opción es correcta?</h3>
+            <div class="meta">Seleccioná la opción más precisa</div>
+            <div class="options">
+              <label class="option"><input type="radio" name="p6" value="A"> A) "Gente trabajando."</label>
+              <label class="option"><input type="radio" name="p6" value="B"> B) "Imagen realista de un equipo profesional en oficina moderna, iluminación suave, fondo limpio, para uso empresarial."</label>
+              <label class="option"><input type="radio" name="p6" value="C"> C) "Foto bonita de personas."</label>
+            </div>
+            <div class="feedback" data-correct="B" data-expl="La opción B describe claramente estilo, ambiente y uso, lo que mejora el resultado de la IA." hidden></div>
+          </div>
+
+        </section>
+
+        <div class="controls">
+          <button id="submitBtn" class="btn btn-primary">Entregar</button>
+          <a href="pprincipal.html"><button class="btn btn-muted" type="button">Volver</button></a>
+        </div>
+
+      </main>
+
+      <aside class="side">
+        <div class="panel">
+          <div class="score">Resultados</div>
+          <div class="small" style="margin-top:8px">Al presionar <strong>Entregar</strong> verás tu puntaje y explicaciones por pregunta.</div>
+
+          <div id="resultArea" class="result" hidden>
+            <div id="scoreText"></div>
+            <div id="breakdown"></div>
+          </div>
+
+          <div style="margin-top:12px">
+            <strong>Recursos</strong>
+            <div class="small" style="margin-top:8px">
+              - ChatGPT (asistente de texto/imagen)<br>
+              - Canva / Freepik para edición final
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+
+    <footer class="links">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div class="small">Consejo: respondé con calma y aplicá las explicaciones al crear tus prompts reales.</div>
+        <div class="small">EDUCANIC • Lección #8</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    const submitBtn = document.getElementById('submitBtn');
+    const resultArea = document.getElementById('resultArea');
+    const scoreText = document.getElementById('scoreText');
+    const breakdown = document.getElementById('breakdown');
+
+    function gatherQs(){
+      return Array.from(document.querySelectorAll('.q')).map((q, i)=>{
+        return {
+          el:q,
+          idx:i+1,
+          pts: parseFloat(q.getAttribute('data-points'))||0,
+          fb: q.querySelector('.feedback')
+        }
+      });
+    }
+
+    function allAnswered(){
+      const qs = gatherQs();
+      for(const q of qs){
+        const name = q.el.querySelector('input[type=radio]')?.name;
+        if(!q.el.querySelector('input[name="'+name+'"]:checked')) return false;
+      }
+      return true;
+    }
+
+    function compute(){
+      const qs = gatherQs();
+      let total=0, earned=0; const details=[];
+      qs.forEach((q, i)=>{
+        total += q.pts;
+        const name = q.el.querySelector('input[type=radio]')?.name;
+        const selEl = q.el.querySelector('input[name="'+name+'"]:checked');
+        const sel = selEl? selEl.value : null;
+        const correct = q.fb.getAttribute('data-correct');
+        const expl = q.fb.getAttribute('data-expl') || '';
+        const ok = String(sel) === String(correct);
+        if(ok) earned += q.pts;
+        details.push({num:i+1, ok, sel, correct, expl, pts:q.pts});
+      });
+      return {total, earned, details};
+    }
+
+    submitBtn.addEventListener('click', ()=>{
+      if(!allAnswered()){ alert('Respondé todas las preguntas antes de entregar.'); return; }
+      const res = compute();
+      const percent = Math.round((res.earned/res.total)*100);
+      scoreText.innerHTML = `<div style=\"font-weight:800;color:var(--accent)\">${res.earned} / ${res.total} pts — ${percent}%</div>`;
+      breakdown.innerHTML = '';
+      res.details.forEach(d=>{
+        const div = document.createElement('div'); div.style.marginTop='10px';
+        div.innerHTML = `<div style=\"display:flex;justify-content:space-between;align-items:center\"><div><strong>Pregunta ${d.num}:</strong> ${d.ok? '<span class=\\"correct\\">Correcta</span>':'<span class=\\"incorrect\\">Incorrecta</span>'}</div><div style=\"font-weight:800\">${d.ok? '+'+d.pts+' pts':'0 pts'}</div></div>`;
+        const ex = document.createElement('div'); ex.className='explanation'; ex.innerText = d.expl + (d.sel===null? ' (No respondiste)':' (Tu respuesta: '+d.sel+')');
+        div.appendChild(ex);
+        breakdown.appendChild(div);
+      });
+      resultArea.hidden = false; resultArea.scrollIntoView({behavior:'smooth',block:'center'});
+      try{ localStorage.setItem('educanic_lec8_part12_score', JSON.stringify({earned:res.earned,total:res.total,percent,ts:Date.now()})); }catch(e){}
+    });
+  </script>
+</body>
+</html>
