@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tarea — Lección #9: Cómo usar Canva</title>
+  <style>
+    :root{
+      --accent:#7c3aed; /* morado Canva-style */
+      --accent-2:#22c55e; /* verde éxito */
+      --bg:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    .wrap{max-width:1200px;margin:28px auto;padding:22px}
+    header{display:flex;align-items:center;gap:16px}
+    .brand{background:linear-gradient(90deg,var(--accent),#a78bfa);color:#fff;padding:12px 16px;border-radius:12px;font-weight:900;letter-spacing:.5px}
+    h1{margin:0;font-size:22px}
+    .lead{color:var(--muted);margin-top:6px}
+
+    .card{background:#fff;border-radius:16px;padding:20px;margin-top:18px;box-shadow:0 12px 40px rgba(15,23,42,0.08)}
+    .flex{display:flex;gap:20px}
+    .left{flex:1}
+    .side{width:340px}
+    @media(max-width:980px){.flex{flex-direction:column}.side{width:100%}}
+
+    .section-title{font-weight:900;color:var(--accent);margin-bottom:6px;font-size:18px}
+    .section-sub{font-size:13px;color:var(--muted);margin-bottom:12px}
+
+    .q{border-radius:14px;padding:14px;border:1px solid #eef2ff;margin-bottom:14px;transition:transform .15s ease, box-shadow .15s ease}
+    .q:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(15,23,42,0.06)}
+    .q h3{margin:0;font-size:15px}
+    .meta{font-size:13px;color:var(--muted);margin-top:6px}
+
+    .options{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+    label.option{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;border:1px solid #f1f5f9;cursor:pointer;background:#fff}
+    label.option input{accent-color:var(--accent)}
+
+    .controls{display:flex;gap:12px;align-items:center;margin-top:16px}
+    .btn{padding:12px 16px;border-radius:12px;border:0;font-weight:900;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#a78bfa);color:#fff}
+    .btn-muted{background:#f1f5f9;color:#0f172a;border:1px solid #e5e7eb}
+
+    .panel{position:sticky;top:24px;padding:16px;border-radius:16px;border:1px solid #eef2ff;background:linear-gradient(180deg,#ffffff,#fafaff)}
+    .score{font-size:20px;color:var(--accent);font-weight:900}
+    .small{font-size:13px;color:var(--muted)}
+
+    .result{margin-top:14px;padding:14px;border-radius:14px;background:#f8fafc;border:1px solid #e2e8f0}
+    .explanation{margin-top:8px;padding:10px;border-radius:10px;background:#fefce8;border-left:4px solid #fde047;font-size:13px}
+
+    .correct{color:#16a34a;font-weight:900}
+    .incorrect{color:#dc2626;font-weight:900}
+
+    footer{margin-top:22px;padding:18px;border-radius:16px;border:1px dashed #e2e8f0;background:#fff}
+    footer a{color:var(--accent);font-weight:900;text-decoration:none}
+    .cta{margin-top:10px;font-weight:800}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">EDUCANIC</div>
+      <div>
+        <h1>Tarea — Lección #9: Cómo usar Canva para tus diseños</h1>
+        <div class="lead">Pensada para que reflexionés, tomés decisiones correctas y aprendás a usar Canva con criterio emprendedor.</div>
+      </div>
+    </header>
+
+    <div class="card flex">
+      <main class="left">
+
+        <!-- PARTE 1 -->
+        <section>
+          <div class="section-title">🟦 Parte 1 — Comprensión profunda</div>
+          <div class="section-sub">Verdadero / Falso · Pensá antes de responder</div>
+
+          <div class="q" data-points="10">
+            <h3>1. Canva facilita el diseño, pero la calidad final depende de cómo el usuario personaliza la plantilla.</h3>
+            <div class="options">
+              <label class="option"><input type="radio" name="q1" value="V"> Verdadero</label>
+              <label class="option"><input type="radio" name="q1" value="F"> Falso</label>
+            </div>
+            <div class="feedback" data-correct="V" data-expl="Correcto. Canva no hace magia: el criterio del emprendedor define el resultado final."></div>
+          </div>
+
+          <div class="q" data-points="10">
+            <h3>2. Si una plantilla ya está bien diseñada, no es necesario adaptarla al negocio.</h3>
+            <div class="options">
+              <label class="option"><input type="radio" name="q2" value="V"> Verdadero</label>
+              <label class="option"><input type="radio" name="q2" value="F"> Falso</label>
+            </div>
+            <div class="feedback" data-correct="F" data-expl="Incorrecto. Las plantillas siempre deben adaptarse a la marca, colores y mensaje del negocio."></div>
+          </div>
+
+          <div class="q" data-points="10">
+            <h3>3. Canva está pensada principalmente para emprendedores y personas sin conocimientos de diseño gráfico.</h3>
+            <div class="options">
+              <label class="option"><input type="radio" name="q3" value="V"> Verdadero</label>
+              <label class="option"><input type="radio" name="q3" value="F"> Falso</label>
+            </div>
+            <div class="feedback" data-correct="V" data-expl="Correcto. Canva fue creada para facilitar el diseño a personas no técnicas."></div>
+          </div>
+
+          <div class="q" data-points="10">
+            <h3>4. Un diseño bonito siempre es suficiente para vender.</h3>
+            <div class="options">
+              <label class="option"><input type="radio" name="q4" value="V"> Verdadero</label>
+              <label class="option"><input type="radio" name="q4" value="F"> Falso</label>
+            </div>
+            <div class="feedback" data-correct="F" data-expl="Falso. Un diseño debe comunicar y cumplir un objetivo, no solo verse bonito."></div>
+          </div>
+        </section>
+
+        <!-- PARTE 2 -->
+        <section style="margin-top:22px">
+          <div class="section-title">🟦 Parte 2 — Pensar como emprendedor</div>
+          <div class="section-sub">Elegí la mejor decisión según lo aprendido en la lección</div>
+
+          <div class="q" data-points="10">
+            <h3>5. Querés promocionar un curso de EDUCANIC. ¿Qué decisión es la más correcta en Canva?</h3>
+            <div class="options">
+              <label class="option"><input type="radio" name="q5" value="A"> Usar cualquier plantilla bonita</label>
+              <label class="option"><input type="radio" name="q5" value="B"> Usar una plantilla para redes y personalizarla según el público</label>
+              <label class="option"><input type="radio" name="q5" value="C"> Diseñar todo desde cero</label>
+            </div>
+            <div class="feedback" data-correct="B" data-expl="La mejor decisión es usar una plantilla correcta y adaptarla estratégicamente."></div>
+          </div>
+
+          <div class="q" data-points="10">
+            <h3>6. Un restaurante anuncia un combo del día. ¿Cuál sería el mayor error?</h3>
+            <div class="options">
+              <label class="option"><input type="radio" name="q6" value="A"> Cambiar colores</label>
+              <label class="option"><input type="radio" name="q6" value="B"> Usar una plantilla que no es de promoción</label>
+              <label class="option"><input type="radio" name="q6" value="C"> Cambiar tipografía</label>
+            </div>
+            <div class="feedback" data-correct="B" data-expl="Elegir mal el tipo de plantilla afecta más que los detalles estéticos."></div>
+          </div>
+
+          <div class="q" data-points="10">
+            <h3>7. Querés vender una casa. ¿Qué demuestra mejor criterio profesional?</h3>
+            <div class="options">
+              <label class="option"><input type="radio" name="q7" value="A"> Usar cualquier plantilla llamativa</label>
+              <label class="option"><input type="radio" name="q7" value="B"> Usar plantilla de bienes raíces y personalizarla</label>
+              <label class="option"><input type="radio" name="q7" value="C"> Usar una plantilla de cumpleaños</label>
+            </div>
+            <div class="feedback" data-correct="B" data-expl="Las plantillas correctas alineadas al objetivo comunican mejor."></div>
+          </div>
+
+          <div class="q" data-points="10">
+            <h3>8. Cambiar totalmente el estilo en cada diseño puede provocar:</h3>
+            <div class="options">
+              <label class="option"><input type="radio" name="q8" value="A"> Más profesionalismo</label>
+              <label class="option"><input type="radio" name="q8" value="B"> Confusión y falta de identidad</label>
+              <label class="option"><input type="radio" name="q8" value="C"> Mejores ventas automáticas</label>
+            </div>
+            <div class="feedback" data-correct="B" data-expl="La coherencia visual es clave para una marca sólida."></div>
+          </div>
+        </section>
+
+        <div class="controls">
+          <button id="submitBtn" class="btn btn-primary">Entregar tarea</button>
+          <a href="pprincipal.html"><button type="button" class="btn btn-muted">Volver</button></a>
+        </div>
+      </main>
+
+      <aside class="side">
+        <div class="panel">
+          <div class="score">Resultado</div>
+          <div class="small">Al entregar verás tu puntaje y las explicaciones.</div>
+          <div id="resultArea" class="result" hidden>
+            <div id="scoreText"></div>
+            <div id="breakdown"></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <div class="cta">Ahora es tu turno 👇</div>
+      <p class="small">Entrá a Canva y empezá a crear tus primeros diseños. Probá distintas plantillas, personalizalas y aplicá lo que aprendiste en esta lección.</p>
+      <a href="https://www.canva.com/" target="_blank">👉 Ir a Canva y comenzar a diseñar</a>
+    </footer>
+  </div>
+
+  <script>
+    const submitBtn=document.getElementById('submitBtn');
+    const resultArea=document.getElementById('resultArea');
+    const scoreText=document.getElementById('scoreText');
+    const breakdown=document.getElementById('breakdown');
+
+    function gather(){return Array.from(document.querySelectorAll('.q')).map(q=>({el:q,pts:+q.dataset.points,fb:q.querySelector('.feedback')}));}
+    function allAnswered(){return gather().every(q=>q.el.querySelector('input:checked'));}
+
+    submitBtn.onclick=()=>{
+      if(!allAnswered()){alert('Respondé todas las preguntas antes de entregar.');return;}
+      let total=0,earned=0; breakdown.innerHTML='';
+      gather().forEach((q,i)=>{
+        total+=q.pts;
+        const sel=q.el.querySelector('input:checked').value;
+        const ok=sel===q.fb.dataset.correct;
+        if(ok) earned+=q.pts;
+        const row=document.createElement('div'); row.style.marginTop='10px';
+        row.innerHTML=`<strong>Pregunta ${i+1}:</strong> ${ok?'<span class="correct">Correcta</span>':'<span class="incorrect">Incorrecta</span>'}`;
+        const ex=document.createElement('div'); ex.className='explanation'; ex.textContent=q.fb.dataset.expl;
+        row.appendChild(ex); breakdown.appendChild(row);
+      });
+      const percent=Math.round((earned/total)*100);
+      scoreText.innerHTML=`<div style="font-weight:900;color:var(--accent)">${earned} / ${total} pts — ${percent}%</div>`;
+      resultArea.hidden=false; resultArea.scrollIntoView({behavior:'smooth'});
+    };
+  </script>
+</body>
+</html>
