@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tarea — Lección #10: Uso de Freepik</title>
+  <style>
+    :root{
+      --accent:#2563eb;      /* azul profesional */
+      --accent-2:#22c55e;    /* verde progreso */
+      --bg:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    .wrap{max-width:1200px;margin:28px auto;padding:22px}
+    header{display:flex;align-items:center;gap:16px}
+    .brand{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#fff;padding:12px 16px;border-radius:12px;font-weight:900;letter-spacing:.4px}
+    h1{margin:0;font-size:22px}
+    .lead{color:var(--muted);margin-top:6px}
+
+    .card{background:#fff;border-radius:16px;padding:20px;margin-top:18px;box-shadow:0 14px 40px rgba(15,23,42,0.08)}
+    .flex{display:flex;gap:22px}
+    .left{flex:1}
+    .side{width:340px}
+    @media(max-width:980px){.flex{flex-direction:column}.side{width:100%}}
+
+    .section-title{font-weight:900;color:var(--accent);margin-bottom:6px;font-size:18px}
+    .section-sub{font-size:13px;color:var(--muted);margin-bottom:12px}
+
+    .q{border-radius:14px;padding:14px;border:1px solid #e5e7eb;margin-bottom:14px}
+    .q h3{margin:0;font-size:15px}
+    .options{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+    label.option{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;border:1px solid #e5e7eb;cursor:pointer}
+    label.option input{accent-color:var(--accent)}
+
+    .controls{display:flex;gap:12px;align-items:center;margin-top:18px}
+    .btn{padding:12px 16px;border-radius:12px;border:0;font-weight:900;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#fff}
+    .btn-muted{background:#f1f5f9;color:#0f172a;border:1px solid #e5e7eb}
+
+    .panel{position:sticky;top:24px;padding:16px;border-radius:16px;border:1px solid #e5e7eb;background:linear-gradient(180deg,#fff,#f8fafc)}
+    .score{font-size:20px;color:var(--accent);font-weight:900}
+    .small{font-size:13px;color:var(--muted)}
+
+    .result{margin-top:14px;padding:14px;border-radius:14px;background:#f8fafc;border:1px solid #e2e8f0}
+    .explanation{margin-top:8px;padding:10px;border-radius:10px;background:#fefce8;border-left:4px solid #fde047;font-size:13px}
+
+    .correct{color:#16a34a;font-weight:900}
+    .incorrect{color:#dc2626;font-weight:900}
+
+    footer{margin-top:22px;padding:18px;border-radius:16px;border:1px dashed #e5e7eb;background:#fff}
+    footer a{color:var(--accent);font-weight:900;text-decoration:none}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">EDUCANIC</div>
+    <div>
+      <h1>Tarea — Lección #10: Uso inteligente de Freepik</h1>
+      <div class="lead">Respondé con criterio. No hay trucos ni respuestas obvias.</div>
+    </div>
+  </header>
+
+  <div class="card flex">
+    <main class="left">
+
+      <!-- PARTE 1 -->
+      <section>
+        <div class="section-title">🟦 Parte 1 — Comprensión real</div>
+        <div class="section-sub">Verdadero / Falso</div>
+
+        <div class="q" data-points="10">
+          <h3>1. Un recurso descargado de Freepik siempre se puede usar libremente en cualquier proyecto.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q1" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q1" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="F" data-expl="No todos los recursos tienen la misma licencia. Es necesario revisarla antes de usar un archivo."></div>
+        </div>
+
+        <div class="q" data-points="10">
+          <h3>2. Usar recursos de Freepik sin modificarlos puede afectar la identidad visual de una marca.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q2" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q2" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="V" data-expl="Los recursos deben adaptarse al estilo del proyecto para evitar diseños genéricos."></div>
+        </div>
+
+        <div class="q" data-points="10">
+          <h3>3. Freepik reemplaza completamente el trabajo creativo del diseñador.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q3" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q3" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="F" data-expl="Freepik es una herramienta de apoyo, pero el criterio creativo sigue siendo humano."></div>
+        </div>
+      </section>
+
+      <!-- PARTE 2 -->
+      <section style="margin-top:22px">
+        <div class="section-title">🟦 Parte 2 — Toma de decisiones</div>
+        <div class="section-sub">Elegí la opción más profesional</div>
+
+        <div class="q" data-points="10">
+          <h3>4. ¿Qué acción demuestra mejor uso profesional de Freepik?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q4" value="A"> Descargar recursos populares</label>
+            <label class="option"><input type="radio" name="q4" value="B"> Usar filtros por formato y licencia</label>
+            <label class="option"><input type="radio" name="q4" value="C"> Elegir cualquier recurso atractivo</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="Los filtros ayudan a encontrar recursos adecuados y legales para cada proyecto."></div>
+        </div>
+
+        <div class="q" data-points="10">
+          <h3>5. ¿Qué archivo permite mayor control de edición?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q5" value="A"> JPG</label>
+            <label class="option"><input type="radio" name="q5" value="B"> PNG</label>
+            <label class="option"><input type="radio" name="q5" value="C"> PSD</label>
+          </div>
+          <div class="feedback" data-correct="C" data-expl="El formato PSD permite editar capas, textos y colores en Photoshop."></div>
+        </div>
+
+        <div class="q" data-points="10">
+          <h3>6. ¿Por qué Freepik se combina bien con Photoshop?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q6" value="A"> Porque ambos son bancos de recursos</label>
+            <label class="option"><input type="radio" name="q6" value="B"> Porque Photoshop edita archivos por capas</label>
+            <label class="option"><input type="radio" name="q6" value="C"> Porque Freepik solo funciona con Adobe</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="Photoshop permite personalizar profesionalmente los recursos descargados."></div>
+        </div>
+      </section>
+
+      <!-- PARTE 3 -->
+      <section style="margin-top:22px">
+        <div class="section-title">🟦 Parte 3 — Escenario real</div>
+        <div class="section-sub">Pensamiento aplicado</div>
+
+        <div class="q" data-points="30">
+          <h3>7. ¿Qué hace que un diseño usando Freepik se vea profesional?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q7" value="A"> El recurso elegido</label>
+            <label class="option"><input type="radio" name="q7" value="B"> La forma en que se personaliza</label>
+            <label class="option"><input type="radio" name="q7" value="C"> La versión Premium</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="El valor está en cómo se adapta el recurso al proyecto, no solo en el archivo."></div>
+        </div>
+      </section>
+
+      <div class="controls">
+        <button id="submitBtn" class="btn btn-primary">Entregar tarea</button>
+        <a href="pprincipal.html"><button type="button" class="btn btn-muted">Volver</button></a>
+      </div>
+    </main>
+
+    <aside class="side">
+      <div class="panel">
+        <div class="score">Resultado</div>
+        <div class="small">Revisá tu puntaje y las explicaciones.</div>
+        <div id="resultArea" class="result" hidden>
+          <div id="scoreText"></div>
+          <div id="breakdown"></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <p><strong>Ahora ponelo en práctica:</strong></p>
+    <p class="small">Explorá Freepik, probá distintos filtros y descargá un recurso para adaptarlo a tu propio diseño.</p>
+    <a href="https://www.freepik.com" target="_blank">👉 Ir a Freepik</a><br>
+    <a href="https://www.adobe.com/products/photoshop.html" target="_blank">👉 Adobe Photoshop (oficial)</a>
+  </footer>
+</div>
+
+<script>
+  const submitBtn=document.getElementById('submitBtn');
+  const resultArea=document.getElementById('resultArea');
+  const scoreText=document.getElementById('scoreText');
+  const breakdown=document.getElementById('breakdown');
+
+  function qs(){return Array.from(document.querySelectorAll('.q')).map(q=>({el:q,pts:+q.dataset.points,fb:q.querySelector('.feedback')}));}
+  function allAnswered(){return qs().every(q=>q.el.querySelector('input:checked'));}
+
+  submitBtn.onclick=()=>{
+    if(!allAnswered()){alert('Respondé todas las preguntas antes de entregar.');return;}
+    let total=0,earned=0; breakdown.innerHTML='';
+    qs().forEach((q,i)=>{
+      total+=q.pts;
+      const sel=q.el.querySelector('input:checked').value;
+      const ok=sel===q.fb.dataset.correct;
+      if(ok) earned+=q.pts;
+      const row=document.createElement('div'); row.style.marginTop='10px';
+      row.innerHTML=`<strong>Pregunta ${i+1}:</strong> ${ok?'<span class="correct">Correcta</span>':'<span class="incorrect">Incorrecta</span>'}`;
+      const ex=document.createElement('div'); ex.className='explanation'; ex.textContent=q.fb.dataset.expl;
+      row.appendChild(ex); breakdown.appendChild(row);
+    });
+    const percent=Math.round((earned/total)*100);
+    scoreText.innerHTML=`<div style="font-weight:900;color:var(--accent)">${earned} / ${total} pts — ${percent}%</div>`;
+    resultArea.hidden=false; resultArea.scrollIntoView({behavior:'smooth'});
+  };
+</script>
+</body>
+</html>
