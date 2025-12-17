@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tarea — Lección #11: Crear página de Facebook</title>
+  <style>
+    :root{
+      --accent:#1877f2;      /* Facebook blue */
+      --accent-2:#22c55e;
+      --bg:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    .wrap{max-width:1200px;margin:28px auto;padding:22px}
+    header{display:flex;align-items:center;gap:16px}
+    .brand{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#fff;padding:12px 16px;border-radius:12px;font-weight:900}
+    h1{margin:0;font-size:22px}
+    .lead{color:var(--muted);margin-top:6px}
+
+    .card{background:#fff;border-radius:16px;padding:20px;margin-top:18px;box-shadow:0 14px 40px rgba(15,23,42,0.08)}
+    .flex{display:flex;gap:22px}
+    .left{flex:1}
+    .side{width:340px}
+    @media(max-width:980px){.flex{flex-direction:column}.side{width:100%}}
+
+    .section-title{font-weight:900;color:var(--accent);margin-bottom:6px;font-size:18px}
+    .section-sub{font-size:13px;color:var(--muted);margin-bottom:12px}
+
+    .q{border-radius:14px;padding:14px;border:1px solid #e5e7eb;margin-bottom:14px}
+    .q h3{margin:0;font-size:15px}
+    .options{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+    label.option{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;border:1px solid #e5e7eb;cursor:pointer}
+    label.option input{accent-color:var(--accent)}
+
+    .controls{display:flex;gap:12px;align-items:center;margin-top:18px}
+    .btn{padding:12px 16px;border-radius:12px;border:0;font-weight:900;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#fff}
+    .btn-muted{background:#f1f5f9;color:#0f172a;border:1px solid #e5e7eb}
+
+    .panel{position:sticky;top:24px;padding:16px;border-radius:16px;border:1px solid #e5e7eb;background:linear-gradient(180deg,#fff,#f8fafc)}
+    .score{font-size:20px;color:var(--accent);font-weight:900}
+    .small{font-size:13px;color:var(--muted)}
+
+    .result{margin-top:14px;padding:14px;border-radius:14px;background:#f8fafc;border:1px solid #e2e8f0}
+    .explanation{margin-top:8px;padding:10px;border-radius:10px;background:#fefce8;border-left:4px solid #fde047;font-size:13px}
+
+    .correct{color:#16a34a;font-weight:900}
+    .incorrect{color:#dc2626;font-weight:900}
+
+    footer{margin-top:22px;padding:18px;border-radius:16px;border:1px dashed #e5e7eb;background:#fff}
+    footer a{color:var(--accent);font-weight:900;text-decoration:none}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">EDUCANIC</div>
+    <div>
+      <h1>Tarea — Lección #11: Crear tu página de Facebook</h1>
+      <div class="lead">Leé con atención. Pensá como emprendedor, no como usuario casual.</div>
+    </div>
+  </header>
+
+  <div class="card flex">
+    <main class="left">
+
+      <!-- PARTE 1 -->
+      <section>
+        <div class="section-title">🟦 Parte 1 — Verdadero / Falso</div>
+        <div class="section-sub">Basado en el proceso explicado por Ana</div>
+
+        <div class="q" data-points="7.5">
+          <h3>1. En la sección “Páginas” solo se puede crear una nueva página, no ver las anteriores.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q1" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q1" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="F" data-expl="En la sección Páginas se pueden ver las páginas creadas, información básica y la opción de crear una nueva."></div>
+        </div>
+
+        <div class="q" data-points="7.5">
+          <h3>2. Facebook muestra una vista previa de la página mientras se escriben los datos iniciales.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q2" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q2" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="V" data-expl="La vista previa permite ver cómo se va construyendo la página en tiempo real."></div>
+        </div>
+
+        <div class="q" data-points="7.5">
+          <h3>3. Es obligatorio completar todos los datos de contacto para poder crear la página.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q3" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q3" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="F" data-expl="No es obligatorio llenar todos los datos, pero sí recomendable para generar confianza."></div>
+        </div>
+
+        <div class="q" data-points="7.5">
+          <h3>4. Conectar WhatsApp Business es importante si se planea hacer anuncios más adelante.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q4" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q4" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="V" data-expl="Sin WhatsApp Business vinculado, no se pueden crear anuncios posteriormente."></div>
+        </div>
+      </section>
+
+      <!-- PARTE 2 -->
+      <section style="margin-top:22px">
+        <div class="section-title">🟦 Parte 2 — Opción múltiple</div>
+        <div class="section-sub">Elegí la opción más correcta según la lección</div>
+
+        <div class="q" data-points="10">
+          <h3>5. ¿Cuál es el primer paso correcto para crear una página de Facebook?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q5" value="A"> Crear una publicación</label>
+            <label class="option"><input type="radio" name="q5" value="B"> Entrar a la sección “Páginas”</label>
+            <label class="option"><input type="radio" name="q5" value="C"> Cambiar foto de perfil</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="Todo el proceso inicia desde la sección Páginas de Facebook."></div>
+        </div>
+
+        <div class="q" data-points="10">
+          <h3>6. ¿Por qué es importante elegir bien la categoría de la página?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q6" value="A"> Cambia el diseño visual</label>
+            <label class="option"><input type="radio" name="q6" value="B"> Ayuda a Facebook a entender el tipo de negocio</label>
+            <label class="option"><input type="radio" name="q6" value="C"> Permite cambiar el nombre</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="La categoría permite que Facebook clasifique y muestre mejor la página."></div>
+        </div>
+
+        <div class="q" data-points="10">
+          <h3>7. ¿Qué hace que una página se vea genérica?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q7" value="A"> No subir portada al inicio</label>
+            <label class="option"><input type="radio" name="q7" value="B"> Dejar la foto de perfil con la inicial</label>
+            <label class="option"><input type="radio" name="q7" value="C"> Editar la descripción</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="La imagen predeterminada hace que la página se vea poco profesional."></div>
+        </div>
+
+        <div class="q" data-points="10">
+          <h3>8. ¿Por qué se recomienda usar un logotipo como foto de perfil?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q8" value="A"> Ocupa menos espacio</label>
+            <label class="option"><input type="radio" name="q8" value="B"> Representa visualmente la marca</label>
+            <label class="option"><input type="radio" name="q8" value="C"> Facebook lo exige</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="El logotipo permite identificar la marca y verse profesional."></div>
+        </div>
+      </section>
+
+      <!-- PARTE 3 -->
+      <section style="margin-top:22px">
+        <div class="section-title">🟦 Parte 3 — Análisis del proceso</div>
+        <div class="section-sub">Conexión con herramientas vistas</div>
+
+        <div class="q" data-points="15">
+          <h3>9. ¿Por qué usar ChatGPT, Freepik o Canva antes de subir imágenes a la página?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q9" value="A"> Para subir imágenes más rápido</label>
+            <label class="option"><input type="radio" name="q9" value="B"> Para crear una imagen visual profesional y coherente</label>
+            <label class="option"><input type="radio" name="q9" value="C"> Porque Facebook lo exige</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="Estas herramientas ayudan a crear una imagen visual más profesional."></div>
+        </div>
+
+        <div class="q" data-points="15">
+          <h3>10. ¿Qué error se cometió al pedir el logotipo a ChatGPT y qué enseñanza deja?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q10" value="A"> Usar una versión incorrecta</label>
+            <label class="option"><input type="radio" name="q10" value="B"> No indicar el nombre del negocio</label>
+            <label class="option"><input type="radio" name="q10" value="C"> No usar Freepik</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="Dar instrucciones claras es clave para obtener buenos resultados."></div>
+        </div>
+      </section>
+
+      <div class="controls">
+        <button id="submitBtn" class="btn btn-primary">Entregar tarea</button>
+        <a href="pprincipal.html"><button type="button" class="btn btn-muted">Volver</button></a>
+      </div>
+    </main>
+
+    <aside class="side">
+      <div class="panel">
+        <div class="score">Resultado</div>
+        <div class="small">Revisá tu puntaje y las explicaciones.</div>
+        <div id="resultArea" class="result" hidden>
+          <div id="scoreText"></div>
+          <div id="breakdown"></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <p><strong>Recursos utilizados en esta lección:</strong></p>
+    <a href="https://www.facebook.com/pages/create" target="_blank">👉 Facebook Páginas</a><br>
+    <a href="https://www.freepik.com" target="_blank">👉 Freepik</a><br>
+    <a href="https://chatgpt.com" target="_blank">👉 ChatGPT</a>
+  </footer>
+</div>
+
+<script>
+  const submitBtn=document.getElementById('submitBtn');
+  const resultArea=document.getElementById('resultArea');
+  const scoreText=document.getElementById('scoreText');
+  const breakdown=document.getElementById('breakdown');
+
+  function qs(){return Array.from(document.querySelectorAll('.q')).map(q=>({el:q,pts:+q.dataset.points,fb:q.querySelector('.feedback')}));}
+  function allAnswered(){return qs().every(q=>q.el.querySelector('input:checked'));}
+
+  submitBtn.onclick=()=>{
+    if(!allAnswered()){alert('Respondé todas las preguntas antes de entregar.');return;}
+    let total=0,earned=0; breakdown.innerHTML='';
+    qs().forEach((q,i)=>{
+      total+=q.pts;
+      const sel=q.el.querySelector('input:checked').value;
+      const ok=sel===q.fb.dataset.correct;
+      if(ok) earned+=q.pts;
+      const row=document.createElement('div'); row.style.marginTop='10px';
+      row.innerHTML=`<strong>Pregunta ${i+1}:</strong> ${ok?'<span class="correct">Correcta</span>':'<span class="incorrect">Incorrecta</span>'}`;
+      const ex=document.createElement('div'); ex.className='explanation'; ex.textContent=q.fb.dataset.expl;
+      row.appendChild(ex); breakdown.appendChild(row);
+    });
+    const percent=Math.round((earned/total)*100);
+    scoreText.innerHTML=`<div style="font-weight:900;color:var(--accent)">${earned} / ${total} pts — ${percent}%</div>`;
+    resultArea.hidden=false; resultArea.scrollIntoView({behavior:'smooth'});
+  };
+</script>
+</body>
+</html>
