@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tarea — Lección #14: Análisis de Anuncios</title>
+  <style>
+    :root{
+      --accent:#b91c1c;      /* rojo análisis */
+      --accent-2:#2563eb;    /* azul datos */
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(180deg,#fff,#f1f5f9);color:var(--text)}
+    .wrap{max-width:1200px;margin:32px auto;padding:24px}
+
+    header{display:flex;align-items:center;gap:18px}
+    .brand{background:linear-gradient(90deg,var(--accent),#ef4444);color:#fff;padding:14px 18px;border-radius:14px;font-weight:900;box-shadow:0 10px 30px rgba(185,28,28,.35)}
+    h1{margin:0;font-size:26px}
+    .lead{color:var(--muted);margin-top:6px;max-width:780px}
+
+    .card{background:var(--card);border-radius:22px;padding:26px;margin-top:26px;box-shadow:0 25px 60px rgba(15,23,42,0.14)}
+    .flex{display:flex;gap:26px}
+    .left{flex:1}
+    .side{width:360px}
+    @media(max-width:980px){.flex{flex-direction:column}.side{width:100%}}
+
+    .section-title{font-weight:900;color:var(--accent);margin-bottom:6px;font-size:20px}
+    .section-sub{font-size:13px;color:var(--muted);margin-bottom:16px}
+
+    .q{border-radius:18px;padding:18px;border:1px solid #e5e7eb;margin-bottom:18px;transition:.25s}
+    .q:hover{box-shadow:0 12px 30px rgba(185,28,28,.15)}
+    .q h3{margin:0;font-size:15px;line-height:1.4}
+
+    .options{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+    label.option{display:flex;align-items:flex-start;gap:10px;padding:12px;border-radius:12px;border:1px solid #e5e7eb;cursor:pointer;transition:.2s}
+    label.option:hover{border-color:var(--accent)}
+    label.option input{accent-color:var(--accent);margin-top:3px}
+
+    .controls{display:flex;gap:14px;align-items:center;margin-top:24px}
+    .btn{padding:14px 20px;border-radius:14px;border:0;font-weight:900;cursor:pointer;font-size:15px}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#ef4444);color:#fff;box-shadow:0 10px 30px rgba(185,28,28,.35)}
+    .btn-muted{background:#f1f5f9;color:#0f172a;border:1px solid #e5e7eb}
+
+    .panel{position:sticky;top:26px;padding:20px;border-radius:20px;border:1px solid #e5e7eb;background:linear-gradient(180deg,#fff,#f8fafc)}
+    .score{font-size:24px;color:var(--accent);font-weight:900}
+    .small{font-size:13px;color:var(--muted)}
+
+    .result{margin-top:16px;padding:18px;border-radius:18px;background:#f8fafc;border:1px solid #e2e8f0}
+    .explanation{margin-top:10px;padding:12px;border-radius:12px;background:#fef2f2;border-left:4px solid #ef4444;font-size:13px}
+    .correct{color:#16a34a;font-weight:900}
+    .incorrect{color:#dc2626;font-weight:900}
+
+    footer{margin-top:30px;padding:22px;border-radius:20px;border:1px dashed #e5e7eb;background:#fff}
+    footer a{color:var(--accent-2);font-weight:900;text-decoration:none}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">EDUCANIC</div>
+    <div>
+      <h1>Tarea — Lección #14</h1>
+      <div class="lead">Análisis de anuncios. Esta evaluación mide tu capacidad de leer datos, interpretar resultados y tomar decisiones estratégicas reales.</div>
+    </div>
+  </header>
+
+  <div class="card flex">
+    <main class="left">
+
+      <!-- PARTE 1 -->
+      <section>
+        <div class="section-title">🟥 Parte 1 — Comprensión general</div>
+        <div class="section-sub">Verdadero / Falso</div>
+
+        <div class="q" data-points="5">
+          <h3>1. Analizar un anuncio solo sirve cuando el anuncio falla.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q1" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q1" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="F" data-expl="El análisis sirve tanto para mejorar anuncios malos como para escalar los que funcionan."></div>
+        </div>
+
+        <div class="q" data-points="5">
+          <h3>2. Un anuncio activo puede dar información útil aunque aún no haya ventas.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q2" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q2" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="V" data-expl="Las métricas iniciales ayudan a tomar decisiones tempranas."></div>
+        </div>
+
+        <div class="q" data-points="5">
+          <h3>3. Pausar un anuncio sin analizarlo es una decisión estratégica correcta.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q3" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q3" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="F" data-expl="Pausar sin analizar impide aprender de los datos."></div>
+        </div>
+      </section>
+
+      <!-- PARTE 2 -->
+      <section style="margin-top:28px">
+        <div class="section-title">🟥 Parte 2 — Interpretación de métricas</div>
+        <div class="section-sub">Elegí la opción más correcta</div>
+
+        <div class="q" data-points="7">
+          <h3>4. ¿Qué indica principalmente una alta cantidad de reproducciones?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q4" value="A"> Que muchas personas únicas vieron el anuncio</label>
+            <label class="option"><input type="radio" name="q4" value="B"> Que el anuncio se mostró muchas veces</label>
+            <label class="option"><input type="radio" name="q4" value="C"> Que el anuncio ya es rentable</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="Las reproducciones cuentan todas las veces que se mostró el anuncio, incluso repetidas."></div>
+        </div>
+
+        <div class="q" data-points="7">
+          <h3>5. ¿Qué diferencia al alcance de las reproducciones?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q5" value="A"> El alcance mide personas únicas</label>
+            <label class="option"><input type="radio" name="q5" value="B"> El alcance mide ventas</label>
+            <label class="option"><input type="radio" name="q5" value="C"> No hay diferencia</label>
+          </div>
+          <div class="feedback" data-correct="A" data-expl="El alcance representa cuántas personas distintas vieron el anuncio."></div>
+        </div>
+
+        <div class="q" data-points="7">
+          <h3>6. Si un anuncio tiene buen alcance pero pocos mensajes, ¿qué se debe revisar primero?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q6" value="A"> El diseño o mensaje</label>
+            <label class="option"><input type="radio" name="q6" value="B"> El presupuesto</label>
+            <label class="option"><input type="radio" name="q6" value="C"> La tarjeta de pago</label>
+          </div>
+          <div class="feedback" data-correct="A" data-expl="El anuncio llega a personas, pero no convence lo suficiente."></div>
+        </div>
+      </section>
+
+      <!-- PARTE 3 -->
+      <section style="margin-top:28px">
+        <div class="section-title">🟥 Parte 3 — Toma de decisiones</div>
+        <div class="section-sub">Criterio estratégico</div>
+
+        <div class="q" data-points="8">
+          <h3>7. ¿Cuándo conviene duplicar o volver a publicar un anuncio?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q7" value="A"> Cuando tiene buenos resultados</label>
+            <label class="option"><input type="radio" name="q7" value="B"> Cuando lleva poco tiempo</label>
+            <label class="option"><input type="radio" name="q7" value="C"> Cuando no genera nada</label>
+          </div>
+          <div class="feedback" data-correct="A" data-expl="Los anuncios que funcionan pueden escalarse o repetirse."></div>
+        </div>
+
+        <div class="q" data-points="8">
+          <h3>8. Si un anuncio no genera mensajes, ¿qué acción es más lógica?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q8" value="A"> Seguir gastando sin cambios</label>
+            <label class="option"><input type="radio" name="q8" value="B"> Analizar y ajustar diseño o mensaje</label>
+            <label class="option"><input type="radio" name="q8" value="C"> Eliminar la página</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="El análisis permite mejorar sin desperdiciar dinero."></div>
+        </div>
+      </section>
+
+      <div class="controls">
+        <button id="submitBtn" class="btn btn-primary">Entregar tarea</button>
+        <a href="pprincipal.html"><button type="button" class="btn btn-muted">Volver</button></a>
+      </div>
+    </main>
+
+    <aside class="side">
+      <div class="panel">
+        <div class="score">Resultado</div>
+        <div class="small">Evaluación automática con explicación por pregunta.</div>
+        <div id="resultArea" class="result" hidden>
+          <div id="scoreText"></div>
+          <div id="breakdown"></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <p><strong>Recurso de esta lección:</strong></p>
+    <a href="https://www.facebook.com" target="_blank">👉 Facebook</a>
+  </footer>
+</div>
+
+<script>
+  const submitBtn=document.getElementById('submitBtn');
+  const resultArea=document.getElementById('resultArea');
+  const scoreText=document.getElementById('scoreText');
+  const breakdown=document.getElementById('breakdown');
+
+  function qs(){return Array.from(document.querySelectorAll('.q')).map(q=>({el:q,pts:+q.dataset.points,fb:q.querySelector('.feedback')}));}
+  function allAnswered(){return qs().every(q=>q.el.querySelector('input:checked'));}
+
+  submitBtn.onclick=()=>{
+    if(!allAnswered()){alert('Respondé todas las preguntas antes de entregar.');return;}
+    let total=0,earned=0; breakdown.innerHTML='';
+    qs().forEach((q,i)=>{
+      total+=q.pts;
+      const sel=q.el.querySelector('input:checked').value;
+      const ok=sel===q.fb.dataset.correct;
+      if(ok) earned+=q.pts;
+      const row=document.createElement('div'); row.style.marginTop='10px';
+      row.innerHTML=`<strong>Pregunta ${i+1}:</strong> ${ok?'<span class="correct">Correcta</span>':'<span class="incorrect">Incorrecta</span>'}`;
+      const ex=document.createElement('div'); ex.className='explanation'; ex.textContent=q.fb.dataset.expl;
+      row.appendChild(ex); breakdown.appendChild(row);
+    });
+    const percent=Math.round((earned/total)*100);
+    scoreText.innerHTML=`<div style="font-weight:900;color:var(--accent)">${earned} / ${total} pts — ${percent}%</div>`;
+    resultArea.hidden=false; resultArea.scrollIntoView({behavior:'smooth'});
+  };
+</script>
+</body>
+</html>
