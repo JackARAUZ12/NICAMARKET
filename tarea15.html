@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarea 16 — Simulación Completa de Atención en Campañas</title>
+  <style>
+    :root{
+      --accent:#16a34a;
+      --danger:#dc2626;
+      --info:#2563eb;
+      --bg:#020617;
+      --card:#ffffff;
+      --muted:#64748b;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(135deg,#020617,#0f172a);color:#0f172a}
+    .wrap{max-width:980px;margin:40px auto;padding:20px}
+    header{color:#fff;margin-bottom:20px}
+    header h1{margin:0;font-size:26px}
+    header p{margin:6px 0 0;color:#cbd5f5}
+
+    .card{background:var(--card);border-radius:20px;padding:24px;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+
+    .history{background:#f8fafc;border-radius:14px;padding:14px;margin-bottom:20px;border:1px solid #e5e7eb}
+    .history h3{margin:0 0 10px;color:var(--info)}
+    .msg{margin-bottom:10px}
+    .msg.client{color:#0f172a;font-weight:700}
+    .msg.system{color:var(--muted);font-size:14px}
+
+    .step{margin-bottom:22px;display:none;animation:fade .4s ease}
+    .step.active{display:block}
+
+    .clientBox{background:#eef2ff;border-left:5px solid #3b82f6;padding:14px;border-radius:12px;margin-bottom:14px;font-weight:700}
+    .options{display:grid;gap:12px}
+    button.option{padding:14px;border-radius:14px;border:2px solid #e5e7eb;background:#fff;font-size:15px;cursor:pointer;text-align:left;transition:.25s}
+    button.option:hover{border-color:#3b82f6;transform:translateY(-2px)}
+
+    .feedback{margin-top:14px;padding:14px;border-radius:14px;display:none;animation:shake .35s}
+    .feedback.ok{background:#ecfdf5;color:#065f46;border-left:4px solid var(--accent)}
+    .feedback.err{background:#fef2f2;color:#7f1d1d;border-left:4px solid var(--danger)}
+
+    .explanation{margin-top:8px;font-size:14px;color:#334155}
+
+    .controls{margin-top:14px;display:flex;gap:12px}
+    .btn{padding:12px 18px;border-radius:12px;border:none;font-weight:800;cursor:pointer}
+    .next{background:linear-gradient(90deg,var(--accent),#4ade80);color:#fff;display:none}
+    .retry{background:#fee2e2;color:#7f1d1d;display:none}
+
+    footer{text-align:center;margin-top:20px}
+    footer a{color:#fff;text-decoration:none;font-weight:700}
+
+    @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+    @keyframes shake{0%{transform:translateX(0)}25%{transform:translateX(-5px)}50%{transform:translateX(5px)}75%{transform:translateX(-5px)}100%{transform:translateX(0)}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Tarea 16 — Simulación de Atención en Campañas</h1>
+    <p>Elegí correctamente en cada etapa. Verás todo el historial de la conversación.</p>
+  </header>
+
+  <div class="card">
+
+    <div class="history" id="history">
+      <h3>Historial de conversación</h3>
+      <div class="msg system">La conversación iniciará cuando respondás correctamente.</div>
+    </div>
+
+    <!-- PASOS -->
+    <div class="step active" data-correct="C" data-expl="Primero se abre la conversación y se obtiene contexto, no se da precio directo.">
+      <div class="clientBox">Cliente: “Hola, necesito más información sobre el reloj Naviforce”</div>
+      <div class="options">
+        <button class="option" data-opt="A">Cuesta 1,200 córdobas.</button>
+        <button class="option" data-opt="B">Es un reloj muy bonito y elegante.</button>
+        <button class="option" data-opt="C">¡Hola! 😊 ¿Lo estás buscando para uso personal o para regalo?</button>
+      </div>
+      <div class="feedback"></div>
+      <div class="controls">
+        <button class="btn retry">Intentarlo de nuevo</button>
+        <button class="btn next">Continuar</button>
+      </div>
+    </div>
+
+    <div class="step" data-correct="B" data-expl="Se valida la intención y se hace una pregunta que guíe la conversación.">
+      <div class="clientBox">Cliente: “Es para mí, quiero algo bonito pero resistente.”</div>
+      <div class="options">
+        <button class="option" data-opt="A">Este modelo es muy vendido.</button>
+        <button class="option" data-opt="B">Excelente 👍 ¿Preferís correa metálica o de cuero?</button>
+        <button class="option" data-opt="C">Entonces cuesta 1,200.</button>
+      </div>
+      <div class="feedback"></div>
+      <div class="controls">
+        <button class="btn retry">Intentarlo de nuevo</button>
+        <button class="btn next">Continuar</button>
+      </div>
+    </div>
+
+    <div class="step" data-correct="B" data-expl="Nunca se responde con monosílabos; se avanza la decisión del cliente.">
+      <div class="clientBox">Cliente: “Metálica.”</div>
+      <div class="options">
+        <button class="option" data-opt="A">Ok.</button>
+        <button class="option" data-opt="B">Tenemos plateada y negra, ¿cuál te gusta más?</button>
+        <button class="option" data-opt="C">Perfecto, cuesta 1,200.</button>
+      </div>
+      <div class="feedback"></div>
+      <div class="controls">
+        <button class="btn retry">Intentarlo de nuevo</button>
+        <button class="btn next">Continuar</button>
+      </div>
+    </div>
+
+    <div class="step" data-correct="C" data-expl="Se presenta valor y se ayuda a decidir, no solo adjetivos vacíos.">
+      <div class="clientBox">El cliente espera tu respuesta.</div>
+      <div class="options">
+        <button class="option" data-opt="A">La plateada es bonita.</button>
+        <button class="option" data-opt="B">La negra es elegante.</button>
+        <button class="option" data-opt="C">Ambos son originales, resistentes y durables. ¿Cuál va más con tu estilo?</button>
+      </div>
+      <div class="feedback"></div>
+      <div class="controls">
+        <button class="btn retry">Intentarlo de nuevo</button>
+        <button class="btn next">Continuar</button>
+      </div>
+    </div>
+
+    <div class="step" data-correct="B" data-expl="El precio se da junto con valor y el siguiente paso.">
+      <div class="clientBox">Cliente: “La negra.”</div>
+      <div class="options">
+        <button class="option" data-opt="A">Cuesta 1,200.</button>
+        <button class="option" data-opt="B">Excelente 👌 Incluye caja original y garantía. ¿Retiro o envío?</button>
+        <button class="option" data-opt="C">Está disponible.</button>
+      </div>
+      <div class="feedback"></div>
+      <div class="controls">
+        <button class="btn retry">Intentarlo de nuevo</button>
+        <button class="btn next">Continuar</button>
+      </div>
+    </div>
+
+    <div class="step" data-correct="C" data-expl="La objeción se valida, no se discute ni se ignora.">
+      <div class="clientBox">Cliente: “Está un poco caro.”</div>
+      <div class="options">
+        <button class="option" data-opt="A">Es el precio.</button>
+        <button class="option" data-opt="B">Tenemos otros más baratos.</button>
+        <button class="option" data-opt="C">Lo entiendo 👍 ¿Querés ver otra opción o seguimos con este?</button>
+      </div>
+      <div class="feedback"></div>
+      <div class="controls">
+        <button class="btn retry">Intentarlo de nuevo</button>
+        <button class="btn next">Continuar</button>
+      </div>
+    </div>
+
+    <div class="step" data-correct="C" data-expl="El cierre siempre debe guiar al siguiente paso.">
+      <div class="clientBox">Cliente: “Me quedo con ese.”</div>
+      <div class="options">
+        <button class="option" data-opt="A">Ok.</button>
+        <button class="option" data-opt="B">¿Te paso el número de cuenta?</button>
+        <button class="option" data-opt="C">Excelente 👌 ¿Retiro en tienda o envío?</button>
+      </div>
+      <div class="feedback"></div>
+      <div class="controls">
+        <button class="btn retry">Intentarlo de nuevo</button>
+        <button class="btn next">Continuar</button>
+      </div>
+    </div>
+
+    <div class="step" data-correct="C" data-expl="Se solicita la información necesaria para finalizar la venta.">
+      <div class="clientBox">Cliente: “Envío.”</div>
+      <div class="options">
+        <button class="option" data-opt="A">Ok.</button>
+        <button class="option" data-opt="B">Listo.</button>
+        <button class="option" data-opt="C">Perfecto 😊 ¿En qué departamento te encontrás para calcular el envío?</button>
+      </div>
+      <div class="feedback"></div>
+      <div class="controls">
+        <button class="btn retry">Intentarlo de nuevo</button>
+        <button class="btn next">Finalizar</button>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="clientBox">🎉 Venta completada correctamente.</div>
+      <p>Tomaste decisiones correctas en cada etapa y guiaste la conversación hasta el cierre.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <a href="pprincipal.html">⬅ Volver al panel principal</a>
+  </footer>
+</div>
+
+<script>
+  const steps=[...document.querySelectorAll('.step')];
+  const history=document.getElementById('history');
+
+  steps.forEach((step,i)=>{
+    const correct=step.dataset.correct;
+    const expl=step.dataset.expl;
+    const fb=step.querySelector('.feedback');
+    const next=step.querySelector('.next');
+    const retry=step.querySelector('.retry');
+
+    step.querySelectorAll('.option').forEach(btn=>{
+      btn.onclick=()=>{
+        if(btn.dataset.opt===correct){
+          fb.className='feedback ok';
+          fb.innerHTML='<strong>Correcto.</strong><div class="explanation">'+expl+'</div>';
+          fb.style.display='block';
+          next.style.display='inline-block';
+          retry.style.display='none';
+          history.innerHTML += `<div class="msg client">Cliente: ${step.querySelector('.clientBox').innerText}</div>`;
+          history.innerHTML += `<div class="msg system">Tu respuesta fue adecuada.</div>`;
+        }else{
+          fb.className='feedback err';
+          fb.innerHTML='<strong>Incorrecto.</strong><div class="explanation">Esta respuesta rompe la conversación o frena la venta.</div>';
+          fb.style.display='block';
+          retry.style.display='inline-block';
+          next.style.display='none';
+        }
+      }
+    });
+
+    if(retry){
+      retry.onclick=()=>{
+        fb.style.display='none';
+      }
+    }
+
+    if(next){
+      next.onclick=()=>{
+        step.classList.remove('active');
+        if(steps[i+1]) steps[i+1].classList.add('active');
+      }
+    }
+  });
+</script>
+</body>
+</html>
