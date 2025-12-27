@@ -15,51 +15,35 @@
     html,body{height:100%}
     html, body { background-color: var(--bg) !important; }
     body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,#03101b 0%,#041022 70%);color:#eaf2ff;-webkit-font-smoothing:antialiased}
-    .container{max-width:var(--container);margin:24px auto;padding:20px;background:transparent}
+    .container{max-width:var(--container);margin:24px auto;padding:20px}
     header{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:14px}
-    .logo{width:72px;height:72px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px}
-    .title {font-weight:900}
-    .subtitle {color:var(--muted);font-size:14px}
-    .controls{display:flex;gap:10px;align-items:center}
-    .btn {padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#051021;font-weight:800;text-decoration:none;display:inline-block}
-    .btn-ghost {padding:9px 12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);text-decoration:none;display:inline-block}
+    .logo{width:72px;height:72px;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px}
+    .title{font-weight:900}
+    .subtitle{color:var(--muted);font-size:14px}
+    .controls{display:flex;gap:10px}
+    .btn{padding:10px 16px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#051021;font-weight:800;text-decoration:none}
+    .btn-ghost{padding:9px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.08);color:var(--muted);text-decoration:none}
     .layout{display:grid;grid-template-columns:1fr 360px;gap:22px;margin-top:20px}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);background-color: rgba(7,18,38,0.6);padding:20px;border-radius:12px;box-shadow:0 12px 40px rgba(2,6,23,0.6)}
-    h1{margin:0 0 8px}
-    p.lead{margin:0;color:var(--muted);line-height:1.6}
-    .lessons{margin-top:18px;display:flex;flex-direction:column;gap:12px}
-    .lesson{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:12px;background:rgba(255,255,255,0.01);background-color: rgba(8,14,24,0.45);border:1px solid rgba(255,255,255,0.02)}
-    .lesson-index{min-width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;font-weight:800}
+    .card{background-color:rgba(7,18,38,0.65);padding:22px;border-radius:16px}
+    .lessons{margin-top:22px;display:flex;flex-direction:column;gap:14px}
+    .lesson{display:flex;gap:16px;padding:18px;border-radius:16px;background-color:rgba(8,14,24,0.55)}
+    .lesson-index{min-width:58px;height:58px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900}
     .lesson-body{flex:1}
-    .lesson-title{font-weight:800;font-size:16px;margin-bottom:6px}
-    .lesson-desc{color:var(--muted);font-size:14px;margin-bottom:8px;line-height:1.5}
-    .lesson-meta{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-bottom:10px}
-    .lesson-actions{display:flex;gap:8px;align-items:center}
-    .action-class{padding:9px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#051021;text-decoration:none;font-weight:800}
-    .action-task{padding:9px 12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);text-decoration:none}
-    .exam-callout{padding:16px;border-radius:12px;background:linear-gradient(180deg,rgba(124,58,237,0.06),rgba(124,58,237,0.02));display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px}
-    .aside .card{margin-bottom:14px}
-    .muted{color:var(--muted)}
-    @media (max-width:1000px){
-      .layout{grid-template-columns:1fr}
-      .aside{order:2}
-      .logo{width:56px;height:56px;font-size:18px}
-      .controls{gap:8px}
-      .container{padding:14px;margin:12px}
-    }
-    @media (max-width:600px){
-      body{background:linear-gradient(180deg,#03101b 0%,#041022 60%)}
-      header{flex-direction:column;align-items:flex-start;gap:10px}
-      .controls{width:100%;justify-content:space-between}
-      .lesson{flex-direction:column}
-      .lesson-index{min-width:48px;height:48px}
-      .lesson-title{font-size:15px}
-    }
+    .lesson-title{font-weight:900;font-size:16px;margin-bottom:6px}
+    .lesson-desc{color:var(--muted);font-size:14px;margin-bottom:8px}
+    .lesson-meta{font-size:13px;color:var(--muted)}
+    .lesson-actions{display:flex;gap:10px}
+    .action-class{padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#051021;font-weight:900;text-decoration:none}
+    .action-task{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.08);color:var(--muted);text-decoration:none}
+    .special-block{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px;border-radius:18px;background:linear-gradient(180deg,rgba(124,58,237,0.15),rgba(124,58,237,0.05))}
+    .special-title{font-weight:900;font-size:18px}
+    .special-desc{color:var(--muted);margin-top:6px}
+    footer{margin-top:18px;color:var(--muted)}
   </style>
 </head>
 <body>
-  <div class="container" id="mainContainer">
+  <div class="container">
     <header>
       <div class="brand">
         <div class="logo">NM</div>
@@ -68,7 +52,6 @@
           <div class="subtitle">Curso: Marketing Digital en Nicaragua — 29 lecciones (1 mes)</div>
         </div>
       </div>
-
       <div class="controls">
         <a class="btn-ghost" href="/">Volver al sitio</a>
         <a class="btn" href="tel:+50581294177">Soporte / WhatsApp</a>
@@ -77,121 +60,78 @@
 
     <div class="layout">
       <main>
-        <div class="card" aria-labelledby="welcomeTitle">
-          <h1 id="welcomeTitle">Bienvenido/a al curso de Marketing Digital</h1>
-          <p class="lead">Bienvenido estimado/a a tu curso de marketing digital. Aquí encontrarás un recorrido completo, práctico y adaptado al contexto nicaragüense. Cada lección incluye una clase pregrabada (video), y una tarea práctica diseñada para que implementes lo visto. Al final del temario está el examen final.</p>
-
-          <div class="lessons" id="lessonsList" aria-live="polite">
-            <!-- Las 29 lecciones se generan por JavaScript para mantener el HTML claro. -->
-          </div>
-
-          <div class="exam-callout" role="region" aria-label="Examen final">
-            <div>
-              <div style="font-weight:900">Examen final — Evaluación teórica y práctica</div>
-              <div class="muted" style="margin-top:6px">Al finalizar todas las lecciones, realiza el examen para optar al certificado. El examen combina preguntas de opción múltiple y una entrega práctica. este examen si llega a nosotros para ser calificado personalmente</div>
-            </div>
-            <div>
-              <a class="btn" href="./examen.html" aria-label="Hacer examen">Hacer examen</a>
-            </div>
-          </div>
+        <div class="card">
+          <h1>Bienvenido/a al curso de Marketing Digital</h1>
+          <p class="subtitle">Curso práctico adaptado al mercado nicaragüense.</p>
+          <div class="lessons" id="lessonsList"></div>
         </div>
       </main>
-
-      <aside class="aside">
-        <div class="card">
-          <div style="font-weight:900">Detalles del curso</div>
-          <div class="muted" style="margin-top:8px">
-            <strong>Duración:</strong> 1 mes (29 lecciones) · <strong>Modalidad:</strong> Online (PC & móvil)<br>
-            <strong>Entrega:</strong> Videos pregrabados y tareas prácticas. Certificado físico disponible tras aprobar examen y solicitarlo.
-          </div>
-        </div>
-
-        <div class="card">
-          <div style="font-weight:900">Cómo usar este panel</div>
-          <div class="muted" style="margin-top:8px">
-            - Abrí <strong>Clase</strong> para ver tu lección del dia.<br>
-            - Entrá a <strong>Tarea</strong> para ponerte a prueba y saber si has aprendido.<br>
-            - A diferencia del examen, las tareas no se guardan en el sistema, el objetivo es que usted se autoexamine.<br>
-            - Contacto y soporte: <a href="https://wa.me/50581294177" style="color:inherit">+505 8129 4177</a>.
-          </div>
-        </div>
-
-        <div class="card">
-          <div style="font-weight:900">Recomendaciones</div>
-          <div class="muted" style="margin-top:8px">
-            - Mirá las clases en pantalla completa. <br>
-            - Haz la tarea con calma, concentradamente. <br>
-            - Si hay algun inconveniente, contacta con soporte.
-          </div>
-        </div>
+      <aside>
+        <div class="card">Duración: 1 mes · Modalidad Online</div>
       </aside>
     </div>
 
-    <footer style="margin-top:18px;color:var(--muted)">© <span id="year"></span> NicaMarket · Todos los derechos reservados</footer>
+    <footer>© <span id="year"></span> NicaMarket</footer>
   </div>
 
-  <script>
-    // año
-    document.getElementById('year').textContent = new Date().getFullYear();
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    // --- CONTENIDO ORIGINAL: lista de lecciones (sin autenticación) ---
-    const LESSONS = [
-      { title: 'Introducción al marketing digital en Nicaragua', desc: 'Aprendé cómo compran realmente los nicas, qué plataformas funcionan aquí y qué estrategias sí generan resultados en el mercado local.', outcomes: ['Que el alumno pueda evaluar como es el marketing digital en el pais'], duration: '12 min', resources: ['Clase y Tarea'] },
-      { title: 'Público objetivo básico', desc: 'Identificá rápido a quién le vendés y definí tu cliente ideal con ejemplos nicas, sin tecnicismos.', outcomes: ['Que el alumno pueda elegir con claridad a quién debe dirigir su contenido.'], duration: '10 min', resources: ['Clase y Tarea'] },
-      { title: 'Facebook el atrae clientes', desc: 'La plataforma principal de los nicaragüenses: cómo usarla para vender más y crear presencia real.', outcomes: ['Que el alumno pueda conocer el uso básico de facebook para ventas, viendo la experiencia de otras paginas en la red.'], duration: '10 min', resources: ['Clase y Tarea'] },
-      { title: 'Whatsapp Business el cerrador de ventas', desc: 'Configuración y uso inteligente de WhatsApp para atraer, atender y convertir clientes.', outcomes: ['Que el alumno pueda cambiar de whatsapp basico al business para desbloquear nuevas funciones que le ayuden a vender'], duration: '10 min', resources: ['Clase y Tarea'] },
-      { title: 'Tik tok el generador de ruido', desc: 'Cómo aprovechar TikTok para ganar alcance rápido y conectar con audiencias jóvenes nicas.', outcomes: ['Que el alumno pueda identificar como funciona el algoritmo de tiktok'], duration: '12', resources: ['Clase y Tarea'] },
-      { title: 'Introducción a la IA para emprendedores nicas', desc: 'Qué puede y qué no puede hacer la IA, y cómo usarla para generar contenido ahorrando tiempo.', outcomes: ['Crear cuenta Meta Ads', 'Configurar pago y roles'], duration: '25 min', resources: ['Guía paso a paso', 'Vídeo demostrativo'] },
-      { title: 'uso de chatgpt para dar ideas y planear', desc: 'Generá ideas ilimitadas y planes rápidos para tu negocio con la IA.', outcomes: ['Elegir objetivo correcto', 'Estructurar campaña eficiente'], duration: '30 min', resources: ['Plantilla de campaña', 'Ejemplo real'] },
-      { title: 'Uso de ChatGPT para escribir textos rápido', desc: 'Aprendé prompts que funcionan y adaptá textos al público nica sin perder autenticidad.', outcomes: ['Crear 3 segmentos rentables', 'Evitar audiencias demasiado amplias'], duration: '28 min', resources: ['Checklist de segmentación', 'Audiencias ejemplo'] },
-      { title: 'Cómo usar Canva para tus diseños', desc: 'Creá diseños profesionales usando plantillas, colores y logos sin ser diseñador.', outcomes: ['Calcular presupuesto óptimo', 'Ajustar pujas por resultados'], duration: '22 min', resources: ['Calculadora de presupuesto', 'Ejemplos'] },
-      { title: 'Cómo usar Freepik para tus diseños', desc: 'Descargá plantillas de alta calidad y adaptalas a tu marca de forma sencilla.', outcomes: ['Generar 3 guiones de video', 'Conocer formatos por plataforma'], duration: '30 min', resources: ['Guiones 6s', 'Plantillas de storyboard'] },
-      { title: 'Cómo crear publicaciones que sí venden', desc: 'Estructuras simples para que cada post tenga intención y convierta.', outcomes: ['Crear landing minimal usable', 'Medir conversiones básicas'], duration: '35 min', resources: ['Checklist landing', 'Plantilla HTML básica'] },
-      { title: 'Como crear tu Facebook page', desc: 'Aprendé a configurar una página profesional y lista para vender.', outcomes: ['Dibujar un funnel 3 pasos', 'Implementar automatización básica'], duration: '30 min', resources: ['Mapa de funnel', 'Ejemplos aplicados'] },
-      { title: 'Qué son los anuncios de Facebook y como segmentarlos', desc: 'Entendé cómo funcionan, cómo dirigirlos y cómo optimizar tu presupuesto.', outcomes: ['Escribir 5 scripts de contacto', 'Diseñar flujo de cierre'], duration: '25 min', resources: ['Plantillas de mensajes', 'Casos de éxito'] },
-      { title: 'Errores comunes que matan tus anuncios', desc: 'Evitá fallas típicas como mala segmentación, diseños débiles y textos sin estrategia.', outcomes: ['Interpretar métricas', 'Aplicar 3 cambios de optimización'], duration: '32 min', resources: ['Hoja de métricas', 'Checklist de optimización'] },
-      { title: 'Qué medir y cómo interpretar lo básico', desc: 'Explicación facilísima del CPC, CPM y CTR para tomar decisiones sin confundirte.', outcomes: ['Crear una campaña de retargeting', 'Segmentar audiencias calientes'], duration: '28 min', resources: ['Plantilla de retargeting', 'Ejemplos prácticos'] },
-      { title: 'Como atender al cliente en campañas', desc: 'Técnicas simples para responder, interactuar y convertir tráfico en ventas reales.', outcomes: ['Diseñar secuencia de 3 emails', 'Configurar envío automatizado'], duration: '30 min', resources: ['Plantillas de email', 'Guía de entregabilidad'] },
-      { title: 'USO DE IA EN LA ATENCIÓN AL CLIENTE', desc: 'Automatizá respuestas y gestioná mensajes sin perder cercanía humana.', outcomes: ['Crear un storytelling de venta', 'Aplicar pruebas sociales reales'], duration: '34 min', resources: ['Estructura de historia', 'Ejemplos'] },
-      { title: 'MANEJO DE OBJECIONES ATENCIÓN AL CLIENTE', desc: 'Aprendé a responder dudas, miedos y trabas que frenan la compra.', outcomes: ['Crear 2 anuncios para producto físico', 'Optimizar por conversiones'], duration: '30 min', resources: ['Checklist para fotos', 'Plantilla de anuncio'] },
-      { title: 'Como cerrar ventas', desc: 'Métodos simples y efectivos para llevar al cliente del interés al “sí, lo compro”.', outcomes: ['Mapa competitivo', 'Área de oportunidad identificada'], duration: '26 min', resources: ['Plantilla análisis competitivo'] },
-      { title: 'Errores que matan ventas en WhatsApp', desc: 'Evitá hábitos que espantan clientes: tardar, sonar desesperado o no dar claridad.', outcomes: ['Diseñar 2 pruebas de oferta', 'Medir resultados básicos'], duration: '28 min', resources: ['Plantilla test de precios'] },
-      { title: 'Cómo enviar precios sin espantar al cliente', desc: 'Técnicas para presentar precios con valor primero y justificar beneficios.', outcomes: ['Protocolo de respuesta', 'Simulación de caso'], duration: '24 min', resources: ['Guía de manejo de crisis'] },
-      { title: 'Construcción de confianza en WhatsApp', desc: 'Cómo generar credibilidad con fotos, respuestas claras, testimonios y una marca sólida.', outcomes: ['Optimizar ficha local', 'Checklist SEO local'], duration: '30 min', resources: ['Checklist SEO', 'Ejemplo ficha'] },
-      { title: 'Uso de testimonios reales para aumentar ventas', desc: 'Pedí, organizá y usá testimonios en publicaciones y stories que convencen al nica.', outcomes: ['Crear reporte mensual', 'Extraer KPIs relevantes'], duration: '22 min', resources: ['Plantilla de reporte'] },
-      { title: 'Cómo usar IA para crear ideas de contenido infinitas', desc: 'Prompts y técnicas para nunca quedarte sin ideas y mantener tu estilo propio.', outcomes: ['Configurar respuestas automáticas', 'Medir impacto en leads'], duration: '28 min', resources: ['Templates de chatbot'] },
-      { title: 'Cómo analizar tu competencia en redes', desc: 'Qué ver, qué copiar, qué evitar y cómo identificar tus ventajas.', outcomes: ['Plan de escalado', 'Criterios de decisión'], duration: '26 min', resources: ['Checklist escalado'] },
-      { title: 'Cómo identificar si un negocio es rentable para publicidad', desc: 'Criterios simples: cliente ideal, ticket promedio, márgenes y escalabilidad.', outcomes: ['Diseñar funnel 5 pasos', 'Implementación básica'], duration: '36 min', resources: ['Mapas de funnel', 'Ejemplo'] },
-      { title: 'Cómo crear un MINI PLAN DE MARKETING de 7 días (para negocios nicas)', desc: 'Armá un ciclo semanal repetible: qué publicar, cuándo, dónde y cómo medir sin complicarte.', outcomes: ['Diseñar oferta complementaria', 'Plan de monetización'], duration: '30 min', resources: ['Plantillas de upsell'] },
-      { title: 'Cómo organizar tu negocio digital en 2025 (rutinas, apps y flujo de trabajo)', desc: 'Creá un sistema real con página, posts, textos, WhatsApp y un anuncio básico para vender.', outcomes: ['Checklist de preparación', 'Lista de evidencias requeridas'], duration: '40 min', resources: ['Resumen ejecutivo', 'Lista de evidencias'] },
-      { title: 'Proyecto Final: Tu Primer Sistema de Ventas ', desc: 'Rutinas, apps y flujos de trabajo para no saturarte y mantener tu negocio ordenado.', outcomes: ['Demostrar aplicabilidad', 'Entregar evidencia práctica'], duration: '60+ min', resources: [] }
-    ];
+  const LESSONS = [
+    { title:'Introducción al marketing digital en Nicaragua', desc:'Cómo funciona el mercado digital nica.', duration:'12 min' },
+    { title:'Público objetivo básico', desc:'Definir cliente ideal.', duration:'10 min' },
+    { title:'Facebook el atrae clientes', desc:'Vender usando Facebook.', duration:'10 min' },
+    { title:'Whatsapp Business el cerrador de ventas', desc:'Cerrar ventas en WhatsApp.', duration:'10 min' },
+    { title:'TikTok el generador de ruido', desc:'Alcance rápido con TikTok.', duration:'12 min' },
+    { title:'Introducción a la IA para emprendedores nicas', desc:'IA aplicada a negocios.', duration:'25 min' },
+    { title:'Uso de ChatGPT para dar ideas y planear', desc:'Planificación con IA.', duration:'30 min' },
+    { title:'Uso de ChatGPT para escribir textos rápido', desc:'Copywriting con IA.', duration:'28 min' },
+    { title:'Cómo usar Canva para tus diseños', desc:'Diseño fácil y rápido.', duration:'22 min' },
+    { title:'Cómo usar Freepik para tus diseños', desc:'Recursos gráficos.', duration:'30 min' },
+    { title:'Cómo crear publicaciones que sí venden', desc:'Posts que convierten.', duration:'35 min' },
+    { title:'Cómo crear tu Facebook Page', desc:'Página profesional.', duration:'30 min' },
+    { title:'Anuncios en Facebook y segmentación', desc:'Segmentar anuncios.', duration:'25 min' },
+    { title:'Errores comunes que matan tus anuncios', desc:'Errores frecuentes.', duration:'32 min' },
+    { title:'Qué medir y cómo interpretar lo básico', desc:'Lectura de métricas.', duration:'28 min' },
+    { title:'Cómo atender al cliente en campañas', desc:'Atención efectiva.', duration:'30 min' },
+    { title:'Uso de IA en la atención al cliente', desc:'Automatización.', duration:'34 min' },
+    { title:'Manejo de objeciones', desc:'Responder objeciones.', duration:'30 min' },
+    { title:'Cómo cerrar ventas', desc:'Cerrar con confianza.', duration:'26 min' },
+    { title:'Errores que matan ventas en WhatsApp', desc:'Errores comunes.', duration:'28 min' },
+    { title:'Cómo enviar precios sin espantar', desc:'Presentar precios.', duration:'24 min' },
+    { title:'Construcción de confianza en WhatsApp', desc:'Generar confianza.', duration:'30 min' },
+    { title:'Uso de testimonios reales', desc:'Prueba social.', duration:'22 min' },
+    { title:'IA para ideas de contenido infinitas', desc:'Creatividad constante.', duration:'28 min' },
+    { title:'Análisis de competencia', desc:'Análisis competitivo.', duration:'26 min' },
+    { title:'Negocios rentables para publicidad', desc:'Detectar rentabilidad.', duration:'36 min' },
+    { title:'Mini plan de marketing 7 días', desc:'Plan semanal.', duration:'30 min' },
+    { title:'Proyecto Final', desc:'Sistema completo de ventas.', duration:'60+ min' }
+  ];
 
-    // Construir la lista en el DOM (cada lección con botones a páginas individuales)
-    const listContainer = document.getElementById('lessonsList');
-    LESSONS.forEach((lesson, index) => {
-      const i = index + 1;
-      const el = document.createElement('article');
-      el.className = 'lesson';
-      el.innerHTML = `
-        <div class="lesson-index" aria-hidden>#${i}</div>
-        <div class="lesson-body">
-          <div class="lesson-title">${i}. ${lesson.title}</div>
-          <div class="lesson-desc">${lesson.desc}</div>
-          <div class="lesson-meta">
-            <div><strong>Objetivos:</strong> ${lesson.outcomes.join(' • ')}</div>
-            <div><strong>Duración aprox.:</strong> ${lesson.duration}</div>
-            ${lesson.resources && lesson.resources.length ? `<div><strong>Recursos:</strong> ${lesson.resources.join(', ')}</div>` : ''}
-          </div>
-        </div>
-        <div class="lesson-actions" role="group" aria-label="Acciones lección ${i}">
-          ${ i < LESSONS.length ? `<a class="action-task" href="./tarea${i}.html">Tarea</a><a class="action-class" href="./clase${i}.html">Clase</a>` : `<a class="action-class" href="./examen.html">Hacer examen</a>`}
-        </div>
-      `;
-      listContainer.appendChild(el);
-    });
+  const list = document.getElementById('lessonsList');
 
-    // Nota: los archivos individuales deben existir: clase1.html .. clase28.html, tarea1.html .. tarea28.html, examen.html
-  </script>
+  LESSONS.forEach((lesson, idx) => {
+    const i = idx + 1;
+
+    if (i === 15) {
+      const sys = document.createElement('div');
+      sys.className = 'special-block';
+      sys.innerHTML = `<div><div class="special-title">SISTEMÁTICO — Lecciones 1 a 14</div><div class="special-desc">Evaluación del primer bloque.</div></div><a class="btn" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdyoKuooJjCsa6A-bJ-q8k7XYO43v5fB0zHsOu25o0XKeDtzQ/viewform?usp=header">Hacer sistemático</a>`;
+      list.appendChild(sys);
+    }
+
+    const el = document.createElement('article');
+    el.className = 'lesson';
+    el.innerHTML = `<div class="lesson-index">#${i}</div><div class="lesson-body"><div class="lesson-title">${i}. ${lesson.title}</div><div class="lesson-desc">${lesson.desc}</div><div class="lesson-meta"><strong>Duración:</strong> ${lesson.duration}</div></div><div class="lesson-actions"><a class="action-task" href="./tarea${i}.html">Tarea</a><a class="action-class" href="./clase${i}.html">Clase</a></div>`;
+    list.appendChild(el);
+
+    if (i === 28) {
+      const ex = document.createElement('div');
+      ex.className = 'special-block';
+      ex.innerHTML = `<div><div class="special-title">EXAMEN FINAL — Todas las lecciones</div><div class="special-desc">Evaluación final del curso.</div></div><a class="btn" href="./examen.html">Hacer examen</a>`;
+      list.appendChild(ex);
+    }
+  });
+</script>
 </body>
 </html>
