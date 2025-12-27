@@ -1,137 +1,406 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Panel del Alumno — NicaMarket</title>
-  <meta name="description" content="Panel del alumno: temario completo del curso Marketing Digital en Nicaragua — 29 lecciones detalladas, clases y tareas." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NicaMarket — Panel del Alumno</title>
+
+  <!-- Google Font: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
+    /* =========================
+       VARIABLES DE DISEÑO
+       ========================= */
     :root{
-      --bg:#03101b; --card:#071226; --accent:#ff6b35; --accent-2:#7c3aed; --muted:#9aa4b2;
-      --container:1150px;
+      --bg-main:#f4f6f9;           /* Fondo general (no blanco puro) */
+      --bg-card:#ffffff;           /* Tarjetas */
+      --primary:#2563eb;           /* Azul moderno */
+      --secondary:#0f172a;         /* Texto fuerte */
+      --muted:#64748b;             /* Texto secundario */
+      --accent:#22c55e;            /* Verde educativo */
+      --border:#e5e7eb;            /* Bordes suaves */
+      --radius:14px;
+      --shadow:0 8px 24px rgba(15,23,42,.06);
     }
+
+    /* =========================
+       RESET BÁSICO
+       ========================= */
     *{box-sizing:border-box}
-    html,body{height:100%}
-    html, body { background-color: var(--bg) !important; }
-    body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,#03101b 0%,#041022 70%);color:#eaf2ff;-webkit-font-smoothing:antialiased}
-    .container{max-width:var(--container);margin:24px auto;padding:20px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:14px}
-    .logo{width:72px;height:72px;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px}
-    .title{font-weight:900}
-    .subtitle{color:var(--muted);font-size:14px}
-    .controls{display:flex;gap:10px}
-    .btn{padding:10px 16px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#051021;font-weight:800;text-decoration:none}
-    .btn-ghost{padding:9px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.08);color:var(--muted);text-decoration:none}
-    .layout{display:grid;grid-template-columns:1fr 360px;gap:22px;margin-top:20px}
-    .card{background-color:rgba(7,18,38,0.65);padding:22px;border-radius:16px}
-    .lessons{margin-top:22px;display:flex;flex-direction:column;gap:14px}
-    .lesson{display:flex;gap:16px;padding:18px;border-radius:16px;background-color:rgba(8,14,24,0.55)}
-    .lesson-index{min-width:58px;height:58px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900}
-    .lesson-body{flex:1}
-    .lesson-title{font-weight:900;font-size:16px;margin-bottom:6px}
-    .lesson-desc{color:var(--muted);font-size:14px;margin-bottom:8px}
-    .lesson-meta{font-size:13px;color:var(--muted)}
-    .lesson-actions{display:flex;gap:10px}
-    .action-class{padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#051021;font-weight:900;text-decoration:none}
-    .action-task{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.08);color:var(--muted);text-decoration:none}
-    .special-block{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px;border-radius:18px;background:linear-gradient(180deg,rgba(124,58,237,0.15),rgba(124,58,237,0.05))}
-    .special-title{font-weight:900;font-size:18px}
-    .special-desc{color:var(--muted);margin-top:6px}
-    footer{margin-top:18px;color:var(--muted)}
+    body{
+      margin:0;
+      font-family:'Inter',system-ui,-apple-system,sans-serif;
+      background:var(--bg-main);
+      color:var(--secondary);
+      line-height:1.6;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    /* =========================
+       HEADER
+       ========================= */
+    header{
+      background:linear-gradient(135deg,#2563eb,#1e40af);
+      color:#fff;
+      padding:20px;
+    }
+
+    .header-inner{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap; /* mobile-first */
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .logo{
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      background:#fff;
+      color:#2563eb;
+      font-weight:800;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .brand-text h1{
+      margin:0;
+      font-size:1.1rem;
+      font-weight:700;
+    }
+
+    .brand-text p{
+      margin:2px 0 0;
+      font-size:.9rem;
+      opacity:.9;
+    }
+
+    .header-actions{
+      display:flex;
+      gap:12px;
+      width:100%; /* mobile */
+    }
+
+    .header-actions a{
+      flex:1;
+      text-align:center;
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:600;
+      background:rgba(255,255,255,.15);
+      backdrop-filter:blur(4px);
+    }
+
+    /* =========================
+       LAYOUT PRINCIPAL
+       ========================= */
+    main{
+      max-width:1200px;
+      margin:30px auto;
+      padding:0 20px;
+      display:grid;
+      grid-template-columns:1fr; /* mobile */
+      gap:24px;
+    }
+
+    /* =========================
+       CONTENIDO
+       ========================= */
+    .content{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .welcome{
+      background:var(--bg-card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:24px;
+      animation:fadeUp .6s ease;
+    }
+
+    .welcome h2{margin-top:0}
+
+    /* =========================
+       TARJETAS DE LECCIONES
+       ========================= */
+    .lesson{
+      background:var(--bg-card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:20px;
+      border:1px solid var(--border);
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      animation:fadeUp .5s ease;
+    }
+
+    .lesson-header{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .lesson-number{
+      font-weight:700;
+      color:var(--primary);
+    }
+
+    .lesson-title{
+      font-weight:600;
+    }
+
+    .lesson-desc{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .lesson-footer{
+      display:flex;
+      flex-direction:column; /* mobile */
+      gap:10px;
+    }
+
+    .lesson-footer span{
+      font-size:.85rem;
+      color:var(--muted);
+    }
+
+    .lesson-actions{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .btn{
+      padding:12px;
+      border-radius:10px;
+      text-align:center;
+      font-weight:600;
+      border:1px solid var(--border);
+    }
+
+    .btn.primary{
+      background:var(--primary);
+      color:#fff;
+    }
+
+    .btn.secondary{
+      background:#f1f5f9;
+    }
+
+    /* =========================
+       BLOQUES ESPECIALES
+       ========================= */
+    .special{
+      background:linear-gradient(135deg,#f8fafc,#eef2ff);
+      border:2px dashed var(--primary);
+    }
+
+    /* =========================
+       ASIDE
+       ========================= */
+    aside{
+      background:var(--bg-card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+      border:1px solid var(--border);
+      height:max-content;
+      animation:fadeUp .7s ease;
+    }
+
+    aside h3{margin-top:0}
+
+    aside p{color:var(--muted);font-size:.95rem}
+
+    /* =========================
+       DESKTOP
+       ========================= */
+    @media(min-width:900px){
+      .header-actions{width:auto}
+      main{grid-template-columns:2.5fr 1fr}
+      .lesson-footer{flex-direction:row;justify-content:space-between;align-items:center}
+      .lesson-actions{flex-direction:row}
+      .lesson-actions .btn{min-width:140px}
+    }
+
+    /* =========================
+       ANIMACIONES
+       ========================= */
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(10px)}
+      to{opacity:1;transform:translateY(0)}
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
+
+  <!-- =========================
+       HEADER
+       ========================= -->
+  <header>
+    <div class="header-inner">
       <div class="brand">
         <div class="logo">NM</div>
-        <div>
-          <div class="title">NicaMarket — Panel del Alumno</div>
-          <div class="subtitle">Curso: Marketing Digital en Nicaragua — 29 lecciones (1 mes)</div>
+        <div class="brand-text">
+          <h1>NicaMarket — Panel del Alumno</h1>
+          <p>Marketing Digital en Nicaragua — 28 lecciones (1 mes)</p>
         </div>
       </div>
-      <div class="controls">
-        <a class="btn-ghost" href="/">Volver al sitio</a>
-        <a class="btn" href="tel:+50581294177">Soporte / WhatsApp</a>
-      </div>
-    </header>
 
-    <div class="layout">
-      <main>
-        <div class="card">
-          <h1>Bienvenido/a al curso de Marketing Digital</h1>
-          <p class="subtitle">Curso práctico adaptado al mercado nicaragüense.</p>
-          <div class="lessons" id="lessonsList"></div>
-        </div>
-      </main>
-      <aside>
-        <div class="card">Duración: 1 mes · Modalidad Online</div>
-      </aside>
+      <div class="header-actions">
+        <a href="#">Volver al sitio</a>
+        <a href="https://wa.me/50581294177" target="_blank">Soporte / WhatsApp</a>
+      </div>
     </div>
+  </header>
 
-    <footer>© <span id="year"></span> NicaMarket</footer>
-  </div>
+  <!-- =========================
+       MAIN
+       ========================= -->
+  <main>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+    <!-- CONTENIDO PRINCIPAL -->
+    <section class="content">
 
-  const LESSONS = [
-    { title:'Introducción al marketing digital en Nicaragua', desc:'Cómo funciona el mercado digital nica.', duration:'12 min' },
-    { title:'Público objetivo básico', desc:'Definir cliente ideal.', duration:'10 min' },
-    { title:'Facebook el atrae clientes', desc:'Vender usando Facebook.', duration:'10 min' },
-    { title:'Whatsapp Business el cerrador de ventas', desc:'Cerrar ventas en WhatsApp.', duration:'10 min' },
-    { title:'TikTok el generador de ruido', desc:'Alcance rápido con TikTok.', duration:'12 min' },
-    { title:'Introducción a la IA para emprendedores nicas', desc:'IA aplicada a negocios.', duration:'25 min' },
-    { title:'Uso de ChatGPT para dar ideas y planear', desc:'Planificación con IA.', duration:'30 min' },
-    { title:'Uso de ChatGPT para escribir textos rápido', desc:'Copywriting con IA.', duration:'28 min' },
-    { title:'Cómo usar Canva para tus diseños', desc:'Diseño fácil y rápido.', duration:'22 min' },
-    { title:'Cómo usar Freepik para tus diseños', desc:'Recursos gráficos.', duration:'30 min' },
-    { title:'Cómo crear publicaciones que sí venden', desc:'Posts que convierten.', duration:'35 min' },
-    { title:'Cómo crear tu Facebook Page', desc:'Página profesional.', duration:'30 min' },
-    { title:'Anuncios en Facebook y segmentación', desc:'Segmentar anuncios.', duration:'25 min' },
-    { title:'Errores comunes que matan tus anuncios', desc:'Errores frecuentes.', duration:'32 min' },
-    { title:'Qué medir y cómo interpretar lo básico', desc:'Lectura de métricas.', duration:'28 min' },
-    { title:'Cómo atender al cliente en campañas', desc:'Atención efectiva.', duration:'30 min' },
-    { title:'Uso de IA en la atención al cliente', desc:'Automatización.', duration:'34 min' },
-    { title:'Manejo de objeciones', desc:'Responder objeciones.', duration:'30 min' },
-    { title:'Cómo cerrar ventas', desc:'Cerrar con confianza.', duration:'26 min' },
-    { title:'Errores que matan ventas en WhatsApp', desc:'Errores comunes.', duration:'28 min' },
-    { title:'Cómo enviar precios sin espantar', desc:'Presentar precios.', duration:'24 min' },
-    { title:'Construcción de confianza en WhatsApp', desc:'Generar confianza.', duration:'30 min' },
-    { title:'Uso de testimonios reales', desc:'Prueba social.', duration:'22 min' },
-    { title:'IA para ideas de contenido infinitas', desc:'Creatividad constante.', duration:'28 min' },
-    { title:'Análisis de competencia', desc:'Análisis competitivo.', duration:'26 min' },
-    { title:'Negocios rentables para publicidad', desc:'Detectar rentabilidad.', duration:'36 min' },
-    { title:'Mini plan de marketing 7 días', desc:'Plan semanal.', duration:'30 min' },
-    { title:'Proyecto Final', desc:'Sistema completo de ventas.', duration:'60+ min' }
-  ];
+      <div class="welcome">
+        <h2>Bienvenido al curso</h2>
+        <p>
+          Este panel te permitirá acceder a cada clase y tarea del curso
+          <strong>Marketing Digital en Nicaragua</strong>. Avanza a tu ritmo,
+          completa las evaluaciones y sigue las recomendaciones para aprovechar
+          al máximo el contenido.
+        </p>
+      </div>
 
-  const list = document.getElementById('lessonsList');
+      <!-- LISTA DE LECCIONES (GENERADA POR JS) -->
+      <div id="lessons"></div>
 
-  LESSONS.forEach((lesson, idx) => {
-    const i = idx + 1;
+    </section>
 
-    if (i === 15) {
-      const sys = document.createElement('div');
-      sys.className = 'special-block';
-      sys.innerHTML = `<div><div class="special-title">SISTEMÁTICO — Lecciones 1 a 14</div><div class="special-desc">Evaluación del primer bloque.</div></div><a class="btn" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdyoKuooJjCsa6A-bJ-q8k7XYO43v5fB0zHsOu25o0XKeDtzQ/viewform?usp=header">Hacer sistemático</a>`;
-      list.appendChild(sys);
-    }
+    <!-- ASIDE -->
+    <aside>
+      <h3>Detalles del curso</h3>
+      <p><strong>Duración:</strong> 1 mes</p>
+      <p><strong>Total de lecciones:</strong> 28</p>
 
-    const el = document.createElement('article');
-    el.className = 'lesson';
-    el.innerHTML = `<div class="lesson-index">#${i}</div><div class="lesson-body"><div class="lesson-title">${i}. ${lesson.title}</div><div class="lesson-desc">${lesson.desc}</div><div class="lesson-meta"><strong>Duración:</strong> ${lesson.duration}</div></div><div class="lesson-actions"><a class="action-task" href="./tarea${i}.html">Tarea</a><a class="action-class" href="./clase${i}.html">Clase</a></div>`;
-    list.appendChild(el);
+      <h3>Cómo usar el panel</h3>
+      <p>Ingresa primero a la clase y luego realiza la tarea correspondiente.
+         Mantén un orden para facilitar tu aprendizaje.</p>
 
-    if (i === 28) {
-      const ex = document.createElement('div');
-      ex.className = 'special-block';
-      ex.innerHTML = `<div><div class="special-title">EXAMEN FINAL — Todas las lecciones</div><div class="special-desc">Evaluación final del curso.</div></div><a class="btn" href="./examen.html">Hacer examen</a>`;
-      list.appendChild(ex);
-    }
-  });
-</script>
+      <h3>Recomendaciones</h3>
+      <p>Dedica tiempo diario, toma apuntes y aplica los conceptos en proyectos
+         reales enfocados al mercado nicaragüense.</p>
+    </aside>
+
+  </main>
+
+  <!-- =========================
+       JAVASCRIPT
+       ========================= -->
+  <script>
+    /* =====================================================
+       CONFIGURACIÓN EDITABLE DE LECCIONES
+       Cada título, descripción y duración puede editarse
+       individualmente sin afectar el resto del sistema.
+       ===================================================== */
+
+    const lessonsData = [
+      // === LECCIONES 1 A 28 ===
+      // Edita libremente título, descripción y duración
+      {n:1,  title:"Lección 1",  desc:"Descripción editable de la lección 1.",  time:"15 min"},
+      {n:2,  title:"Lección 2",  desc:"Descripción editable de la lección 2.",  time:"18 min"},
+      {n:3,  title:"Lección 3",  desc:"Descripción editable de la lección 3.",  time:"20 min"},
+      {n:4,  title:"Lección 4",  desc:"Descripción editable de la lección 4.",  time:"17 min"},
+      {n:5,  title:"Lección 5",  desc:"Descripción editable de la lección 5.",  time:"22 min"},
+      {n:6,  title:"Lección 6",  desc:"Descripción editable de la lección 6.",  time:"19 min"},
+      {n:7,  title:"Lección 7",  desc:"Descripción editable de la lección 7.",  time:"16 min"},
+      {n:8,  title:"Lección 8",  desc:"Descripción editable de la lección 8.",  time:"21 min"},
+      {n:9,  title:"Lección 9",  desc:"Descripción editable de la lección 9.",  time:"18 min"},
+      {n:10, title:"Lección 10", desc:"Descripción editable de la lección 10.", time:"20 min"},
+      {n:11, title:"Lección 11", desc:"Descripción editable de la lección 11.", time:"17 min"},
+      {n:12, title:"Lección 12", desc:"Descripción editable de la lección 12.", time:"19 min"},
+      {n:13, title:"Lección 13", desc:"Descripción editable de la lección 13.", time:"23 min"},
+      {n:14, title:"Lección 14", desc:"Descripción editable de la lección 14.", time:"20 min"},
+
+      // BLOQUE SISTEMÁTICO
+      {type:"special", title:"SISTEMÁTICO — Lecciones 1 a 14", desc:"Evaluación del primer bloque del curso", link:"https://docs.google.com/forms/d/e/1FAIpQLSdyoKuooJjCsa6A-bJ-q8k7XYO43v5fB0zHsOu25o0XKeDtzQ/viewform?usp=header", btn:"Hacer sistemático"},
+
+      {n:15, title:"Lección 15", desc:"Descripción editable de la lección 15.", time:"18 min"},
+      {n:16, title:"Lección 16", desc:"Descripción editable de la lección 16.", time:"21 min"},
+      {n:17, title:"Lección 17", desc:"Descripción editable de la lección 17.", time:"20 min"},
+      {n:18, title:"Lección 18", desc:"Descripción editable de la lección 18.", time:"19 min"},
+      {n:19, title:"Lección 19", desc:"Descripción editable de la lección 19.", time:"17 min"},
+      {n:20, title:"Lección 20", desc:"Descripción editable de la lección 20.", time:"22 min"},
+      {n:21, title:"Lección 21", desc:"Descripción editable de la lección 21.", time:"18 min"},
+      {n:22, title:"Lección 22", desc:"Descripción editable de la lección 22.", time:"20 min"},
+      {n:23, title:"Lección 23", desc:"Descripción editable de la lección 23.", time:"19 min"},
+      {n:24, title:"Lección 24", desc:"Descripción editable de la lección 24.", time:"21 min"},
+      {n:25, title:"Lección 25", desc:"Descripción editable de la lección 25.", time:"20 min"},
+      {n:26, title:"Lección 26", desc:"Descripción editable de la lección 26.", time:"18 min"},
+      {n:27, title:"Lección 27", desc:"Descripción editable de la lección 27.", time:"22 min"},
+      {n:28, title:"Lección 28", desc:"Descripción editable de la lección 28.", time:"24 min"},
+
+      // EXAMEN FINAL
+      {type:"special", title:"EXAMEN FINAL — Todas las lecciones", desc:"Evaluación teórica y práctica", link:"examen.html", btn:"Hacer examen"}
+    ];
+
+    const container = document.getElementById('lessons');
+
+    lessonsData.forEach(item => {
+      // BLOQUES ESPECIALES
+      if(item.type === 'special'){
+        const div = document.createElement('div');
+        div.className = 'lesson special';
+        div.innerHTML = `
+          <div class="lesson-header">
+            <div class="lesson-title">${item.title}</div>
+          </div>
+          <div class="lesson-desc">${item.desc}</div>
+          <div class="lesson-actions">
+            <a class="btn primary" href="${item.link}" target="_blank">${item.btn}</a>
+          </div>
+        `;
+        container.appendChild(div);
+        return;
+      }
+
+      // LECCIONES NORMALES
+      const lesson = document.createElement('div');
+      lesson.className = 'lesson';
+      lesson.innerHTML = `
+        <div class="lesson-header">
+          <div class="lesson-number">Lección ${item.n}</div>
+          <div class="lesson-title">${item.title}</div>
+        </div>
+        <div class="lesson-desc">${item.desc}</div>
+        <div class="lesson-footer">
+          <span>Duración: ${item.time}</span>
+          <div class="lesson-actions">
+            <a class="btn primary" href="clase${item.n}.html">Clase</a>
+            <a class="btn secondary" href="tarea${item.n}.html">Tarea</a>
+          </div>
+        </div>
+      `;
+      container.appendChild(lesson);
+    });
+  </script>
+
 </body>
 </html>
