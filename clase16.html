@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase 16 | NICAMARKET</title>
+
+    <style>
+        :root{
+            --bg:#f2f4f8;
+            --card:#ffffff;
+            --primary:#005eff;
+            --primary-dark:#003fb8;
+            --text:#1f2937;
+            --muted:#6b7280;
+        }
+
+        *{
+            box-sizing:border-box;
+        }
+
+        body{
+            margin:0;
+            font-family: 'Inter', Arial, sans-serif;
+            background-color:var(--bg);
+            color:var(--text);
+        }
+
+        header{
+            background:#111827;
+            color:#fff;
+            padding:22px 16px;
+            text-align:center;
+            font-size:26px;
+            font-weight:700;
+            letter-spacing:0.5px;
+        }
+
+        .wrapper{
+            max-width:1100px;
+            margin:0 auto;
+            padding:40px 16px 60px;
+        }
+
+        .intro{
+            text-align:center;
+            margin-bottom:28px;
+        }
+
+        .intro h2{
+            font-size:22px;
+            margin-bottom:10px;
+        }
+
+        .intro p{
+            color:var(--muted);
+            font-size:16px;
+            max-width:700px;
+            margin:0 auto;
+        }
+
+        .video-card{
+            background:var(--card);
+            border-radius:14px;
+            padding:18px;
+            box-shadow:0 20px 40px rgba(0,0,0,0.08);
+            margin-bottom:40px;
+        }
+
+        .video-container{
+            position:relative;
+            padding-top:56.25%;
+            border-radius:10px;
+            overflow:hidden;
+        }
+
+        .video-container iframe{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            border:none;
+        }
+
+        .buttons{
+            display:flex;
+            justify-content:center;
+            gap:16px;
+            flex-wrap:wrap;
+        }
+
+        .btn{
+            padding:14px 26px;
+            background-color:var(--primary);
+            color:white;
+            font-size:17px;
+            font-weight:600;
+            border-radius:10px;
+            text-decoration:none;
+            transition:all 0.25s ease;
+            box-shadow:0 8px 18px rgba(0,94,255,0.35);
+        }
+
+        .btn:hover{
+            background-color:var(--primary-dark);
+            transform:translateY(-2px);
+            box-shadow:0 12px 26px rgba(0,94,255,0.45);
+        }
+
+        @media(max-width:600px){
+            header{
+                font-size:22px;
+            }
+
+            .intro h2{
+                font-size:20px;
+            }
+
+            .btn{
+                width:100%;
+                text-align:center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>Clase 16</header>
+
+<div class="wrapper">
+
+    <div class="intro">
+        <h2>Fundamentos esenciales para vender en digital</h2>
+        <p>
+            En esta lección conocerás las plataformas más importantes para iniciar y escalar tus ventas.
+            Mira la clase completa con atención antes de continuar a la tarea.
+        </p>
+    </div>
+
+    <div class="video-card">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/cXXwbD25sTE" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <a href="pprincipal.html" class="btn">⬅ Regresar</a>
+        <a href="tarea16.html" class="btn">Hacer tarea</a>
+    </div>
+
+</div>
+
+</body>
+</html>
