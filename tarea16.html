@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarea 16 — Acceso a Google Forms</title>
+  <style>
+    :root{
+      --accent:#f2c94c; /* dorado educativo */
+      --accent-strong:#e0b93f;
+      --text:#0f172a;
+      --muted:#475569;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --border:#e5e7eb;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+      background:linear-gradient(180deg,#ffffff,#f8fafc);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+    }
+    .wrap{
+      max-width:760px;
+      width:100%;
+    }
+    header{
+      text-align:center;
+      margin-bottom:18px;
+    }
+    header h1{
+      margin:0;
+      font-size:clamp(22px,5vw,30px);
+      font-weight:800;
+      letter-spacing:-.3px;
+    }
+    header p{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:clamp(14px,3.5vw,16px);
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:24px;
+      padding:clamp(20px,5vw,36px);
+      box-shadow:0 20px 40px rgba(0,0,0,.08);
+      border:1px solid var(--border);
+      text-align:center;
+    }
+
+    .badge{
+      display:inline-block;
+      background:rgba(242,201,76,.18);
+      color:#7c6518;
+      padding:6px 14px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:13px;
+      margin-bottom:14px;
+    }
+
+    .info{
+      font-size:clamp(15px,3.8vw,17px);
+      line-height:1.65;
+      color:#1e293b;
+      margin-bottom:28px;
+    }
+
+    .info strong{font-weight:800}
+
+    .cta{
+      display:block;
+      width:100%;
+      padding:18px 22px;
+      border-radius:18px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-strong));
+      color:#1f2937;
+      font-weight:900;
+      font-size:clamp(16px,4vw,18px);
+      text-decoration:none;
+      transition:.25s;
+      box-shadow:0 12px 24px rgba(242,201,76,.45);
+    }
+    .cta:hover{
+      transform:translateY(-2px);
+      box-shadow:0 18px 34px rgba(242,201,76,.55);
+    }
+
+    .note{
+      margin-top:22px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    footer{
+      text-align:center;
+      margin-top:20px;
+    }
+    footer a{
+      color:#1e293b;
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+    }
+
+    /* Mobile extra polish */
+    @media (max-width:480px){
+      .card{border-radius:20px}
+      .cta{border-radius:16px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Tarea 16 — Uso de la IA en la Atención al Cliente</h1>
+      <p>Aplicación práctica con criterio humano</p>
+    </header>
+
+    <div class="card">
+      <div class="badge">Lección completada</div>
+
+      <p class="info">
+        En esta tarea aplicarás lo aprendido en la <strong>Lección 16</strong>.
+        Utilizarás <strong>ChatGPT como asistente</strong> para redactar mensajes,
+        analizar decisiones y demostrar criterio humano en la atención al cliente.
+        <br><br>
+        La evaluación se realiza mediante <strong>Google Forms</strong> y será
+        revisada manualmente.
+      </p>
+
+      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeo-mYp0gH4sOiOd4U9sON9cZilHbP3reonzaXbwfWgnnBDgg/viewform?usp=header" target="_blank">
+        Ir a la tarea en Google Forms
+      </a>
+
+      <p class="note">
+        Recordá: la IA propone, pero el criterio lo ponés vos.
+      </p>
+    </div>
+
+    <footer>
+      <a href="pprincipal.html">⬅ Volver al panel principal</a>
+    </footer>
+  </div>
+</body>
+</html>
