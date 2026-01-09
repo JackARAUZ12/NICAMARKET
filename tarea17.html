@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarea 17 — Manejo de Objeciones</title>
+  <style>
+    :root{
+      --accent:#16a34a;
+      --danger:#dc2626;
+      --info:#2563eb;
+      --bg:#020617;
+      --card:#ffffff;
+      --muted:#64748b;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(135deg,#020617,#0f172a);color:#0f172a}
+    .wrap{max-width:1000px;margin:40px auto;padding:20px}
+    header{color:#fff;margin-bottom:20px}
+    header h1{margin:0;font-size:26px}
+    header p{margin:6px 0 0;color:#cbd5f5}
+
+    .card{background:var(--card);border-radius:20px;padding:24px;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+
+    .step{display:none;animation:fade .4s ease}
+    .step.active{display:block}
+
+    .question{background:#eef2ff;border-left:5px solid #3b82f6;padding:14px;border-radius:12px;margin-bottom:14px;font-weight:700}
+    .options{display:grid;gap:12px}
+    button.option{padding:14px;border-radius:14px;border:2px solid #e5e7eb;background:#fff;font-size:15px;cursor:pointer;text-align:left;transition:.25s}
+    button.option:hover{border-color:#3b82f6;transform:translateY(-2px)}
+
+    .feedback{margin-top:14px;padding:14px;border-radius:14px;display:none}
+    .feedback.ok{background:#ecfdf5;color:#065f46;border-left:4px solid var(--accent)}
+    .feedback.err{background:#fef2f2;color:#7f1d1d;border-left:4px solid var(--danger)}
+
+    .controls{margin-top:14px;display:flex;gap:12px}
+    .btn{padding:12px 18px;border-radius:12px;border:none;font-weight:800;cursor:pointer}
+    .next{background:linear-gradient(90deg,var(--accent),#4ade80);color:#fff;display:none}
+    .retry{background:#fee2e2;color:#7f1d1d;display:none}
+
+    footer{text-align:center;margin-top:20px}
+    footer a{color:#fff;text-decoration:none;font-weight:700}
+
+    @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Tarea 17 — Manejo de Objeciones</h1>
+    <p>Aplicá lo aprendido sobre objeciones, valor, empatía y cierre en WhatsApp Business.</p>
+  </header>
+
+  <div class="card">
+
+    <!-- PASO 1: VERDADERO / FALSO -->
+    <div class="step active" data-correct="B">
+      <div class="question">Una objeción significa que el cliente no quiere comprar.</div>
+      <div class="options">
+        <button class="option" data-opt="A">Verdadero</button>
+        <button class="option" data-opt="B">Falso</button>
+      </div>
+      <div class="feedback"></div>
+      <div class="controls">
+        <button class="btn retry">Intentar de nuevo</button>
+        <button class="btn next">Continuar</button>
+      </div>
+    </div>
+
+    <!-- PASO 2: SELECCIÓN -->
+    <div class="step" data-correct="C">
+      <div class="question">Cliente: “Está caro.” ¿Cuál es la mejor respuesta inicial?</div>
+      <div class="options">
+        <button class="option" data-opt="A">Es el precio normal.</button>
+        <button class="option" data-opt="B">Puedo bajarte un poco.</button>
+        <button class="option" data-opt="C">Entiendo 👍 Te explico qué incluye y por qué vale eso.</button>
+      </div>
+      <div class="feedback"></div>
+      <div class="controls">
+        <button class="btn retry">Intentar de nuevo</button>
+        <button class="btn next">Continuar</button>
+      </div>
+    </div>
+
+    <!-- PASO 3: VERDADERO / FALSO -->
+    <div class="step" data-correct="A">
+      <div class="question">En WhatsApp es mejor usar mensajes largos y técnicos.</div>
+      <div class="options">
+        <button class="option" data-opt="A">Falso</button>
+        <button class="option" data-opt="B">Verdadero</button>
+      </div>
+      <div class="feedback"></div>
+      <div class="controls">
+        <button class="btn retry">Intentar de nuevo</button>
+        <button class="btn next">Continuar</button>
+      </div>
+    </div>
+
+    <!-- PASO 4: DESCONFIANZA -->
+    <div class="step" data-correct="B">
+      <div class="question">Cliente: “No estoy seguro, nunca he comprado aquí.”</div>
+      <div class="options">
+        <button class="option" data-opt="A">Somos confiables.</button>
+        <button class="option" data-opt="B">Te entiendo, te explico el proceso y te muestro referencias.</button>
+        <button class="option" data-opt="C">Si gustás, comprá.</button>
+      </div>
+      <div class="feedback"></div>
+      <div class="controls">
+        <button class="btn retry">Intentar de nuevo</button>
+        <button class="btn next">Continuar</button>
+      </div>
+    </div>
+
+    <!-- PASO 5: ORDEN -->
+    <div class="step" data-correct="C">
+      <div class="question">¿Cuál es el orden correcto para responder una objeción?</div>
+      <div class="options">
+        <button class="option" data-opt="A">Aclarar, escuchar, cerrar.</button>
+        <button class="option" data-opt="B">Cerrar, aclarar, validar.</button>
+        <button class="option" data-opt="C">Escuchar, validar, aclarar y guiar.</button>
+      </div>
+      <div class="feedback"></div>
+      <div class="controls">
+        <button class="btn retry">Intentar de nuevo</button>
+        <button class="btn next">Finalizar</button>
+      </div>
+    </div>
+
+    <!-- FINAL -->
+    <div class="step">
+      <div class="question">🎉 Tarea completada correctamente</div>
+      <p>Demostraste comprender cómo manejar objeciones con empatía, valor y estructura. Aplicá esto en tus chats reales.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <a href="pprincipal.html">⬅ Volver al panel principal</a>
+  </footer>
+</div>
+
+<script>
+  const steps=[...document.querySelectorAll('.step')];
+  steps.forEach((step,i)=>{
+    const correct=step.dataset.correct;
+    const fb=step.querySelector('.feedback');
+    const next=step.querySelector('.next');
+    const retry=step.querySelector('.retry');
+
+    step.querySelectorAll('.option').forEach(btn=>{
+      btn.onclick=()=>{
+        if(btn.dataset.opt===correct){
+          fb.className='feedback ok';
+          fb.innerHTML='<strong>Correcto.</strong> Esta respuesta aplica la mentalidad correcta ante objeciones.';
+          fb.style.display='block';
+          next && (next.style.display='inline-block');
+          retry && (retry.style.display='none');
+        }else{
+          fb.className='feedback err';
+          fb.innerHTML='<strong>Incorrecto.</strong> Esta respuesta rompe la confianza o no guía al cliente.';
+          fb.style.display='block';
+          retry && (retry.style.display='inline-block');
+        }
+      }
+    });
+
+    retry && (retry.onclick=()=>{fb.style.display='none'});
+    next && (next.onclick=()=>{
+      step.classList.remove('active');
+      steps[i+1] && steps[i+1].classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
