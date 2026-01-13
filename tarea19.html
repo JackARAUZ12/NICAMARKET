@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tarea — Lección #19: Precios Psicológicos</title>
+  <style>
+    :root{
+      --accent:#14532d;      /* verde oscuro */
+      --accent-2:#16a34a;    /* verde claro */
+      --danger:#dc2626;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(180deg,#ffffff,#f1f5f9);color:var(--text)}
+    .wrap{max-width:1250px;margin:32px auto;padding:24px}
+
+    header{display:flex;align-items:center;gap:18px}
+    .brand{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:14px 18px;border-radius:14px;font-weight:900;box-shadow:0 10px 30px rgba(20,83,45,.35)}
+    h1{margin:0;font-size:26px}
+    .lead{color:var(--muted);margin-top:6px;max-width:900px}
+
+    .card{background:var(--card);border-radius:22px;padding:28px;margin-top:26px;box-shadow:0 25px 60px rgba(15,23,42,0.14)}
+    .flex{display:flex;gap:28px}
+    .left{flex:1}
+    .side{width:380px}
+    @media(max-width:1000px){.flex{flex-direction:column}.side{width:100%}}
+
+    .section-title{font-weight:900;color:var(--accent);margin-bottom:6px;font-size:21px}
+    .section-sub{font-size:13px;color:var(--muted);margin-bottom:18px}
+
+    .q{border-radius:18px;padding:20px;border:1px solid #e5e7eb;margin-bottom:20px;transition:.25s}
+    .q:hover{box-shadow:0 12px 30px rgba(20,83,45,.15)}
+    .q h3{margin:0;font-size:15px;line-height:1.45}
+    .context{margin-top:10px;font-size:13px;color:#334155}
+
+    .options{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+    label.option{display:flex;align-items:flex-start;gap:10px;padding:13px;border-radius:12px;border:1px solid #e5e7eb;cursor:pointer;transition:.2s}
+    label.option:hover{border-color:var(--accent)}
+    label.option input{accent-color:var(--accent);margin-top:3px}
+
+    .controls{display:flex;gap:14px;align-items:center;margin-top:28px}
+    .btn{padding:14px 22px;border-radius:14px;border:0;font-weight:900;cursor:pointer;font-size:15px}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 10px 30px rgba(20,83,45,.35)}
+    .btn-muted{background:#f1f5f9;color:#0f172a;border:1px solid #e5e7eb}
+
+    .panel{position:sticky;top:26px;padding:22px;border-radius:20px;border:1px solid #e5e7eb;background:linear-gradient(180deg,#fff,#f8fafc)}
+    .score{font-size:24px;color:var(--accent);font-weight:900}
+    .small{font-size:13px;color:var(--muted)}
+
+    .result{margin-top:16px;padding:20px;border-radius:18px;background:#f8fafc;border:1px solid #e2e8f0}
+    .explanation{margin-top:10px;padding:12px;border-radius:12px;background:#ecfdf5;border-left:4px solid var(--accent-2);font-size:13px}
+    .correct{color:#16a34a;font-weight:900}
+    .incorrect{color:var(--danger);font-weight:900}
+
+    footer{margin-top:30px;padding:22px;border-radius:20px;border:1px dashed #e5e7eb;background:#fff}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">EDUCANIC</div>
+    <div>
+      <h1>Tarea — Lección #19</h1>
+      <div class="lead">Estrategia de precios psicológicos para el mercado nica. Esta tarea es un RETO: evalúa criterio, ética, lectura del cliente y toma de decisiones reales.</div>
+    </div>
+  </header>
+
+  <div class="card flex">
+    <main class="left">
+
+      <!-- PARTE 1 -->
+      <section>
+        <div class="section-title">🟢 Parte 1 — Comprensión profunda</div>
+        <div class="section-sub">Verdadero / Falso (errores comunes)</div>
+
+        <div class="q" data-points="6">
+          <h3>1. En el mercado nica, el cliente analiza primero el valor total del producto antes que su impacto diario.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q1" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q1" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="F" data-expl="El cliente nica suele comparar el precio con su economía diaria, no con el valor total."></div>
+        </div>
+
+        <div class="q" data-points="6">
+          <h3>2. Usar precios psicológicos siempre implica manipular o engañar al cliente.</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q2" value="V"> Verdadero</label>
+            <label class="option"><input type="radio" name="q2" value="F"> Falso</label>
+          </div>
+          <div class="feedback" data-correct="F" data-expl="Los precios psicológicos bien usados son una forma ética de comunicar valor."></div>
+        </div>
+      </section>
+
+      <!-- PARTE 2 -->
+      <section style="margin-top:30px">
+        <div class="section-title">🟢 Parte 2 — Análisis de escenarios reales</div>
+        <div class="section-sub">Elegí la opción más estratégica</div>
+
+        <div class="q" data-points="10">
+          <h3>3. Vendés un curso online. Precio real: C$3,000.</h3>
+          <div class="context">El cliente pregunta si es caro para lo que gana semanalmente.</div>
+          <div class="options">
+            <label class="option"><input type="radio" name="q3" value="A"> Cuesta C$3,000.</label>
+            <label class="option"><input type="radio" name="q3" value="B"> Son C$3,000, pero vale la pena.</label>
+            <label class="option"><input type="radio" name="q3" value="C"> Son menos de C$110 diarios durante un mes, con acceso completo y soporte.</label>
+          </div>
+          <div class="feedback" data-correct="C" data-expl="Dividir el precio reduce la barrera mental y conecta con la economía diaria."></div>
+        </div>
+
+        <div class="q" data-points="10">
+          <h3>4. Un cliente busca seguridad antes de contratar un servicio técnico.</h3>
+          <div class="context">¿Qué tipo de precio transmite más confianza?</div>
+          <div class="options">
+            <label class="option"><input type="radio" name="q4" value="A"> C$1,999</label>
+            <label class="option"><input type="radio" name="q4" value="B"> C$2,000</label>
+            <label class="option"><input type="radio" name="q4" value="C"> C$1,950</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="Los números cerrados transmiten más formalidad y respaldo."></div>
+        </div>
+
+        <div class="q" data-points="10">
+          <h3>5. Mostrás primero un plan premium de C$5,000 antes de ofrecer uno de C$3,200.</h3>
+          <div class="context">¿Qué estrategia estás usando?</div>
+          <div class="options">
+            <label class="option"><input type="radio" name="q5" value="A"> Descuento</label>
+            <label class="option"><input type="radio" name="q5" value="B"> Anclaje</label>
+            <label class="option"><input type="radio" name="q5" value="C"> Presión</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="El primer precio funciona como referencia mental."></div>
+        </div>
+      </section>
+
+      <!-- PARTE 3 -->
+      <section style="margin-top:30px">
+        <div class="section-title">🟢 Parte 3 — Ética y comunicación</div>
+        <div class="section-sub">Criterio profesional</div>
+
+        <div class="q" data-points="14">
+          <h3>6. ¿Cuál es la forma más ética de presentar un precio en WhatsApp?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q6" value="A"> Enviar solo el número.</label>
+            <label class="option"><input type="radio" name="q6" value="B"> Explicar el precio con beneficios y contexto.</label>
+            <label class="option"><input type="radio" name="q6" value="C"> Usar urgencia falsa.</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="La claridad y el valor construyen confianza."></div>
+        </div>
+
+        <div class="q" data-points="14">
+          <h3>7. ¿Cuál sería un error crítico al usar precios psicológicos?</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q7" value="A"> Ajustar la presentación del precio.</label>
+            <label class="option"><input type="radio" name="q7" value="B"> Ocultar información importante.</label>
+            <label class="option"><input type="radio" name="q7" value="C"> Comunicar beneficios.</label>
+          </div>
+          <div class="feedback" data-correct="B" data-expl="La falta de transparencia rompe la confianza."></div>
+        </div>
+      </section>
+
+      <div class="controls">
+        <button id="submitBtn" class="btn btn-primary">Entregar tarea</button>
+        <a href="pprincipal.html"><button type="button" class="btn btn-muted">Volver</button></a>
+      </div>
+    </main>
+
+    <aside class="side">
+      <div class="panel">
+        <div class="score">Resultado</div>
+        <div class="small">Evaluación automática con análisis detallado.</div>
+        <div id="resultArea" class="result" hidden>
+          <div id="scoreText"></div>
+          <div id="breakdown"></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <p><strong>Nota:</strong> Esta tarea mide pensamiento estratégico, no memoria.</p>
+  </footer>
+</div>
+
+<script>
+  const submitBtn=document.getElementById('submitBtn');
+  const resultArea=document.getElementById('resultArea');
+  const scoreText=document.getElementById('scoreText');
+  const breakdown=document.getElementById('breakdown');
+
+  function qs(){return Array.from(document.querySelectorAll('.q')).map(q=>({el:q,pts:+q.dataset.points,fb:q.querySelector('.feedback')}));}
+  function allAnswered(){return qs().every(q=>q.el.querySelector('input:checked'));}
+
+  submitBtn.onclick=()=>{
+    if(!allAnswered()){alert('Respondé todas las preguntas antes de entregar.');return;}
+    let total=0,earned=0; breakdown.innerHTML='';
+    qs().forEach((q,i)=>{
+      total+=q.pts;
+      const sel=q.el.querySelector('input:checked').value;
+      const ok=sel===q.fb.dataset.correct;
+      if(ok) earned+=q.pts;
+      const row=document.createElement('div'); row.style.marginTop='10px';
+      row.innerHTML=`<strong>Pregunta ${i+1}:</strong> ${ok?'<span class="correct">Correcta</span>':'<span class="incorrect">Incorrecta</span>'}`;
+      const ex=document.createElement('div'); ex.className='explanation'; ex.textContent=q.fb.dataset.expl;
+      row.appendChild(ex); breakdown.appendChild(row);
+    });
+    const percent=Math.round((earned/total)*100);
+    scoreText.innerHTML=`<div style="font-weight:900;color:var(--accent)">${earned} / ${total} pts — ${percent}%</div>`;
+    resultArea.hidden=false; resultArea.scrollIntoView({behavior:'smooth'});
+  };
+</script>
+</body>
+</html>
